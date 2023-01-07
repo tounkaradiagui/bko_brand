@@ -12,6 +12,16 @@
 
                 <div class="modal-body">
                     <div class="mb-3">
+                        <label for="">Choisir la catégorie</label>
+                        <select wire:model.defer="category_id" required class="form-control">
+                            <option value="">Selectionner une catégorie</option>
+                            @foreach($categories as $categorieItem)
+                            <option value="{{$categorieItem->id}}">{{$categorieItem->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('category_id') <small class="text-danger">{{$message}}</small> @enderror
+                    </div>
+                    <div class="mb-3">
                         <label>Nom de la marque</label>
                         <input type="text" wire:model.defer="nom" class="form-control">
                         @error('nom') <small class="text-danger">{{$message}}</small> @enderror
@@ -40,13 +50,8 @@
 <!-- Fin du modal d'ajout -->
 
 
-
-
-
-
-
 <!-- Debut du modal de modification -->
-<div livewire:ignore.self class="modal fade" id="updateBrandModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="updateBrandModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -64,6 +69,18 @@
                 <form wire:submit.prevent="updateBrand">
 
                     <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="">Choisir la catégorie</label>
+                            <select wire:model.defer="category_id" required class="form-control">
+                                <option value="">Selectionner une catégorie</option>
+                                @foreach($categories as $categorieItem)
+                                <option value="{{$categorieItem->id}}">{{$categorieItem->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('category_id') <small class="text-danger">{{$message}}</small> @enderror
+                        </div>
+
                         <div class="mb-3">
                             <label>Nom de la marque</label>
                             <input type="text" wire:model.defer="nom" class="form-control">
@@ -76,7 +93,7 @@
                         </div>
                         <div class="mb-3">
                             <label>Status</label>
-                            <input type="checkbox" wire:model.defer="status"/> Checked=Hidden, Un-checked= Visible 
+                            <input type="checkbox" wire:model.defer="status" style="width:15px; height:15px;"/> Checked=Hidden, Un-checked= Visible 
                             @error('status') <small class="text-danger">{{$message}}</small> @enderror
                         </div>
                     </div>

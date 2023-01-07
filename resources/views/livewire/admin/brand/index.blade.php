@@ -15,7 +15,8 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Nom</th>
+                                <th>Nom de la marque</th>
+                                <th>Catégorie</th>
                                 <th>Slug</th>
                                 <th>Status</th>
                                 <th colspan="2">Action</th>
@@ -27,6 +28,13 @@
                             <tr>
                                 <td>{{$brand->id}}</td>
                                 <td>{{$brand->nom}}</td>
+                                <td>
+                                    @if($brand->category)
+                                        {{$brand->category->name}}
+                                    @else
+                                        Aucune catégorie associée à la marque {{$brand->nom}}
+                                    @endif
+                                </td>
                                 <td>{{$brand->slug}}</td>
                                 <td>{{$brand->status =='1' ? 'hidden':'visible'}}</td>
                                 <td> <a href="#" wire:click="editBrand({{$brand->id}})" data-bs-toggle="modal" data-bs-target="#updateBrandModal" class="btn btn-success btn-sm ">Modifié</a> </td>
