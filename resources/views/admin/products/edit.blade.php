@@ -207,7 +207,7 @@
                                         <tr class="prod-color-tr">
                                             <td>
                                                 @if($product->productColors)
-                                                {{$productColor->color->nom_couleur}}
+                                                {{$productColor->nom_couleur}}
                                                 @else
                                                 Aucune couleur
                                                 @endif

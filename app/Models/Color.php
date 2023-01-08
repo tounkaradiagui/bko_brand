@@ -16,4 +16,5 @@ class Color extends Model
         'code_couleur',
         'status',
     ];
+    
 }

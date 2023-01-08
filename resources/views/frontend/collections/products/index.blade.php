@@ -21,7 +21,7 @@
                     <h4 class="mb-4">Nos Produits</h4>
                 </div>
 
-                <livewire:frontend.product.index :products="$products" :category="$category"/>
+                <livewire:frontend.product.index :category="$category"/>
                
             </div>
         </div>
