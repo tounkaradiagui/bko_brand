@@ -35,4 +35,22 @@ class FrontendController extends Controller
         }
 
     }
+    
+    public function productView(string $category_slug, string $product_slug )
+    {
+        $category = Category::where('slug', $category_slug)->first();
+
+        if($category)
+        {
+            $product = $category->products('slug', $product_slug)->where('status', '0')->first();
+            if($product)
+            {
+                return view('frontend.collections.products.view', compact('category', 'product'));
+            }
+            else
+            {
+                return redirect()->back();
+            }
+        }
+    }
 }

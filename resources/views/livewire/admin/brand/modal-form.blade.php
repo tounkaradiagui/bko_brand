@@ -1,4 +1,5 @@
-<!-- Debut du modal d'ajout -->
+<div>
+    <!-- Debut du modal d'ajout -->
 
 <div livewire:ignore.self class="modal fade" id="ajoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -141,3 +142,4 @@
         </div>
     </div>
 <!-- Fin du modal de suppression -->
+</div>
