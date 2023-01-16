@@ -23,8 +23,15 @@
 
     <link rel="shortcut icon" href="{{asset('admin/images/logogolden.png')}}" >
 
+    {{--lien cdn alertify  --}}
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+
     <!-- Scripts -->
     <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
+
+    @livewireStyles
 </head>
 <body>
     <div id="app">
@@ -38,5 +45,18 @@
 
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+
+    <!-- JavaScript alertify -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        window.addEventListener('message', event => {        
+        alertify.set('notifier','position', 'top-right');
+        alertify.notify(event.detail.text, event.detail.type);
+
+        });
+    </script>
+
+    @livewireScripts
+
 </body>
 </html>

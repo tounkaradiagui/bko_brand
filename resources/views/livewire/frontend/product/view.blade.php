@@ -23,7 +23,7 @@
                         </h4>
                         <hr>
                         <p class="product-path">
-                            Home / {{$product->category->name}} / {{$product->nom}} 
+                            Accueil / {{$product->category->name}} / {{$product->nom}} 
                         </p>
                         <div>
                             <span class="selling-price">${{$product->prix_de_vente}}</span>
@@ -36,45 +36,50 @@
                                 @if($product->productColors)
                                     @foreach($product->productColors as $colorItem)
                                         <label class="colorSelectionLabel" style="background-color:{{$colorItem->color->code_couleur}}" 
-                                         wire:click="colorSelectedd({{$colorItem->id}})" >
+                                         wire:click="colorSelected({{$colorItem->id}})" >
                                             {{$colorItem->color->nom_couleur}}
 
                                         </label>
                                     @endforeach
                                 @endif
 
-                                @if($this->productColorSelectedQuantity == 'enRuptureDeStock')
-                                    <label class="btn-sm py-1 mt-2 text-white bg-danger">En rupture de  Stock</label>
-                                @elseif($this->productColorSelectedQuantity > 0)
-                                    <label class="btn-sm py-1 mt-2 text-white bg-success">En Stock</label>
-                                @endif
+                                <div>
+                                
+                                    @if($this->productColorSelectedQuantity == 'enRuptureDeStock')
+                                        <label class="btn-sm py-1 mt-2 text-white bg-danger">En rupture de  Stock</label>
+                                    @elseif($this->productColorSelectedQuantity > 0)
+                                        <label class="btn-sm py-1 mt-2 text-white bg-success">En Stock</label>
+                                    @endif
+                               </div>
 
                             @else
 
+                               
                                 @if($product->quantite)
                                     <label class="btn-sm py-1 mt-2 text-white bg-success">En Stock</label>
                                 @else
                                     <label class="btn-sm py-1 mt-2 text-white bg-danger">En rupture de  Stock</label>
                                 @endif
+                        
 
                             @endif
 
                         </div>
                         <div class="mt-2">
                             <div class="input-group">
-                                <span class="btn btn1"><i class="fa fa-minus"></i></span>
-                                <input type="text" value="1" class="input-quantity" />
-                                <span class="btn btn1"><i class="fa fa-plus"></i></span>
+                                <span class="btn btn1" wire:click="decrementQuantity"><i class="fa fa-minus"></i></span>
+                                <input type="text" wire:model="quantityCount" value="{{$this->quantityCount}}" readonly class="input-quantity" />
+                                <span class="btn btn1" wire:click="incrementQuantity"><i class="fa fa-plus"></i></span>
                             </div>
                         </div>
                         <div class="mt-2">
                             <a  class="btn btn1"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
-                            <button type="button" livewire:click="addToWishlist({{$product->id}})"  class="btn btn1">
-                                <span livewire.loading.remove>
+                            <button type="button" wire:click="addToWishlist({{$product->id}})"  class="btn btn1">
+                                <span wire:loading.remove wire:target="addToWishlist({{$product->id}})">
                                     <i class="fa fa-heart"></i> Ajouter à la liste de Souhait 
                                 </span>
 
-                                <span livewire:loading livewire:target="addToWishlist">
+                                <span wire:loading wire:target="addToWishlist({{$product->id}})">
                                      En cours d'ajout...
                                 </span>
                             </button>

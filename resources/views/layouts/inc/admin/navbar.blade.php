@@ -1,7 +1,7 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" style="background-color: #E0115F ;">
   <div class="navbar-brand-wrapper d-flex justify-content-center" style="background-color: #E0115F ;">
     <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100" >  
-      <a class="navbar-brand brand-logo text-white" href="{{url('admin/dashboard')}}">
+      <a class="navbar-brand brand-logo text-white" href="{{url('/')}}">
         <!-- <img src="{{asset('admin/images/logogolden.png')}}" alt="logo"/> -->
         Golden market
       </a>

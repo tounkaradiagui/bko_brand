@@ -46,7 +46,7 @@
                             <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
                                 <img src="{{asset($produit->productImages[0]->image)}}" alt="{{$produit->nom}}">
                             </a>
-                            <!-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}" alt="{{$produit->nom}}"> -->
+                            {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}" alt="{{$produit->nom}}"> --}}
                             @endif
                         </div>
                         <div class="product-card-body">

@@ -8,7 +8,7 @@ use App\Models\Wishlist;
 
 class View extends Component
 {
-    public $category, $product, $productColorSelectedQuantity;
+    public $category, $product, $productColorSelectedQuantity, $quantityCount = 1;
 
     public function addToWishlist($productId)
     {
@@ -16,27 +16,40 @@ class View extends Component
        {
             if(Wishlist::where('user_id', auth()->user()->id)->where('product_id', $productId)->exists())
             {
-                session()->flash('message', 'Produit déjà ajouté à vos listes de souhait !');
+                $this->dispatchBrowserEvent('message', [
+                    'text' => 'Produit déjà ajouté à vos listes de souhait !',
+                    'type' => 'warning',
+                    'status' => 409
+                ]);
                 return false;
             }
             else
             {
-                $wishlist = Wishlist::create([
+                Wishlist::create([
                     'user_id' => auth()->user()->id,
                     'product_id' => $productId
                 ]);  
-                
-                session()->flash('message', 'Le produit ajouté à vos listes de souhait !');
+                $this->emit('wishlistAddedUpdated');
+                $this->dispatchBrowserEvent('message', [
+                    'text' => 'Le produit ajouté à vos listes de souhait !',
+                    'type' => 'success',
+                    'status' => 200
+                ]);
 
             }
        }
        else
        {
-            session()->flash('message', 'Veuillez vous conntectez pour continuer !');
+            $this->dispatchBrowserEvent('message', [
+                'text' => 'Veuillez vous conntectez pour continuer !',
+                'type' => 'danger',
+                'status' => 401
+            ]);
+            return false;
        }
     }
 
-    public function colorSelectedd($productColorId)
+    public function colorSelected($productColorId)
     {
         $productColor = $this->product->productColors()->where('id', $productColorId)->first();
         $this->productColorSelectedQuantity = $productColor->quantite;
@@ -47,6 +60,21 @@ class View extends Component
         }
     }
 
+    public function decrementQuantity()
+    {
+        if($this->quantityCount > 1){
+
+            $this->quantityCount--;
+        }
+    }
+
+    public function incrementQuantity()
+    {
+        if($this->quantityCount < 10){
+
+            $this->quantityCount++;
+        }
+    }
 
     public function mount($category, $product)
     {

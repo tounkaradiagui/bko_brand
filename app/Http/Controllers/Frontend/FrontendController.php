@@ -11,8 +11,8 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $Carousliders = Slider::where('status', '0')->get();
-        return view('frontend.index', compact('Carousliders'));
+        $sliders = Slider::where('status', '0')->get();
+        return view('frontend.index', compact('sliders'));
     }
 
     public function categories()
