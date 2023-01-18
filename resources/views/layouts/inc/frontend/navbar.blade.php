@@ -19,8 +19,8 @@
                         <ul class="nav justify-content-end">
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fa fa-shopping-cart"></i> Panier (0)
+                                <a class="nav-link" href="{{ url('cart') }}">
+                                    <i class="fa fa-shopping-cart"></i> Panier (<livewire:frontend.cart.cart-count/>)
                                 </a>
                             </li>
                             <li class="nav-item">

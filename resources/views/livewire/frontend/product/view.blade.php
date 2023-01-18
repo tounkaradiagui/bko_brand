@@ -73,7 +73,10 @@
                             </div>
                         </div>
                         <div class="mt-2">
-                            <a  class="btn btn1"> <i class="fa fa-shopping-cart"></i> Add To Cart</a>
+                            <button type="button"  class="btn btn1" wire:click="addToCart({{$product->id}})"> <i class="fa fa-shopping-cart">
+                                </i> Ajouter au Panier
+                            </button>
+
                             <button type="button" wire:click="addToWishlist({{$product->id}})"  class="btn btn1">
                                 <span wire:loading.remove wire:target="addToWishlist({{$product->id}})">
                                     <i class="fa fa-heart"></i> Ajouter à la liste de Souhait 
