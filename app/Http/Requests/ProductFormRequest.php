@@ -70,7 +70,7 @@ class ProductFormRequest extends FormRequest
                 
             ],
 
-            'quantite' => [
+            'quantity' => [
                 'required',
                 'integer'
                 

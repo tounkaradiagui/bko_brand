@@ -55,7 +55,7 @@
                             @else
 
                                
-                                @if($product->quantite)
+                                @if($product->quantity)
                                     <label class="btn-sm py-1 mt-2 text-white bg-success">En Stock</label>
                                 @else
                                     <label class="btn-sm py-1 mt-2 text-white bg-danger">En rupture de  Stock</label>

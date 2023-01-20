@@ -21,7 +21,7 @@ class Product extends Model
         'description',
         'prix_original',
         'prix_de_vente',
-        'quantite',
+        'quantity',
         'tendance',
         'status',
         'meta_title',

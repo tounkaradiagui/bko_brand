@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->integer('prix_original');
             $table->integer('prix_de_vente');
-            $table->integer('quantite');
+            $table->integer('quantity');
             $table->tinyInteger('tendance')->default('0')->comment('1=mode, 0=pas-en-mode');
             $table->tinyInteger('status')->default('0')->comment('1=masque, 0=visible');
 

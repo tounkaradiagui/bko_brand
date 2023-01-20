@@ -28,7 +28,7 @@ return new class extends Migration
             ->on('colors')
             ->onDelete('set null');
 
-            $table->integer('quantite');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

@@ -75,9 +75,9 @@ class View extends Component
                     }else
                     {
                         $productColor = $this->product->productColors()->where('id', $this->productColorId)->first();
-                            if($productColor->quantite > 0)
+                            if($productColor->quantity > 0)
                             {
-                                if($productColor->quantite > $this->quantityCount) {
+                                if($productColor->quantity > $this->quantityCount) {
                                     //ajouter le produit au panier
                                     Cart::create([
                                         'user_id' => auth()->user()->id,
@@ -95,7 +95,7 @@ class View extends Component
                                 }else
                                 {
                                     $this->dispatchBrowserEvent('message', [
-                                        'text' => "Il n'y a que".$productColor->quantite."quantitée disponible !",
+                                        'text' => "Il n'y a que".$productColor->quantity."quantitée disponible !",
                                         'type' => 'warning',
                                         'status' => 404
                                     ]);
@@ -128,9 +128,9 @@ class View extends Component
 
                     }else{
 
-                        if($this->product->quantite > 0) {
+                        if($this->product->quantity > 0) {
     
-                            if($this->product->quantite > $this->quantityCount) {
+                            if($this->product->quantity > $this->quantityCount) {
                                 //ajouter le produit au panier
                                 Cart::create([
                                     'user_id' => auth()->user()->id,
@@ -185,7 +185,7 @@ class View extends Component
     {
         $this->productColorId = $productColorId;
         $productColor = $this->product->productColors()->where('id', $productColorId)->first();
-        $this->productColorSelectedQuantity = $productColor->quantite;
+        $this->productColorSelectedQuantity = $productColor->quantity;
 
         if($this->productColorSelectedQuantity == 0)
         {

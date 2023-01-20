@@ -133,7 +133,7 @@
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label for="">Quantité</label>
-                                        <input type="number" name="quantite" value="{{$product->quantite}}" class="form-control">
+                                        <input type="number" name="quantity" value="{{$product->quantity}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -183,7 +183,7 @@
                                             Couleur : <input type="checkbox" name="colors[{{$coloritem->id}}]" value="{{$coloritem->id}}"/>
                                             {{$coloritem->nom_couleur}}
                                             </br>
-                                            Quantité : <input type="number" name="colorquantite[{{$coloritem->id}}]" style=" width: 70; border: 1px solid"/>
+                                            Quantité : <input type="number" name="colorquantity[{{$coloritem->id}}]" style=" width: 70; border: 1px solid"/>
                                         </div>
                                     </div>
                                     @empty
@@ -214,7 +214,7 @@
                                             </td>
                                             <td>
                                                 <div class="input-group mb-3" style="width:150px">
-                                                    <input type="text" value="{{$productColor->quantite}}" class="productColorQuantity form-control form-control-sm" id="">
+                                                    <input type="text" value="{{$productColor->quantity}}" class="productColorQuantity form-control form-control-sm" id="">
                                                     <button typpe="button" value="{{$productColor->id}}" class="updateProductColorBtn btn btn-primary btn-sm text-white">Modifiée</button>
                                                 </div> 
                                             </td>

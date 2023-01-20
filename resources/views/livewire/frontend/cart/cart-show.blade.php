@@ -95,7 +95,7 @@
 
                 <div class="col-md-8 my-md-auto mt-3">
                     <h4>
-                        Get the best deals & Offers <a href="{{url('/collections')}}">Shop now</a>
+                        Obtenez les meilleures offres et réductions <a href="{{url('/collections')}}">Acheter maintenant</a>
                     </h4>
                 </div>
                 <div class="col-md-4 mt-3">

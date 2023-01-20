@@ -48,7 +48,7 @@ class ProductController extends Controller
             'description' => $validatedData['description'],
             'prix_original' => $validatedData['prix_original'],
             'prix_de_vente' => $validatedData['prix_de_vente'],
-            'quantite' => $validatedData['quantite'],
+            'quantity' => $validatedData['quantity'],
             'tendance' => $request->tendance == true ? '1':'0',
             'status' => $request->status == true ? '1':'0',
             'meta_title' => $validatedData['meta_title'],
@@ -81,7 +81,7 @@ class ProductController extends Controller
                 $product->productColors()->create([
                     'product_id' => $product->id,
                     'color_id' => $color,
-                    'quantite' => $request->colorquantite[$key] ?? 0
+                    'quantity' => $request->colorquantity[$key] ?? 0
                 ]);
             }
         }
@@ -123,7 +123,7 @@ class ProductController extends Controller
                 'description' => $validatedData['description'],
                 'prix_original' => $validatedData['prix_original'],
                 'prix_de_vente' => $validatedData['prix_de_vente'],
-                'quantite' => $validatedData['quantite'],
+                'quantity' => $validatedData['quantity'],
                 'tendance' => $request->tendance == true ? '1':'0',
                 'status' => $request->status == true ? '1':'0',
                 'meta_title' => $validatedData['meta_title'],
@@ -155,7 +155,7 @@ class ProductController extends Controller
                     $product->productColors()->create([
                         'product_id' => $product->id,
                         'color_id' => $color,
-                        'quantite' => $request->colorquantite[$key] ?? 0
+                        'quantity' => $request->colorquantity[$key] ?? 0
                     ]);
                 }
             }
@@ -206,7 +206,7 @@ class ProductController extends Controller
         $productColorData = Product::findOrFail()->productColors()->where('id', $prod_color_id)->first();
 
         $productColorData->update([
-            'quantite' => $request->qty 
+            'quantity' => $request->qty 
         ]);
 
         // return $productColorData;

@@ -39,7 +39,7 @@
                             </td>
                             <td>{{$product->nom}}</td>
                             <td>{{$product->prix_de_vente}}</td>
-                            <td>{{$product->quantite}}</td>
+                            <td>{{$product->quantity}}</td>
                             <td>{{$product->status == '1' ? 'Masqué':'Visible'}}</td>
                             <td>
                                 <a href="{{url('admin/products/'.$product->id.'/edit')}}" class="btn btn-primary btn-sm">Modifier</a>

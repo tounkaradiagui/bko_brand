@@ -36,7 +36,7 @@
                 <div class="col-md-4">
                     <div class="product-card">
                         <div class="product-card-img">
-                            @if($produit->quantite > 0)
+                            @if($produit->quantity > 0)
                             <label class="stock bg-success">En Stock</label>
                             @else
                             <label class="stock bg-danger">En rupture de stock</label>
