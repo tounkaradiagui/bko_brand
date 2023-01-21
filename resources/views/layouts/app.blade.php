@@ -49,14 +49,17 @@
     <!-- JavaScript alertify -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
-        window.addEventListener('message', event => {        
-        alertify.set('notifier','position', 'top-right');
-        alertify.notify(event.detail.text, event.detail.type);
+        window.addEventListener('message', event => { 
+            if(event.detail){
+                alertify.set('notifier','position', 'top-right');
+                alertify.notify(event.detail.text, event.detail.type);
+            }    
 
         });
     </script>
 
     @livewireScripts
+    @stack('scripts')
 
 </body>
 </html>
