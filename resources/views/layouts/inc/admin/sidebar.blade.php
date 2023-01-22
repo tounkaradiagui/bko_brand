@@ -7,9 +7,9 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/forms/basic_elements.html">
+      <a class="nav-link" href="{{url('admin/orders')}}">
         <i class="mdi mdi-sale menu-icon"></i>
-        <span class="menu-title">Ventes</span>
+        <span class="menu-title">Commandes</span>
       </a>
     </li>
 

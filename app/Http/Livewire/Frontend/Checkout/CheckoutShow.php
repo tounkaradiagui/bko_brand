@@ -25,7 +25,7 @@ class CheckoutShow extends Component
         $this->payment_id = $value;
         $this->payment_mode = 'Payé par Paypal';
 
-        $codOrder = $this->placeOrder();
+         $codOrder = $this->placeOrder();
         if($codOrder) {
 
             Cart::where('user_id', auth()->user()->id)->delete();

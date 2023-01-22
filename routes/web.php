@@ -29,6 +29,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('wishlist', [App\Http\Controllers\Frontend\WishlistController::class, 'index']);
     Route::get('cart', [App\Http\Controllers\Frontend\CartController::class, 'index']);
     Route::get('checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
+    Route::get('orders', [App\Http\Controllers\Frontend\OrderController::class, 'index']);
+    Route::get('orders/{orderId}', [App\Http\Controllers\Frontend\OrderController::class, 'show']);
 });
 
 Route::get('thank-you', [App\Http\Controllers\Frontend\FrontendController::class, 'thankyou']);
@@ -57,7 +59,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::put('/products/{products}', 'update');
         Route::get('/product-image/{product_image_id}/delete', 'destroyImage');
         Route::get('/products/{product_id}/delete', 'destroy'); 
-
         Route::post('/product-color/{prod_color_id}', 'updateProductColorQuantity');
         Route::get('/product-color/{product_color_id}/delete', 'deleteProductColorQuantity');
 
@@ -82,6 +83,17 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/sliders/{slider}/edit', 'edit');
         Route::put('sliders/{slider}', 'update');
         Route::get('/sliders/{slider}/delete', 'destroy'); 
+
+
+    });
+
+    Route::controller(App\Http\Controllers\Admin\OrderController::class)->group(function () {
+        Route::get('/orders', 'index');
+        Route::get('/orders/{orderId}', 'show');
+        // Route::get('/colors/create', 'create');
+        // Route::post('/colors/create', 'store');
+        // Route::get('/colors/{color}/edit', 'edit');
+        // Route::get('/colors/{color_id}/delete', 'destroy'); 
 
 
     });

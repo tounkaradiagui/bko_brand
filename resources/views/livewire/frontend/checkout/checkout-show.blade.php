@@ -4,7 +4,7 @@
             <h4>Checkout</h4>
             <hr>
             
-            @if($this->totalProductAmont != 0)
+            @if($this->totalProductAmont != '0')
             <div class="row">
                 <div class="col-md-12 mb-4">
                     <div class="shadow bg-white p-3">
