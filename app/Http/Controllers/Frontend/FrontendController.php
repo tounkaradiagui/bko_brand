@@ -12,9 +12,11 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $trendingProducts = Product::where('tendance', '1')->latest()->take('30')->get();
+        $trendingProducts = Product::where('tendance', '1')->latest()->take('15')->get();
+        $news = Product::where('tendance', '1')->latest()->take('15')->get();
+        $featured = Product::where('featured', '1')->latest()->take('15')->get();
         $sliders = Slider::where('status', '0')->get();
-        return view('frontend.index', compact('sliders', 'trendingProducts'));
+        return view('frontend.index', compact('sliders', 'trendingProducts', 'news', 'featured'));
     }
 
     public function categories()
@@ -65,5 +67,11 @@ class FrontendController extends Controller
     {
         $news = Product::where('tendance', '1')->latest()->take('30')->get();
         return view('frontend.pages.new-arrival', compact('news'));
+    }
+
+    public function featuredProducts()
+    {
+        $featured = Product::where('featured', '1')->latest()->get();
+        return view('frontend.pages.featured-product', compact('featured'));
     }
 }

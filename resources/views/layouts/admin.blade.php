@@ -6,9 +6,12 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
 
-    <title>{{ config('app.name', 'Golden market') }}</title>
+    <title>@yield('title')</title>
+
+    <meta name="meta_description" content="@yield('meta_description')">
+    <meta name="keywords" content="@yield('meta_keyword')">
+    <meta name="author" content="@yield('Diagui TOUNKARA')">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 

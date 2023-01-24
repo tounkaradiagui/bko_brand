@@ -3,7 +3,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                        <h5 class="brand-name">Golden market</h5>
+                        <h5 class="brand-name">{{$appSetting->website_name ?? 'Mon site web'}}</h5>
                     </div>
                     <div class="col-md-5 my-auto">
                         <form role="search">
@@ -82,28 +82,28 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{('/')}}">Accueil</a>
+                            <a class="nav-link" href="{{url('/')}}">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{('/collections')}}">Catégories</a>
+                            <a class="nav-link" href="{{url('/collections')}}">Catégories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{('/nouveaux-arrives')}}">Nouveaux arrivés</a>
+                            <a class="nav-link" href="{{url('/nouveaux-arrives')}}">Nouveaux arrivés</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Produits populaires</a>
+                            <a class="nav-link" href="{{url('/produits-populaire')}}">Produits populaires</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Electronique</a>
+                            <a class="nav-link" href="{{url('/produits-eletronics')}}">Electronique</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Fashions</a>
+                            <a class="nav-link" href="{{url('/fashions')}}">Fashions</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Accessoires</a>
+                            <a class="nav-link" href="{{url('/accessoires')}}">Accessoires</a>
                         </li>                
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Appareils électroménagers</a>
+                            <a class="nav-link" href="{{url('/appareils-electronmenagere')}}">Appareils électroménagers</a>
                         </li>
                     </ul>
                 </div>

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->integer('prix_de_vente');
             $table->integer('quantity');
             $table->tinyInteger('tendance')->default('0')->comment('1=mode, 0=pas-en-mode');
+            $table->tinyInteger('featured')->default('0')->comment('1=featured, 0=non-featured');
             $table->tinyInteger('status')->default('0')->comment('1=masque, 0=visible');
 
             $table->string('meta_title')->nullable();

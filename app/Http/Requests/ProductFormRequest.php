@@ -49,43 +49,38 @@ class ProductFormRequest extends FormRequest
             'small_description' => [
                 'required',
                 'string'
-                
             ],
 
             'description' => [
                 'required',
                 'string'
-                
             ],
 
             'prix_original' => [
                 'required',
                 'integer'
-                
             ],
 
             'prix_de_vente' => [
                 'required',
                 'integer'
-                
             ],
 
             'quantity' => [
                 'required',
                 'integer'
-                
             ],
 
             'tendance' => [
                 'nullable',
-                
-                
+            ],
+
+            'featured' => [
+                'nullable',
             ],
 
             'status' => [
                 'nullable',
-                
-                
             ],
 
             'meta_title' => [

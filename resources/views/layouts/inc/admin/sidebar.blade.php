@@ -2,7 +2,7 @@
   <ul class="nav" >
     <li class="nav-item">
       <a class="nav-link" href="{{url('admin/dashboard')}}">
-        <i class="mdi mdi-home menu-icon"></i>
+        <i class="mdi mdi-speedometer menu-icon"></i>
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
@@ -14,7 +14,7 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#categories" aria-expanded="false" aria-controls="categories">
+      <a class="nav-link" data-bs-toggle="collapse" href="#categories" >
         <i class="mdi mdi-view-list menu-icon"></i>
         <span class="menu-title">Catégories</span>
         <i class="menu-arrow"></i>
@@ -28,7 +28,7 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#produits" aria-expanded="false" aria-controls="produits">
+      <a class="nav-link" data-bs-toggle="collapse" href="#produits">
         <i class="mdi mdi-plus-circle menu-icon"></i>
         <span class="menu-title">Produits</span>
         <i class="menu-arrow"></i>
@@ -56,31 +56,28 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-        <i class="mdi mdi-account menu-icon"></i>
+      <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
+        <i class="mdi mdi-account-multiple-plus menu-icon"></i>
         <span class="menu-title">Utilisateurs</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse" id="auth">
+      <div class="collapse" id="users">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Ajouter </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Voirs la liste</a></li>
         </ul>
       </div>
     </li>
 
     <li class="nav-item">
       <a class="nav-link" href="{{url('admin/sliders')}}">
-        <i class="mdi mdi-chart-pie menu-icon"></i>
+        <i class="mdi mdi-view-carousel menu-icon"></i>
         <span class="menu-title">Slider d'accueil</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="documentation/documentation.html">
-        <i class="mdi mdi-file-document-box-outline menu-icon"></i>
+      <a class="nav-link" href="{{url('admin/settings')}}">
+        <i class="mdi mdi-settings menu-icon"></i>
         <span class="menu-title">Paramètre du site</span>
       </a>
     </li>
