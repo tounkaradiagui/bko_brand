@@ -6,13 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Category;
+use App\Models\Product;
 
 class FrontendController extends Controller
 {
     public function index()
     {
+        $trendingProducts = Product::where('tendance', '1')->latest()->take('30')->get();
         $sliders = Slider::where('status', '0')->get();
-        return view('frontend.index', compact('sliders'));
+        return view('frontend.index', compact('sliders', 'trendingProducts'));
     }
 
     public function categories()

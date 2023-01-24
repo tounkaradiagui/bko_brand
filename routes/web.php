@@ -90,13 +90,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::controller(App\Http\Controllers\Admin\OrderController::class)->group(function () {
         Route::get('/orders', 'index');
         Route::get('/orders/{orderId}', 'show');
-        // Route::get('/colors/create', 'create');
-        // Route::post('/colors/create', 'store');
-        // Route::get('/colors/{color}/edit', 'edit');
-        // Route::get('/colors/{color_id}/delete', 'destroy'); 
+        Route::put('/orders/{orderId}', 'updateOrderStatus');
 
-
+        Route::get('/invoice/{orderId}', 'VoirInvoice');
+        Route::get('/invoice/{orderId}/generate', 'generateInvoice');
     });
-
-
 });

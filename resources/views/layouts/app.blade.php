@@ -17,14 +17,24 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    {{-- CSS --}}
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-
+    
+    {{-- Favicon --}}
     <link rel="shortcut icon" href="{{asset('admin/images/logogolden.png')}}" >
-
+    
     {{--lien cdn alertify  --}}
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+    
+    {{-- OWL Carroussel --}}
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
+
+    {{-- Exzoom Product images Carroussel --}}
+    <link rel="stylesheet" href="{{asset('assets/exzoom/jquery.exzoom.css')}}">
+
     <!-- Default theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
 
@@ -43,8 +53,15 @@
         </main>
     </div>
 
+    {{-- Lien Bootstrap et Jquery --}}
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+
+    {{-- OWL carroussel --}}
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+
+    {{-- Exzoom Product Images Carroussel --}}
+    <script src="{{ asset('assets/exzoom/jquery.exzoom.js') }}"></script>
 
     <!-- JavaScript alertify -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
@@ -57,6 +74,8 @@
 
         });
     </script>
+
+    @yield('script')
 
     @livewireScripts
     @stack('scripts')
