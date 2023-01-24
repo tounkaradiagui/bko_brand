@@ -60,4 +60,10 @@ class FrontendController extends Controller
     {
         return view('frontend.thank-you');
     }
+
+    public function newArrivals()
+    {
+        $news = Product::where('tendance', '1')->latest()->take('30')->get();
+        return view('frontend.pages.new-arrival', compact('news'));
+    }
 }
