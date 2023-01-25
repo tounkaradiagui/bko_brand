@@ -25,8 +25,8 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/collections', 'categories');
     Route::post('/collections/{category_slug}', 'products');
     Route::get('/collections/{category_slug}/{product_slug}', 'productView');
-    Route::get('/nouveaux-arrives', 'newArrivals'); 
-    Route::get('/produits-populaire', 'featuredProducts'); 
+    Route::get('/nouveaux-arrives', 'newArrivals');
+    Route::get('/produits-populaire', 'featuredProducts');
 
 
 });
@@ -67,7 +67,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/products/{products}/edit', 'edit');
         Route::put('/products/{products}', 'update');
         Route::get('/product-image/{product_image_id}/delete', 'destroyImage');
-        Route::get('/products/{product_id}/delete', 'destroy'); 
+        Route::get('/products/{product_id}/delete', 'destroy');
         Route::post('/product-color/{prod_color_id}', 'updateProductColorQuantity');
         Route::get('/product-color/{product_color_id}/delete', 'deleteProductColorQuantity');
 
@@ -80,7 +80,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::post('/colors/create', 'store');
         Route::get('/colors/{color}/edit', 'edit');
         Route::put('/colors/{color_id}', 'update');
-        Route::get('/colors/{color_id}/delete', 'destroy'); 
+        Route::get('/colors/{color_id}/delete', 'destroy');
 
 
     });
@@ -91,7 +91,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::post('/sliders/create', 'store');
         Route::get('/sliders/{slider}/edit', 'edit');
         Route::put('sliders/{slider}', 'update');
-        Route::get('/sliders/{slider}/delete', 'destroy'); 
+        Route::get('/sliders/{slider}/delete', 'destroy');
 
 
     });
@@ -104,4 +104,15 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/invoice/{orderId}', 'VoirInvoice');
         Route::get('/invoice/{orderId}/generate', 'generateInvoice');
     });
+
+    Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {
+        Route::get('/users', 'index');
+        Route::get('/users/create', 'create');
+        Route::post('/users', 'store');
+        Route::get('/users/{userId}/edit', 'edit');
+        Route::put('/users/{userId}', 'update');
+        Route::get('/users/{userId}/delete', 'destroy');
+    });
+
+
 });
