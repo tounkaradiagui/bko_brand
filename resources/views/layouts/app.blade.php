@@ -21,6 +21,11 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+
+    {{-- plugin --}}
+    <link rel="stylesheet" href="{{asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/vendors/base/vendor.bundle.base.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
     
     {{-- Favicon --}}
     <link rel="shortcut icon" href="{{asset('admin/images/logogolden.png')}}" >
@@ -65,6 +70,12 @@
 
     {{-- Exzoom Product Images Carroussel --}}
     <script src="{{ asset('assets/exzoom/jquery.exzoom.js') }}"></script>
+
+    {{-- plugin --}}
+    <script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('admin/js/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('admin/js/off-canvas.js') }}"></script>
+    <script src="{{ asset('admin/js/template.js') }}"></script>
 
     <!-- JavaScript alertify -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>

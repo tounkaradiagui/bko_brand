@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 @section('content')
-@section('title', 'Paramètre du site')
+@section('title', 'Configuration du site')
     <div class="row">
         <div class="col-md-12 grid-margin">
             @if (session('message'))
                 <div class="alert alert-success mb-3">{{session('message')}}</div>
             @endif
-            <form action="{{url('/admin/settings')}}" method="post">
+            <form action="{{url('admin/settings')}}" method="post">
                 @csrf
 
                 <div class="card-md-3">

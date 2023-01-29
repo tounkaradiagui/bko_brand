@@ -7,6 +7,13 @@
         @if (session('message'))
             <div class="alert alert-success mb-3">{{session('message')}}</div>
         @endif
+        @if ($errors->any())
+        <ul class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+            <li class="text-danger">{{ $error }}</li>
+            @endforeach
+        </ul>
+        @endif
         <div class="card">
             <div class="card-header">
                 <h4>Mes commandes
@@ -24,6 +31,9 @@
                     </a>
                     <a href="{{url('admin/invoice/'.$orders->id)}}" target="_blank">
                         <i class="fa fa-arrow-left btn btn-primary float-end ml-2 btn-sm" > Voir la facture</i>
+                    </a>
+                    <a href="{{url('admin/invoice/'.$orders->id.'/mail')}}">
+                        <i class="fa fa-arrow-left btn btn-info float-end ml-2 btn-sm" > Envoyer la facture par Mail</i>
                     </a>
                 </h3>
                 <hr>

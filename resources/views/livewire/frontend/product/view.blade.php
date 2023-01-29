@@ -5,7 +5,6 @@
                 <div class="col-md-5 mt-3">
                     <div class="bg-white border" wire:ignore>
                         @if($product->productImages)
-                        {{-- <img src="{{ asset($product->productImages[0]->image) }}" class="w-100" alt="Img"> --}}
                         <div class="exzoom" id="exzoom">
                             <div class="exzoom_img_box">
                               <ul class='exzoom_img_ul'>
@@ -34,6 +33,7 @@
                         <p class="product-path">
                             Accueil / {{$product->category->name}} / {{$product->nom}} 
                         </p>
+                        <p class="product-path">Marque : {{$product->marque}}</p>
                         <div>
                             <span class="selling-price">${{$product->prix_de_vente}}</span>
                             <span class="original-price">${{$product->prix_original}}</span>
@@ -121,6 +121,109 @@
             </div>
         </div>
     </div>
+
+    <div class="py-3 py-md-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <h3>
+                        Produits Connexe de la marque
+                        @if ($product)
+                        {{$product->marque}}
+                        @endif
+                    </h3>
+                    <div class="underline"></div>
+                </div>
+                <div class="col-md-12">
+                    @if ($category)
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($category->relatedProducts as $relatedproducts) 
+                                @if ($relatedproducts->marque == "$product->marque")
+                                    <div class="item mb-3">
+                                        <div class="product-card">
+                                            <div class="product-card-img">
+                                                @if($relatedproducts->productImages->count() > 0)
+                                                <a href="{{url('/collections/'.$relatedproducts->category->slug.'/'.$relatedproducts->slug)}} ">
+                                                    <img src="{{asset($relatedproducts->productImages[0]->image)}}" alt="{{$relatedproducts->nom}}">
+                                                </a>
+                                                @endif
+                                            </div>
+                                            <div class="product-card-body">
+                                                <p class="product-brand">{{$relatedproducts->marque}}</p>
+                                                <h5 class="product-name">
+                                                    <a href="{{url('/collections/'.$relatedproducts->category->slug.'/'.$relatedproducts->slug)}} ">
+                                                    {{$relatedproducts->nom}} 
+                                                    </a>
+                                                </h5>
+                                                <div>
+                                                    <span class="selling-price">${{$relatedproducts->prix_de_vente}}</span>
+                                                    <span class="original-price">${{$relatedproducts->prix_original}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    @else
+                    <div class="p-2">
+                        <h4>
+                            Pas de Produits Connexe disponible
+                        </h4>
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="py-3 py-md-5 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <h3>
+                        Produits Connexe de la catégorie
+                        @if ($category)
+                            {{$category->name}}
+                        @endif
+                    </h3>
+                    <div class="underline"></div>
+                </div>
+                @forelse ($category->relatedProducts as $relatedproducts)               
+                    <div class="col-md-3 mb-3">
+                        <div class="product-card">
+                            <div class="product-card-img">
+                                @if($relatedproducts->productImages->count() > 0)
+                                <a href="{{url('/collections/'.$relatedproducts->category->slug.'/'.$relatedproducts->slug)}} ">
+                                    <img src="{{asset($relatedproducts->productImages[0]->image)}}" alt="{{$relatedproducts->nom}}">
+                                </a>
+                                @endif
+                            </div>
+                            <div class="product-card-body">
+                                <p class="product-brand">{{$relatedproducts->marque}}</p>
+                                <h5 class="product-name">
+                                    <a href="{{url('/collections/'.$relatedproducts->category->slug.'/'.$relatedproducts->slug)}} ">
+                                    {{$relatedproducts->nom}} 
+                                    </a>
+                                </h5>
+                                <div>
+                                    <span class="selling-price">${{$relatedproducts->prix_de_vente}}</span>
+                                    <span class="original-price">${{$relatedproducts->prix_original}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-md-12 p-2">
+                        <h4>
+                            Pas de Produits Connexe disponible
+                        </h4>
+                    </div>
+                @endforelse
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -142,5 +245,22 @@
             });
 
         });
+
+        $('.four-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:2
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:4
+            }
+        }
+    });
     </script>
 @endpush

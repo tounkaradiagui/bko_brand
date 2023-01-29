@@ -17,14 +17,23 @@
 
     <link rel="stylesheet" href="{{asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/vendors/base/vendor.bundle.base.css')}}">
-    
+
     <link rel="stylesheet" href="{{asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
     <!-- le lien du bootstrap doit toujours etre au dessus du css -->
     <link rel="stylesheet" href="{{asset('admin/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
-  
+
     <link rel="shortcut icon" href="{{asset('admin/images/logogolden.png')}}" >
 
+    <style>
+        .form-control{
+            border:1px solid #ddd;
+        }
+
+        .sidebar .nav .nav-item.active{
+            background-color: #e9e9e9;
+        }
+    </style>
     @livewireStyles
 </head>
 <body>
@@ -45,14 +54,14 @@
 
 
     <script src="{{asset('admin/vendors/base/vendor.bundle.base.js')}}"></script>
-    
+
     <script src="{{asset('admin/vendors/datatables.net/jquery.dataTables.js')}}"></script>
     <script src="{{asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
-   
+
     <script src="{{asset('admin/js/off-canvas.js')}}"></script>
     <script src="{{asset('admin/js/hoverable-collapse.js')}}"></script>
     <script src="{{asset('admin/js/template.js')}}"></script>
-   
+
     <script src="{{asset('admin/js/dashboard.js')}}"></script>
     <script src="{{asset('admin/js/data-table.js')}}"></script>
     <script src="{{asset('admin/js/jquery.dataTables.js')}}"></script>

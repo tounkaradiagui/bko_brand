@@ -18,7 +18,7 @@ class Order extends Model
         'nom',
         'prenom',
         'email',
-        'phone',
+        'telephone',
         'pincode',
         'adresse',
         'status_message',

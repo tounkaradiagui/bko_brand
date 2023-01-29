@@ -23,11 +23,12 @@ Auth::routes();
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/collections', 'categories');
-    Route::post('/collections/{category_slug}', 'products');
+    Route::get('/collections/{category_slug}', 'products');
     Route::get('/collections/{category_slug}/{product_slug}', 'productView');
     Route::get('/nouveaux-arrives', 'newArrivals');
     Route::get('/produits-populaire', 'featuredProducts');
 
+    Route::get('/rechercher', 'ClientSideSearchProduct');
 
 });
 
@@ -38,6 +39,11 @@ Route::middleware(['auth'])->group(function(){
     Route::get('checkout', [App\Http\Controllers\Frontend\CheckoutController::class, 'index']);
     Route::get('orders', [App\Http\Controllers\Frontend\OrderController::class, 'index']);
     Route::get('orders/{orderId}', [App\Http\Controllers\Frontend\OrderController::class, 'show']);
+
+    Route::get('monProfil', [App\Http\Controllers\Frontend\UserController::class, 'index']);
+    Route::post('monProfil', [App\Http\Controllers\Frontend\UserController::class, 'UpdateUserdetails']);
+    Route::get('my-password', [App\Http\Controllers\Frontend\UserController::class, 'getPassword']);
+    Route::post('my-password', [App\Http\Controllers\Frontend\UserController::class, 'UpdatePassword']);
 });
 
 Route::get('thank-you', [App\Http\Controllers\Frontend\FrontendController::class, 'thankyou']);
@@ -46,8 +52,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index' ]);
-    Route::get('/settings', [App\Http\Controllers\Admin\SettingController::class, 'index' ]);
-    Route::post('/settings', [App\Http\Controllers\Admin\SettingController::class, 'store' ]);
+
+    Route::get('settings', [App\Http\Controllers\Admin\SettingController::class, 'index' ]);
+    Route::post('settings', [App\Http\Controllers\Admin\SettingController::class, 'store' ]);
 
     // route groupe
     Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
@@ -100,9 +107,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/orders', 'index');
         Route::get('/orders/{orderId}', 'show');
         Route::put('/orders/{orderId}', 'updateOrderStatus');
-
         Route::get('/invoice/{orderId}', 'VoirInvoice');
         Route::get('/invoice/{orderId}/generate', 'generateInvoice');
+        Route::get('/invoice/{orderId}/mail', 'sendMail');
     });
 
     Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {

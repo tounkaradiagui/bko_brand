@@ -6,9 +6,9 @@
                         <h5 class="brand-name">{{$appSetting->website_name ?? 'Mon site web'}}</h5>
                     </div>
                     <div class="col-md-5 my-auto">
-                        <form role="search">
+                        <form action="{{url('rechercher')}}" method="get" role="search">
                             <div class="input-group">
-                                <input type="search" placeholder="Cherchez votre produit ici !" class="form-control" />
+                                <input type="search" name="rechercher" value="{{Request::get('rechercher')}}" placeholder="Cherchez votre produit ici !" class="form-control" />
                                 <button class="btn bg-white" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-md-5 my-auto">
                         <ul class="nav justify-content-end">
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('cart') }}">
                                     <i class="fa fa-shopping-cart"></i> Panier (<livewire:frontend.cart.cart-count/>)
@@ -28,7 +28,7 @@
                                     <i class="fa fa-heart"></i> Favoris (<livewire:frontend.wishlist-count/>)
                                 </a>
                             </li>
-                            
+
                             @guest
                                 @if (Route::has('login'))
                                     <li class="nav-item">
@@ -42,16 +42,16 @@
                                     </li>
                                 @endif
                             @else
-                                
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-user"></i> {{ Auth::user()->nom }} {{ Auth::user()->prenom }} 
+                                    <i class="fa fa-user"></i> {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> Mes Commandes</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Mes Favoris</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> Mon Panier</a></li>
+                                <li><a class="dropdown-item" href="{{url('monProfil')}}"><i class="fa fa-user"></i> Profile</a></li>
+                                <li><a class="dropdown-item" href="{{url('orders')}}"><i class="fa fa-list"></i> Mes Commandes</a></li>
+                                <li><a class="dropdown-item" href="{{url('wishlist')}}"><i class="fa fa-heart"></i> Mes Favoris</a></li>
+                                <li><a class="dropdown-item" href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> Mon Panier</a></li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -101,7 +101,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/accessoires')}}">Accessoires</a>
-                        </li>                
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/appareils-electronmenagere')}}">Appareils électroménagers</a>
                         </li>

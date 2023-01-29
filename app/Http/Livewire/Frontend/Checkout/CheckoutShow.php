@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\Frontend\Checkout;
 
+use App\Mail\PlaceOrderMaillable;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Order_Item;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -13,7 +15,7 @@ class CheckoutShow extends Component
 {
     public $carts, $totalProductAmont = 0;
 
-    public $nom, $prenom, $email, $phone, $pincode, $adresse, $payment_mode = NULL, $payment_id = NULL;
+    public $nom, $prenom, $email, $telephone, $pincode, $adresse, $payment_mode = NULL, $payment_id = NULL;
 
     protected $listeners = [
         'validationForm',
@@ -29,6 +31,13 @@ class CheckoutShow extends Component
         if($codOrder) {
 
             Cart::where('user_id', auth()->user()->id)->delete();
+
+            try {
+                $order = Order::findOrFail($codOrder->id);
+                Mail::to($order->email)->send(new PlaceOrderMaillable($order));
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
 
             session()->flash('message','Votre commande a été passée avec succès');
             $this->dispatchBrowserEvent('message', [
@@ -60,7 +69,7 @@ class CheckoutShow extends Component
             'nom' => 'required|string|max:121',
             'prenom' => 'required|string|max:121',
             'email' => 'required|email|max:121',
-            'phone' => 'required|string|min:8|max:12',
+            'telephone' => 'required|string|min:8|max:12',
             'pincode' => 'required|string|min:4|max:6',
             'adresse' => 'required|string|max:500'
         ];
@@ -75,7 +84,7 @@ class CheckoutShow extends Component
             'nom' => $this->nom,
             'prenom' => $this->prenom,
             'email' => $this->email,
-            'phone' => $this->phone,
+            'telephone' => $this->telephone,
             'pincode' => $this->pincode,
             'adresse' => $this->adresse,
             'status_message' =>'Commande en cours',
@@ -112,6 +121,13 @@ class CheckoutShow extends Component
 
             Cart::where('user_id', auth()->user()->id)->delete();
 
+            try {
+                $order = Order::findOrFail($codOrder->id);
+                Mail::to($order->email)->send(new PlaceOrderMaillable($order));
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+
             session()->flash('message','Votre commande a été passée avec succès');
             $this->dispatchBrowserEvent('message', [
                 'text' => "Félicitation ! votre commande a été passée avec succès",
@@ -147,6 +163,10 @@ class CheckoutShow extends Component
         $this->nom = auth()->user()->nom;
         $this->prenom = auth()->user()->prenom;
         $this->email = auth()->user()->email;
+
+        $this->telephone = auth()->user()->telephone;
+        $this->adresse = auth()->user()->adresse;
+        $this->pincode = auth()->user()->pincode;
 
         $this->totalProductAmont = $this->totalProductAmount();
 

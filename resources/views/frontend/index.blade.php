@@ -243,6 +243,6 @@
                 items:4
             }
         }
-    })
+    });
 </script>
 @endsection

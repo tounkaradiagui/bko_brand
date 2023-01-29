@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\InvoiceOrderMaillable;
 use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -71,8 +73,23 @@ class OrderController extends Controller
         $data = ['orders' => $orders];
 
         $pdf = Pdf::loadView('admin.invoice.generate-invoice', $data);
-
-        // $todayDate = Carbon::now()->format('Y-m-d');
         return $pdf->download('facture.pdf');
     }
+
+    public function sendMail(int $orderId)
+    {
+
+        try {
+            $orders = Order::findOrFail($orderId);
+            Mail::to("$orders->email")->send(new InvoiceOrderMaillable($orders));
+            return redirect('admin/orders/'.$orderId)->with('message','Félicitations !! La facture a été envoyée à '.$orders->email);
+        } catch(\Exception $e){
+
+            return redirect('admin/orders/'.$orderId)->with('message',"Erreur d'envoi de mail, veuillez réessayer ");
+        }
+
+    }
+
+
+
 }

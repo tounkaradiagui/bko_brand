@@ -39,7 +39,7 @@ class FrontendController extends Controller
         }
 
     }
-    
+
     public function productView(string $category_slug, string $product_slug )
     {
         $category = Category::where('slug', $category_slug)->first();
@@ -73,5 +73,16 @@ class FrontendController extends Controller
     {
         $featured = Product::where('featured', '1')->latest()->get();
         return view('frontend.pages.featured-product', compact('featured'));
+    }
+
+
+    public function ClientSideSearchProduct(Request $request)
+    {
+        if ($request->rechercher) {
+            $searchProducts = Product::where('nom', 'LIKE', '%'.$request->rechercher.'%')->latest()->paginate('25');
+            return view('frontend.pages.rechercherProduits', compact('searchProducts'));
+        }else {
+            return redirect()->back()->with('message', 'Aucun résultat pour votre recherche');
+        }
     }
 }

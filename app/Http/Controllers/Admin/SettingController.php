@@ -36,6 +36,8 @@ class SettingController extends Controller
                 'youtube' => $request->youtube
             ]);
 
+            return redirect()->back()->with('message', 'Configuration effectuée avec succès');
+
         }else{
             // else Create Data
             Setting::create([

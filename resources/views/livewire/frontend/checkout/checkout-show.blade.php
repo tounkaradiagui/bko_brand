@@ -15,7 +15,7 @@
                         <hr>
                         <small>* Les articles seront livrés en 3 jours.</small>
                         <br/>
-                        <small>* Les taxes et autres charges ne sont pas incluses si vous êtes à Bamako !</small>
+                        <small>* Des charges seront incluses si vous n'êtes pas à Bamako !</small>
                     </div>
                 </div>
 
@@ -35,22 +35,22 @@
 
                             <div class="col-md-3 mb-3">
                                 <label>Prénom</label>
-                                <input type="text" id="prenom" wire:model.defer="prenom" class="form-control" placeholder="Saisir le prénom" />
+                                <input type="text" id="prenom" wire:model.defer="prenom" class="form-control" placeholder="Saisir le prénom"/>
                                 @error('prenom') <small class="text-danger">{{$message}}</small>@enderror
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label>Numéro de téléphone</label>
-                                <input type="text" id="phone" wire:model.defer="phone" class="form-control" placeholder="Votre numéro de téléphone joignable" />
-                                @error('phone') <small class="text-danger">{{$message}}</small>@enderror
+                                <input type="text" id="telephone" wire:model.defer="telephone" class="form-control" placeholder="Votre numéro de téléphone joignable"/>
+                                @error('telephone') <small class="text-danger">{{$message}}</small>@enderror
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label>Adresse email</label>
-                                <input type="email" id="email" wire:model.defer="email" class="form-control" placeholder="Votre adresse email" />
+                                <input type="email" id="email" wire:model.defer="email" class="form-control" placeholder="Votre adresse email"/>
                                 @error('email') <small class="text-danger">{{$message}}</small>@enderror
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label>Code Pin (Zip-code)</label>
-                                <input type="text" id="pincode" wire:model.defer="pincode" class="form-control" placeholder="Veuillez saisir votre code pin" />
+                                <label>Code Postal (Zip-code)</label>
+                                <input type="text" id="pincode" wire:model.defer="pincode" class="form-control" placeholder="Veuillez saisir votre code Postal" />
                                 @error('pincode') <small class="text-danger">{{$message}}</small>@enderror
                             </div>
                             <div class="col-md-12 mb-3">
@@ -71,7 +71,7 @@
                                             <hr/>
                                             <button type="button" wire:loading.attr="disabled" wire:click="codOrder" class="btn btn-primary">
                                                 <span wire:loading.remove wire:target="codOrder()">
-                                                    Passer la commande (Paiement à la livraison)
+                                                    Passer la commande
                                                 </span>
 
                                                 <span wire:loading wire:target="codOrder()">
@@ -120,7 +120,7 @@
             // Show a validation error if the checkbox is not checked
             if (!document.getElementById('nom').value 
                 || !document.getElementById('prenom').value
-                || !document.getElementById('phone').value
+                || !document.getElementById('telephone').value
                 || !document.getElementById('email').value
                 || !document.getElementById('pincode').value
                 || !document.getElementById('adresse').value
@@ -132,7 +132,7 @@
             {
                 @this.set('nom', document.getElementById('nom').value);
                 @this.set('prenom', document.getElementById('prenom').value);
-                @this.set('phone', document.getElementById('phone').value);
+                @this.set('telephone', document.getElementById('telephone').value);
                 @this.set('email', document.getElementById('email').value);
                 @this.set('pincode', document.getElementById('pincode').value);
                 @this.set('adresse', document.getElementById('adresse').value);
