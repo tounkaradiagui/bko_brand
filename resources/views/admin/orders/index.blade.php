@@ -50,7 +50,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($commandes as $items )
+                                @forelse ($orders as $items )
                                 <tr>
                                     <td>{{$items->id}}</td>
                                     <td>{{$items->tracking_no}}</td>
@@ -69,7 +69,7 @@
                             </tbody>
                         </table>
                         <div>
-                            {{$commandes->links()}}
+                            {{$orders->links()}}
                         </div>
                     </div>
             </div>

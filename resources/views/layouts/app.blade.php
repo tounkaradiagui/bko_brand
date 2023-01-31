@@ -24,15 +24,15 @@
 
     {{-- plugin --}}
     <link rel="stylesheet" href="{{asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/vendors/base/vendor.bundle.base.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('admin/vendors/base/vendor.bundle.base.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
-    
+
     {{-- Favicon --}}
     <link rel="shortcut icon" href="{{asset('admin/images/logogolden.png')}}" >
-    
+
     {{--lien cdn alertify  --}}
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
-    
+
     {{-- OWL Carroussel --}}
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
@@ -52,7 +52,7 @@
     <div id="app">
 
         @include('layouts.inc.frontend.navbar')
-        
+
         <main>
             @yield('content')
         </main>
@@ -72,19 +72,19 @@
     <script src="{{ asset('assets/exzoom/jquery.exzoom.js') }}"></script>
 
     {{-- plugin --}}
-    <script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script>
+    {{-- <script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('admin/js/hoverable-collapse.js') }}"></script>
     <script src="{{ asset('admin/js/off-canvas.js') }}"></script>
-    <script src="{{ asset('admin/js/template.js') }}"></script>
+    <script src="{{ asset('admin/js/template.js') }}"></script> --}}
 
     <!-- JavaScript alertify -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
-        window.addEventListener('message', event => { 
+        window.addEventListener('message', event => {
             if(event.detail){
                 alertify.set('notifier','position', 'top-right');
                 alertify.notify(event.detail.text, event.detail.type);
-            }    
+            }
 
         });
     </script>

@@ -107,7 +107,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/orders', 'index');
         Route::get('/orders/{orderId}', 'show');
         Route::put('/orders/{orderId}', 'updateOrderStatus');
-        Route::get('/invoice/{orderId}', 'VoirInvoice');
+        Route::get('/invoice/{orderId}', 'ViewInvoice');
         Route::get('/invoice/{orderId}/generate', 'generateInvoice');
         Route::get('/invoice/{orderId}/mail', 'sendMail');
     });

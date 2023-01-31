@@ -154,7 +154,6 @@
             </tr>
             <tr class="bg-blue">
                 <th>Identifiants</th>
-                <th>Images</th>
                 <th>Produits</th>
                 <th>Prix</th>
                 <th>Quantités</th>
@@ -168,14 +167,6 @@
             @foreach ($order->orderItems as $Orderitem )
             <tr>
                 <td width="10%">{{$Orderitem->id}}</td>
-                <td width="10%">
-                    @if($Orderitem->product->productImages)
-                        <img src="{{asset($Orderitem->product->productImages[0]->image)}}" style="width: 50px; height: 50px" alt="{{$Orderitem->product->nom}}">
-                    @else
-                        <img src="" style="width: 50px; height: 50px" alt="">
-                    @endif
-                </td>
-
                 <td>
                     {{$Orderitem->product->nom}}
                     @if($Orderitem->productColor)
@@ -193,7 +184,7 @@
             </tr>
             @endforeach
             <tr class="bg-blue">
-                <td colspan="5" class="total-heading">Montant total</td>
+                <td colspan="4" class="total-heading">Montant total</td>
                 <td colspan="1"  class="total-heading">{{$totalPrice}} F CFA</td>
             </tr>
         </tbody>

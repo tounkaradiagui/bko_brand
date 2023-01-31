@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Mail\InvoiceOrderMaillable;
 use App\Models\Order;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -18,7 +19,7 @@ class OrderController extends Controller
         // $commandes = Order::whereDate('created_at', $todayDate)->paginate(5);
 
         $todayDate = Carbon::now()->format('Y-m-d');
-        $commandes = Order::when($request->date != null, function ($query) use($request){
+        $orders = Order::when($request->date != null, function ($query) use($request){
 
                             return $query->whereDate('created_at', $request->date);
 
@@ -32,14 +33,14 @@ class OrderController extends Controller
 
                             })
                             ->paginate(5);
-        return view('admin.orders.index', compact('commandes'));
+        return view('admin.orders.index', compact('orders'));
     }
 
     public function show(int $orderId)
     {
-        $orders = Order::where('id', $orderId)->first();
-        if($orders){
-            return view('admin.orders.view', compact('orders'));
+        $order = Order::where('id', $orderId)->first();
+        if($order){
+            return view('admin.orders.view', compact('order'));
         }else{
             return redirect()->back()->with('message', 'Aucune commande trouvée !');
         }
@@ -47,9 +48,9 @@ class OrderController extends Controller
 
     public function updateOrderStatus(int $orderId, Request $request)
     {
-        $orders = Order::where('id', $orderId)->first();
-        if($orders){
-            $orders->update([
+        $order = Order::where('id', $orderId)->first();
+        if($order){
+            $order->update([
                 'status_message' => $request->order_status
             ]);
 
@@ -61,31 +62,33 @@ class OrderController extends Controller
         }
     }
 
-    public function VoirInvoice(int $orderId)
+    public function ViewInvoice(int $orderId)
     {
-        $orders = Order::findOrFail($orderId);
-        return view('admin.invoice.generate-invoice', compact('orders'));
+        $order = Order::findOrFail($orderId);
+        return view('admin.invoice.generate-invoice', compact('order'));
     }
 
     public function generateInvoice(int $orderId)
     {
-        $orders = Order::findOrFail($orderId);
-        $data = ['orders' => $orders];
+        $order = Order::findOrFail($orderId);
+        $data = ['order' => $order];
 
+        $todayDate = Carbon::now()->format('d-m-Y');
         $pdf = Pdf::loadView('admin.invoice.generate-invoice', $data);
-        return $pdf->download('facture.pdf');
+        return $pdf->download('Facture'.'#'.$order->id.'-'.$todayDate.'.pdf');
     }
 
     public function sendMail(int $orderId)
     {
 
         try {
-            $orders = Order::findOrFail($orderId);
-            Mail::to("$orders->email")->send(new InvoiceOrderMaillable($orders));
-            return redirect('admin/orders/'.$orderId)->with('message','Félicitations !! La facture a été envoyée à '.$orders->email);
+            $order = Order::findOrFail($orderId);
+            
+            Mail::to("$order->email")->send(new InvoiceOrderMaillable($order));
+            return redirect('admin/orders/'.$orderId)->with('message','Félicitations !! La facture a été envoyée à '.$order->email);
         } catch(\Exception $e){
 
-            return redirect('admin/orders/'.$orderId)->with('message',"Erreur d'envoi de mail, veuillez réessayer ");
+            return redirect('admin/orders/'.$orderId)->with('error',"Erreur d'envoi de mail, veuillez réessayer ");
         }
 
     }

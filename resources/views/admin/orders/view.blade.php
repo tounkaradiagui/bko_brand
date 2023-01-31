@@ -22,18 +22,18 @@
             <div class="card-body">
 
                 <h3 class="pb-3">
-                    <i class="fa fa-shopping-cart text-dark"> Les détails de ma commande</i>
+                    <span class="fa fa-shopping-cart text-dark"> Les détails de ma commande</span>
                     <a href="{{url('admin/orders')}}">
-                        <i class="fa fa-arrow-left btn btn-danger float-end ml-2 btn-sm"> Back</i>
+                        <span class="fa fa-arrow-left btn btn-danger float-end ml-2 btn-sm"> Back</span>
                     </a>
-                    <a href="{{url('admin/invoice/'.$orders->id.'/generate')}}">
-                        <i class="fa fa-arrow-left btn btn-success btn-sm float-end ml-2"> Télécharger la facture</i>
+                    <a href="{{url('admin/invoice/'.$order->id.'/generate')}}">
+                        <span class="fa fa-arrow-left btn btn-success btn-sm float-end ml-2">Télécharger la facture</span>
                     </a>
-                    <a href="{{url('admin/invoice/'.$orders->id)}}" target="_blank">
-                        <i class="fa fa-arrow-left btn btn-primary float-end ml-2 btn-sm" > Voir la facture</i>
+                    <a href="{{url('admin/invoice/'.$order->id)}}" target="_blank">
+                        <span class="fa fa-eye btn btn-primary float-end ml-2 btn-sm" > Voir la facture</span>
                     </a>
-                    <a href="{{url('admin/invoice/'.$orders->id.'/mail')}}">
-                        <i class="fa fa-arrow-left btn btn-info float-end ml-2 btn-sm" > Envoyer la facture par Mail</i>
+                    <a href="{{url('admin/invoice/'.$order->id.'/mail')}}">
+                        <span class="fa fa-eye btn btn-info float-end ml-2 btn-sm" > Envoyer la facture par Mail</span>
                     </a>
                 </h3>
                 <hr>
@@ -41,25 +41,25 @@
                     <div class="col-md-6">
                         <h5>Détail de la commande</h5>
                         <hr>
-                        <h6>Id de la commande : {{$orders->id}}</h6>
-                        <h6>Numéro de la commande : {{$orders->tracking_no}}</h6>
-                        <h6>Date de la commande : {{$orders->created_at->format('d-m-Y h:i A')}}</h6>
-                        <h6>Mode de Paiement : {{$orders->payment_mode}}</h6>
+                        <h6>Id de la commande : {{$order->id}}</h6>
+                        <h6>Numéro de la commande : {{$order->tracking_no}}</h6>
+                        <h6>Date de la commande : {{$order->created_at->format('d-m-Y h:i A')}}</h6>
+                        <h6>Mode de Paiement : {{$order->payment_mode}}</h6>
                         <h6 class="border p-2 text-success">
                             Status de la commande :
-                            <span class="text-uppercase">{{$orders->status_message}}</span>
+                            <span class="text-uppercase">{{$order->status_message}}</span>
                         </h6>
                     </div>
 
                     <div class="col-md-6">
                         <h5>Détail de l'utilisateur</h5>
                         <hr>
-                        <h6>Nom : {{$orders->nom}}</h6>
-                        <h6>Prénom : {{$orders->prenom}}</h6>
-                        <h6>Email : {{$orders->email}}</h6>
-                        <h6>Numéro de Téléphone : {{$orders->phone}}</h6>
-                        <h6>Code Pin : {{$orders->pincode}}</h6>
-                        <h6>Adresse : {{$orders->adresse}}</h6>
+                        <h6>Nom : {{$order->nom}}</h6>
+                        <h6>Prénom : {{$order->prenom}}</h6>
+                        <h6>Email : {{$order->email}}</h6>
+                        <h6>Numéro de Téléphone : {{$order->phone}}</h6>
+                        <h6>Code Pin : {{$order->pincode}}</h6>
+                        <h6>Adresse : {{$order->adresse}}</h6>
                     </div>
                 </div>
                 <br>
@@ -81,7 +81,7 @@
                             @php
                                 $totalPrice = 0;
                             @endphp
-                            @foreach ($orders->orderItems as $Orderitem )
+                            @foreach ($order->orderItems as $Orderitem )
                             <tr>
                                 <td width="10%">{{$Orderitem->id}}</td>
                                 <td width="10%">
@@ -125,7 +125,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-5">
-                        <form action="{{ url('admin/orders/'.$orders->id)}}" method="post">
+                        <form action="{{ url('admin/orders/'.$order->id)}}" method="post">
                             @csrf
                             @method('PUT')
                             <label>Modifier le status de la commande</label>
@@ -143,7 +143,7 @@
                     </div>
                     <div class="col-md-7">
                         <br/>
-                        <h4 class="mt-3">Status actuel de la commande : <span class="text-uppercase">{{$orders->status_message}}</span> </h4>
+                        <h4 class="mt-3">Status actuel de la commande : <span class="text-uppercase">{{$order->status_message}}</span> </h4>
                     </div>
                 </div>
             </div>

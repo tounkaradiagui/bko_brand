@@ -48,21 +48,22 @@
                                     <i class="fa fa-user"></i> {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{url('monProfil')}}"><i class="fa fa-user"></i> Profile</a></li>
-                                <li><a class="dropdown-item" href="{{url('orders')}}"><i class="fa fa-list"></i> Mes Commandes</a></li>
-                                <li><a class="dropdown-item" href="{{url('wishlist')}}"><i class="fa fa-heart"></i> Mes Favoris</a></li>
-                                <li><a class="dropdown-item" href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> Mon Panier</a></li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                           <i class="fa fa-sign-out"></i> {{ __('Déconnexion') }}
+                                    <li><a class="dropdown-item" href="{{url('monProfil')}}"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li><a class="dropdown-item" href="{{url('admin/dashboard')}}"><i class="mdi mdi-speedometer"></i> Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{url('orders')}}"><i class="fa fa-list"></i> Mes Commandes</a></li>
+                                    <li><a class="dropdown-item" href="{{url('wishlist')}}"><i class="fa fa-heart"></i> Mes Favoris</a></li>
+                                    <li><a class="dropdown-item" href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> Mon Panier</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out"></i> {{ __('Déconnexion') }}
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
-                                </li>
+                                    </li>
                                 </ul>
                             </li>
                              @endguest
@@ -88,10 +89,10 @@
                             <a class="nav-link" href="{{url('/collections')}}">Catégories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/nouveaux-arrives')}}">Nouveaux arrivés</a>
+                            <a class="nav-link" href="{{url('/nouveaux-arrives')}}">Nouveautés</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/produits-populaire')}}">Produits populaires</a>
+                            <a class="nav-link" href="{{url('/produits-populaire')}}">Produits populaire</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/produits-eletronics')}}">Electronique</a>

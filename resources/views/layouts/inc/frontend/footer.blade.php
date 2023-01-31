@@ -46,7 +46,7 @@
                     <p class=""> &copy; 2023 - Golden - Market. Tous Droit Reservés.</p>
                 </div>
                 <div class="col-md-4">
-                    <div class="social-media">
+                    <div class="social-media text-white">
                         Réseaux sociaux :
                         @if ($appSetting->facebook)
                             <a href="{{$appSetting->facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>

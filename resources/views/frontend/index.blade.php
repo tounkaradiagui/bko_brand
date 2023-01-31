@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome to golden market')
+@section('title', 'Bienvenue sur Golden market')
 @section('content')
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
 
@@ -43,7 +43,7 @@
 
     <div class="py-5 bg-white">
         <div class="container">
-            <div class="row jystify-content-center">
+            <div class="row">
                 <div class="col-md-8 text-center">
                     <h4>Bienvenue sur Golden market</h4>
                 </div>
@@ -77,14 +77,13 @@
                                     <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
                                         <img src="{{asset($produit->productImages[0]->image)}}" alt="{{$produit->nom}}">
                                     </a>
-                                    {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}" alt="{{$produit->nom}}"> --}}
                                     @endif
                                 </div>
                                 <div class="product-card-body">
                                     <p class="product-brand">{{$produit->marque}}</p>
                                     <h5 class="product-name">
                                         <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                        {{$produit->nom}} 
+                                        {{$produit->nom}}
                                         </a>
                                     </h5>
                                     <div>
@@ -95,9 +94,9 @@
                             </div>
                         </div>
                         @endforeach
-                    </div>                    
+                    </div>
                 </div>
-                 @else 
+                 @else
                 <div class="col-md-12">
                     <div class="p-2">
                         <h4>
@@ -141,7 +140,7 @@
                                     <p class="product-brand">{{$produit->marque}}</p>
                                     <h5 class="product-name">
                                         <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                        {{$produit->nom}} 
+                                        {{$produit->nom}}
                                         </a>
                                     </h5>
                                     <div>
@@ -152,9 +151,9 @@
                             </div>
                         </div>
                         @endforeach
-                    </div>                    
+                    </div>
                 </div>
-                 @else 
+                 @else
                 <div class="col-md-12">
                     <div class="p-2">
                         <h4>
@@ -197,7 +196,7 @@
                                     <p class="product-brand">{{$produit->marque}}</p>
                                     <h5 class="product-name">
                                         <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                        {{$produit->nom}} 
+                                        {{$produit->nom}}
                                         </a>
                                     </h5>
                                     <div>
@@ -208,9 +207,9 @@
                             </div>
                         </div>
                         @endforeach
-                    </div>                    
+                    </div>
                 </div>
-                 @else 
+                 @else
                 <div class="col-md-12">
                     <div class="p-2">
                         <h4>

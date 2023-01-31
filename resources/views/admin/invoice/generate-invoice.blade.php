@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Facture #{{$orders->id}}</title>
+    <title>Facture #{{$order->id}}</title>
     <link rel="shortcut icon" href="{{asset('admin/images/logogolden.png')}}" >
 
 
@@ -86,13 +86,13 @@
         <thead>
             <tr>
                 <th width="50%" colspan="2">
-                    <h2 class="text-start">Golden market</h2>
+                    <h2 class="text-start">{{$appSetting->website_name ?? "Golden"}}</h2>
                 </th>
                 <th width="50%" colspan="2" class="text-end company-data">
-                    <span>Facture #{{$orders->id}}</span> <br>
-                    <span>{{$orders->created_at}}</span> <br>
-                    <span>Zip code : {{$orders->pincode}}</span> <br>
-                    <span>Adresse: {{$orders->adresse}}</span> <br>
+                    <span>Facture #{{$order->id}}</span> <br>
+                    <span>Date : {{$order->created_at->format('d-m-Y h:i A')}}</span> <br>
+                    <span>Zip code : {{$order->pincode}}</span> <br>
+                    <span>Adresse: {{$order->adresse}}</span> <br>
                 </th>
             </tr>
             <tr class="bg-blue">
@@ -103,39 +103,39 @@
         <tbody>
             <tr>
                 <td>Identifiant:</td>
-                <td>{{$orders->id}}</td>
+                <td>{{$order->id}}</td>
 
                 <td>Nom complet:</td>
-                <td>{{$orders->nom}} {{$orders->prenom}}</td>
+                <td>{{$order->nom}} {{$order->prenom}}</td>
 
             </tr>
             <tr>
                 <td>Numéro:</td>
-                <td>{{$orders->tracking_no}}</td>
+                <td>{{$order->tracking_no}}</td>
 
                 <td>Email:</td>
-                <td>{{$orders->email}}</td>
+                <td>{{$order->email}}</td>
             </tr>
             <tr>
                 <td>Date:</td>
-                <td>{{$orders->created_at->format('d-m-Y h:i A')}}</td>
+                <td>{{$order->created_at->format('d-m-Y h:i A')}}</td>
 
                 <td>Numéro de Téléphone:</td>
-                <td>{{$orders->phone}}</td>
+                <td>{{$order->phone}}</td>
             </tr>
             <tr>
                 <td>Mode Paiment:</td>
-                <td>{{$orders->payment_mode}}</td>
+                <td>{{$order->payment_mode}}</td>
 
                 <td>Adresse:</td>
-                <td>{{$orders->adresse}}</td>
+                <td>{{$order->adresse}}</td>
             </tr>
             <tr>
                 <td>Status de la commande:</td>
-                <td>{{$orders->status_message}}</td>
+                <td>{{$order->status_message}}</td>
 
                 <td>Pin code:</td>
-                <td>{{$orders->pincode}}</td>
+                <td>{{$order->pincode}}</td>
             </tr>
         </tbody>
     </table>
@@ -149,7 +149,6 @@
             </tr>
             <tr class="bg-blue">
                 <th>Identifiants</th>
-                <th>Images</th>
                 <th>Produits</th>
                 <th>Prix</th>
                 <th>Quantités</th>
@@ -160,17 +159,9 @@
             @php
                 $totalPrice = 0;
             @endphp
-            @foreach ($orders->orderItems as $Orderitem )
+            @foreach ($order->orderItems as $Orderitem )
             <tr>
                 <td width="10%">{{$Orderitem->id}}</td>
-                <td width="10%">
-                    @if($Orderitem->product->productImages)
-                        <img src="{{asset($Orderitem->product->productImages[0]->image)}}" style="width: 50px; height: 50px" alt="{{$Orderitem->product->nom}}">
-                    @else
-                        <img src="" style="width: 50px; height: 50px" alt="">
-                    @endif
-                </td>
-
                 <td>
                     {{$Orderitem->product->nom}}
                     @if($Orderitem->productColor)

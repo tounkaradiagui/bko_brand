@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+@section('title', 'Mon Tableau de Bord')
 @section('content')
 
 <div class="row">
