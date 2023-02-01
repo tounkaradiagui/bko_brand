@@ -39,7 +39,6 @@
                         <table class="table table-bordered table-striped">
                             <thead class="bg-dark text-white">
                                 <tr>
-                                    <th>Id commande</th>
                                     <th>Numéro de commande</th>
                                     <th>Nom</th>
                                     <th>Prénom</th>
@@ -52,7 +51,6 @@
                             <tbody>
                                 @forelse ($orders as $items )
                                 <tr>
-                                    <td>{{$items->id}}</td>
                                     <td>{{$items->tracking_no}}</td>
                                     <td>{{$items->nom}}</td>
                                     <td>{{$items->prenom}}</td>

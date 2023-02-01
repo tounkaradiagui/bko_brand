@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h4>Modification du produit
-                    <a href="{{url('admin/products')}}" class="btn btn-danger float-end btn-sm text-white">Retour</a>
+                    <a href="{{url('admin/products')}}" class="btn btn-danger float-end btn-sm text-white" title="Retour"><i class="mdi mdi-arrow-left"></i></a>
                 </h4>
             </div>
             <div class="card-body">
@@ -114,7 +114,7 @@
                                 <label for="">Mots clés</label>
                                 <textarea name="meta_keyword" id="" cols="30" rows="10" class="form-control">{{$product->meta_keyword}}</textarea>
                             </div>
-                            
+
                         </div>
                         <div class="tab-pane fade border p-3" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
                             <div class="row">
@@ -222,7 +222,7 @@
                                                 <div class="input-group mb-3" style="width:150px">
                                                     <input type="text" value="{{$productColor->quantity}}" class="productColorQuantity form-control form-control-sm" id="">
                                                     <button typpe="button" value="{{$productColor->id}}" class="updateProductColorBtn btn btn-primary btn-sm text-white">Modifiée</button>
-                                                </div> 
+                                                </div>
                                             </td>
                                             <td>
                                             <button typpe="button" value="{{$productColor->id}}" class="deleteProductColorBtn btn btn-danger btn-sm text-white">Supprimé</button>
@@ -267,7 +267,7 @@
                 alert('qty is required');
                 return false;
             }
-            
+
             var data = {
                 'product_id': product_id,
                 'qty': qty
@@ -281,7 +281,7 @@
                     alert(response.message)
                 },
                 error: function(response) {
-                console.log(response.message); 
+                console.log(response.message);
                 }
             });
 
@@ -290,9 +290,9 @@
         });
 
         $(document).on('click', '.deleteProductColorBtn', function() {
-        
+
             var prod_color_id = $(this).val();
-            var thisClick =$(this); 
+            var thisClick =$(this);
 
             $.ajax({
                 type: "GET",

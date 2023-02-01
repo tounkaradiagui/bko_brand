@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" style="background-color: #2874f0; color:#fff;">
-        <ul class="navbar-nav mr-lg-4 w-100" >
+        {{-- <ul class="navbar-nav mr-lg-4 w-100" >
             <li class="nav-item nav-search d-none d-lg-block w-100">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -25,7 +25,7 @@
                     <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
                 </div>
             </li>
-        </ul>
+        </ul> --}}
         <ul class="navbar-nav navbar-nav-right" >
             <li class="nav-item dropdown me-1">
                 <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-bs-toggle="dropdown">
@@ -123,7 +123,7 @@
             </li>
             <li class="nav-item nav-profile dropdown" >
                 <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                    <img src="images/faces/face5.jpg" alt="profile"/>
+                    <img src="{{asset('uploads/profile/' .Auth::user()->image)}}" alt="profile"/>
                     <span class="nav-profile-name text-white">{{Auth::user()->prenom}} {{Auth::user()->nom}}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">

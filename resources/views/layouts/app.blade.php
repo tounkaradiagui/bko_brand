@@ -74,8 +74,8 @@
     {{-- plugin --}}
     {{-- <script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('admin/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('admin/js/off-canvas.js') }}"></script>
-    <script src="{{ asset('admin/js/template.js') }}"></script> --}}
+    <script src="{{ asset('admin/js/off-canvas.js') }}"></script>--}}
+    <script src="{{ asset('admin/js/template.js') }}"></script>
 
     <!-- JavaScript alertify -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>

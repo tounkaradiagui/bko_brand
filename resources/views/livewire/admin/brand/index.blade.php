@@ -7,7 +7,7 @@
                     <div class="card-header">
                         <h4>
                             La liste de marques
-                            <a href="#" class="btn btn-primary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#ajoutModal">Ajouté une marque</a>
+                            <a href="#" class="btn btn-primary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#ajoutModal" title="Ajouter"><i class="mdi mdi-plus"></i></a>
                         </h4>
                     </div>
 
@@ -15,7 +15,6 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Nom de la marque</th>
                                     <th>Catégorie</th>
                                     <th>Slug</th>
@@ -27,7 +26,6 @@
                             <tbody>
                                 @forelse($brands as $brand)
                                 <tr>
-                                    <td>{{$brand->id}}</td>
                                     <td>{{$brand->nom}}</td>
                                     <td>
                                         @if($brand->category)
@@ -37,9 +35,9 @@
                                         @endif
                                     </td>
                                     <td>{{$brand->slug}}</td>
-                                    <td>{{$brand->status =='1' ? 'hidden':'visible'}}</td>
-                                    <td> <a href="#" wire:click="editBrand({{$brand->id}})" data-bs-toggle="modal" data-bs-target="#updateBrandModal" class="btn btn-success btn-sm ">Modifié</a> </td>
-                                    <td><a href="#" wire:click="deleteBrand({{$brand->id}})" class="btn btn-danger btn-sm " data-bs-toggle="modal" data-bs-target="#deleteBrandModal">Delete</a></td>
+                                    <td>{{$brand->status =='1' ? 'masquer':'visible'}}</td>
+                                    <td> <a href="#" wire:click="editBrand({{$brand->id}})" data-bs-toggle="modal" data-bs-target="#updateBrandModal" class="btn btn-success btn-sm" title="Modifier"><i class="mdi mdi-pen"></i> </td>
+                                    <td><a href="#" wire:click="deleteBrand({{$brand->id}})" class="btn btn-danger btn-sm " data-bs-toggle="modal" data-bs-target="#deleteBrandModal" title="Supprimer"><i class="mdi mdi-delete"></i></a></td>
                                 </tr>
                                 @empty
                                 <tr>

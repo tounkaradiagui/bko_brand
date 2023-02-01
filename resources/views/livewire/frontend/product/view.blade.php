@@ -31,7 +31,7 @@
                         </h4>
                         <hr>
                         <p class="product-path">
-                            Accueil / {{$product->category->name}} / {{$product->nom}} 
+                            Accueil / {{$product->category->name}} / {{$product->nom}}
                         </p>
                         <p class="product-path">Marque : {{$product->marque}}</p>
                         <div>
@@ -41,10 +41,10 @@
                         <div>
 
                             @if($product->productColors->count() > 0)
-                            
+
                                 @if($product->productColors)
                                     @foreach($product->productColors as $colorItem)
-                                        <label class="colorSelectionLabel" style="background-color:{{$colorItem->color->code_couleur}}" 
+                                        <label class="colorSelectionLabel" title="{{$colorItem->color->nom_couleur}}"  style="background-color:{{$colorItem->color->code_couleur}}"
                                          wire:click="colorSelected({{$colorItem->id}})" >
                                             {{$colorItem->color->nom_couleur}}
 
@@ -53,7 +53,7 @@
                                 @endif
 
                                 <div>
-                                
+
                                     @if($this->productColorSelectedQuantity == 'enRuptureDeStock')
                                         <label class="btn-sm py-1 mt-2 text-white bg-danger">En rupture de  Stock</label>
                                     @elseif($this->productColorSelectedQuantity > 0)
@@ -63,13 +63,13 @@
 
                             @else
 
-                               
+
                                 @if($product->quantity)
                                     <label class="btn-sm py-1 mt-2 text-white bg-success">En Stock</label>
                                 @else
                                     <label class="btn-sm py-1 mt-2 text-white bg-danger">En rupture de  Stock</label>
                                 @endif
-                        
+
 
                             @endif
 
@@ -88,7 +88,7 @@
 
                             <button type="button" wire:click="addToWishlist({{$product->id}})"  class="btn btn1">
                                 <span wire:loading.remove wire:target="addToWishlist({{$product->id}})">
-                                    <i class="fa fa-heart"></i> Ajouter à la liste de Souhait 
+                                    <i class="fa fa-heart"></i> Ajouter à la liste de Souhait
                                 </span>
 
                                 <span wire:loading wire:target="addToWishlist({{$product->id}})">
@@ -137,7 +137,7 @@
                 <div class="col-md-12">
                     @if ($category)
                         <div class="owl-carousel owl-theme four-carousel">
-                            @foreach ($category->relatedProducts as $relatedproducts) 
+                            @foreach ($category->relatedProducts as $relatedproducts)
                                 @if ($relatedproducts->marque == "$product->marque")
                                     <div class="item mb-3">
                                         <div class="product-card">
@@ -152,7 +152,7 @@
                                                 <p class="product-brand">{{$relatedproducts->marque}}</p>
                                                 <h5 class="product-name">
                                                     <a href="{{url('/collections/'.$relatedproducts->category->slug.'/'.$relatedproducts->slug)}} ">
-                                                    {{$relatedproducts->nom}} 
+                                                    {{$relatedproducts->nom}}
                                                     </a>
                                                 </h5>
                                                 <div>
@@ -190,7 +190,7 @@
                     </h3>
                     <div class="underline"></div>
                 </div>
-                @forelse ($category->relatedProducts as $relatedproducts)               
+                @forelse ($category->relatedProducts as $relatedproducts)
                     <div class="col-md-3 mb-3">
                         <div class="product-card">
                             <div class="product-card-img">
@@ -204,7 +204,7 @@
                                 <p class="product-brand">{{$relatedproducts->marque}}</p>
                                 <h5 class="product-name">
                                     <a href="{{url('/collections/'.$relatedproducts->category->slug.'/'.$relatedproducts->slug)}} ">
-                                    {{$relatedproducts->nom}} 
+                                    {{$relatedproducts->nom}}
                                     </a>
                                 </h5>
                                 <div>
@@ -241,7 +241,7 @@
                 "navBorder": 1,
                 "autoPlay": false,
                 "autoPlayTimeout": 2000
-            
+
             });
 
         });

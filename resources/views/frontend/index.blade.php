@@ -45,12 +45,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 text-center">
-                    <h4>Bienvenue sur Golden market</h4>
+                    <h3>Bienvenue sur Golden market</h3>
                 </div>
                 <div class="underline mx-auto"></div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius repudiandae tenetur quos voluptas quam minus
-                    maiores suscipit aspernatur omnis ea reicienis aut vel cum, perferendis quasi natus at! Rerum, nam.
-                </p>
+                <h5>
+                    Golden Market est un site de commerce électronique vendant des produits tels que des vêtements, des chaussures, des téléphones et des ordinateurs et des appareils électroménagers.
+                </h5>
+                <h5>
+                    Sur golden market vous avez le choix entre payer votre commande à la livraison ou payer directement en ligne avec votre compte paypal (paiement sécurisé).
+
+                </h5>
+
             </div>
         </div>
     </div>

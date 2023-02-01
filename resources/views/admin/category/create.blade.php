@@ -7,13 +7,13 @@
         <div class="card">
             <div class="card-header">
                 <h4>L'ajout d'une catégorie
-                    <a href="{{url('admin/category')}}" class="btn btn-danger float-end btn-sm text-white">Retour</a>
+                    <a href="{{url('admin/category')}}" class="btn btn-danger float-end btn-sm text-white" title="Retour"><i class="mdi mdi-arrow-left"></i></a>
                 </h4>
             </div>
             <div class="card-body">
                 <form action="{{url('admin/category')}}" method="POST" enctype="multipart/form-data" >
                     @csrf
-                    
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="name">Nom</label>

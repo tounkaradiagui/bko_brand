@@ -25,6 +25,18 @@
 
     <link rel="shortcut icon" href="{{asset('admin/images/logogolden.png')}}" >
 
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"> --}}
+
+    <style>
+        .form-control{
+            border:1px solid #ddd;
+        }
+
+        .sidebar .nav .nav-item.active{
+            background-color: #e9e9e9;
+        }
+
+    </style>
     @livewireStyles
 </head>
 <body>
@@ -49,6 +61,9 @@
     <script src="{{asset('admin/vendors/datatables.net/jquery.dataTables.js')}}"></script>
     <script src="{{asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
 
+    {{-- <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+
     <script src="{{asset('admin/js/off-canvas.js')}}"></script>
     <script src="{{asset('admin/js/hoverable-collapse.js')}}"></script>
     <script src="{{asset('admin/js/template.js')}}"></script>
@@ -64,6 +79,12 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.x/dist/alpine.min.js" defer></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
 
 @yield('scripts')
 

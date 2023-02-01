@@ -14,23 +14,22 @@
                 </h4>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped display">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Nom</th>
                             <th>Prénom</th>
                             <th>Email</th>
                             <th>Téléphone</th>
                             <th>Adresse</th>
                             <th>Role</th>
+                            <th>Statut</th>
                             <th colspan="2" class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($users as $user)
                         <tr>
-                            <td>{{$user->id}}</td>
                             <td>{{$user->nom}}</td>
                             <td>{{$user->prenom}}</td>
                             <td>{{$user->email}}</td>
@@ -45,9 +44,26 @@
                                     <label class="badge badge-warning">Aucun rôle assigné</label>
                                 @endif
                             </td>
-                            {{-- <td>{{$user->status == '1' ? 'Masqué':'Visible'}}</td> --}}
+                            <td>
+                                @if ($user->statut == 0)
+                                    <span class="badge badge-danger">Inactif</span>
+                                @elseif ($user->statut == 1)
+                                    <span class="badge badge-success">Actif</span>
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{url('admin/users/'.$user->id.'/edit')}}" class="btn btn-primary btn-sm" title="Modifier ?"><i class="mdi mdi-pen"></i></a>
+                            </td>
+                            <td>
+                               @if($user->statut == 1)
+                                <a href="{{route('users.status', ['user_id' => $user->id, 'status_code' => 0 ])}}" class="btn-sm btn btn-danger m-2" title="Desactiver cet utilisateur">
+                                    <i class="mdi mdi-cancel" ></i>
+                                </a>
+                                @else
+                                <a href="{{route('users.status', ['user_id' => $user->id, 'status_code' => 1 ])}}" class="btn-sm btn btn-success m-2" title="Activer cet utilisateur">
+                                    <i class="mdi mdi-check-circle" ></i>
+                                </a>
+                                @endif
                             </td>
                             <td>
                                 <a href="{{url('admin/users/'.$user->id.'/delete')}}"
@@ -69,5 +85,4 @@
         </div>
     </div>
 </div>
-
 @endsection()

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('lieu_de_naissance')->nullable();
             $table->string('pincode')->nullable();
             $table->string('image')->nullable();
+            $table->tinyInteger('statut')->default(1);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

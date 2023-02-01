@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-header">
                 <h4>La liste de couleurs
-                    <a href="{{url('admin/sliders/create')}}" class="btn btn-primary float-end btn-sm text-white">Ajouter</a>
+                    <a href="{{url('admin/sliders/create')}}" class="btn btn-primary float-end btn-sm text-white" title="Ajouter"><i class="mdi mdi-plus"></i></a>
                 </h4>
             </div>
             <div class="card-body">

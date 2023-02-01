@@ -7,6 +7,9 @@
             <div class="row flex-grow">
                 <div class="col-lg-6 d-flex align-items-center justify-content-center">
                     <div class="auth-form-transparent text-left p-3">
+                        @if (session('message'))
+                            <div class="alert alert-danger">{{(session('message'))}}</div>
+                        @endif
                         <div class="brand-logo">
                             <img src="{{asset('admin/images/logogolden.png')}}" alt="logo">
                         </div>
@@ -43,7 +46,7 @@
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                    @enderror                        
+                                    @enderror
                                 </div>
                             </div>
                             <div class="my-2 d-flex justify-content-between align-items-center">
@@ -59,7 +62,7 @@
                             </div>
 
                             <div class="my-3">
-                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Connexion</button>
+                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">S'identifier</button>
                             </div>
 
                             <div class="mb-2 d-flex">

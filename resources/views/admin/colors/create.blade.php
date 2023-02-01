@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-header">
                 <h4>L'ajout de couleurs
-                    <a href="{{url('admin/colors')}}" class="btn btn-danger float-end btn-sm text-white">retour</a>
+                    <a href="{{url('admin/colors')}}" class="btn btn-danger float-end btn-sm text-white" title="Retour"><i class="mdi mdi-arrow-left"></i></a>
                 </h4>
             </div>
             <div class="card-body">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="">Status</label> <br>
-                        <input type="checkbox" name="status"/> checked = Hidden, Unchecked = Visible
+                        <input type="checkbox" name="status"/> Cocher = Masquée, Décocher = Visible
                     </div>
 
                     <div class="mb-3">

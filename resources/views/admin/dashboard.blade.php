@@ -17,7 +17,7 @@
                         <h2 class="alert alert-success">{{session('message')}}</h2>
                     @endif
 
-                    <p class="mb-md-0">Votre tableau de bord analytique.</p>
+                    <p class="mb-md-0">Mon tableau de bord analytique.</p>
                 </div>
 
             </div>

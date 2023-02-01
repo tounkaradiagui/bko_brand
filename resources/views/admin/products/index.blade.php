@@ -42,10 +42,11 @@
                             <td>{{$product->quantity}}</td>
                             <td>{{$product->status == '1' ? 'Masqué':'Visible'}}</td>
                             <td>
-                                <a href="{{url('admin/products/'.$product->id.'/edit')}}" class="btn btn-primary btn-sm">Modifier</a>
+                                <a href="{{url('admin/products/'.$product->id.'/edit')}}" class="btn btn-primary btn-sm" title="Modifier"><i class="mdi mdi-plus"></i></a>
                             </td>
                             <td>
-                                <a href="{{url('admin/products/'.$product->id.'/delete')}}" onclick="return confirm('Voulez-vous vraiment supprimer ce produit ?')" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="{{url('admin/products/'.$product->id.'/delete')}}" onclick="return confirm('Voulez-vous vraiment supprimer ce produit ?')"
+                                     class="btn btn-danger btn-sm" title="Supprimer"><i class="mdi mdi-delete"></i></a>
                             </td>
                         </tr>
                         @empty

@@ -6,8 +6,9 @@
                     <h4 class="footer-heading">{{$appSetting->website_name ?? 'Mon site web'}}</h4>
                     <div class="footer-underline"></div>
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                        Sur Golden market vous pouvez également commander des produits au nom de vos amis en vous connectant à votre compte.
+                        L'inscription ne prend que quelques secondes, allez-y !! inscrivez-vous pour faire du shopping au marché d'or. meilleur site de vente au Mali
+
                     </p>
                 </div>
                 <div class="col-md-3">

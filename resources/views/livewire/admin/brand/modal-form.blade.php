@@ -4,9 +4,9 @@
 <div livewire:ignore.self class="modal fade" id="ajoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-white" style="background-color: #2874f0 ;">
                 <h5 class="modal-title" id="exampleModalLabel">Ajouté une marque</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <form wire:submit.prevent="enregistMarque">
@@ -34,14 +34,14 @@
                     </div>
                     <div class="mb-3">
                         <label>Status</label>
-                        <input type="checkbox" wire:model.defer="status"/> Checked=Hidden, Un-checked= Visible 
+                        <input type="checkbox" wire:model.defer="status"/> Cocher=Masqué, Décocher= Visible
                         @error('status') <small class="text-danger">{{$message}}</small> @enderror
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="submit" class="btn btn-primary">Ajouté</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
                 </div>
             </form>
         </div>
@@ -55,7 +55,7 @@
 <div wire:ignore.self class="modal fade" id="updateBrandModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-white" style="background-color: #2874f0 ;">
                 <h5 class="modal-title" id="exampleModalLabel">Modifié la marque</h5>
                 <button type="button" class="btn-close" wire:click="closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -94,16 +94,16 @@
                         </div>
                         <div class="mb-3">
                             <label>Status</label>
-                            <input type="checkbox" wire:model.defer="status" style="width:15px; height:15px;"/> Checked=Hidden, Un-checked= Visible 
+                            <input type="checkbox" wire:model.defer="status" style="width:15px; height:15px;"/> Checked=Hidden, Un-checked= Visible
                             @error('status') <small class="text-danger">{{$message}}</small> @enderror
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" wire:click="closeModal" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Validé</button>
+                        <button type="button" wire:click="closeModal" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Valider</button>
                     </div>
-                </form> 
+                </form>
             </div>
         </div>
     </div>
@@ -124,7 +124,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Suppression d'une marque</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
- 
+
                 <form wire:submit.prevent="destroyBrand">
 
                     <div class="modal-body">

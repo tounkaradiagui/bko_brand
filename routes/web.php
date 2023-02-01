@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::group(['middleware' => ['auth', 'isChecked']], function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
 
 Auth::routes();
 
@@ -29,7 +32,6 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/produits-populaire', 'featuredProducts');
 
     Route::get('/rechercher', 'ClientSideSearchProduct');
-
 });
 
 
@@ -40,6 +42,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('orders', [App\Http\Controllers\Frontend\OrderController::class, 'index']);
     Route::get('orders/{orderId}', [App\Http\Controllers\Frontend\OrderController::class, 'show']);
 
+    Route::get('/update/status/{user_id}/{status_code}', [App\Http\Controllers\Admin\UserController::class, 'updateStatus'])->name('users.status');
     Route::get('monProfil', [App\Http\Controllers\Frontend\UserController::class, 'index']);
     Route::post('monProfil', [App\Http\Controllers\Frontend\UserController::class, 'UpdateUserdetails']);
     Route::get('my-password', [App\Http\Controllers\Frontend\UserController::class, 'getPassword']);
@@ -47,8 +50,6 @@ Route::middleware(['auth'])->group(function(){
 });
 
 Route::get('thank-you', [App\Http\Controllers\Frontend\FrontendController::class, 'thankyou']);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index' ]);
@@ -113,7 +114,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     });
 
     Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {
-        Route::get('/users', 'index');
+        Route::get('/users', 'index')->name('users.index');
         Route::get('/users/create', 'create');
         Route::post('/users', 'store');
         Route::get('/users/{userId}/edit', 'edit');

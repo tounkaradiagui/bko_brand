@@ -73,4 +73,31 @@ class UserController extends Controller
 
         return redirect('/admin/users')->with('message', 'Utilisateur supprimé avec succès');
     }
+
+    /**
+     * update users status
+     *@param int $user_id
+     *@param int $status_code
+     *@return Success Response
+     *
+     * */
+
+    public function updateStatus($user_id, $status_code)
+    {
+        try {
+           $update_user = User::whereId($user_id)->update([
+                'statut' => $status_code
+           ]);
+
+           if($update_user)
+           {
+            return redirect()->route('users.index')->with('message', "Le status de l'utilisateur a été modifié avec succès ");
+
+        }
+            return redirect()->route('users.index')->with('error', "Echec de modification, veuillez réessayer ! ");
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }

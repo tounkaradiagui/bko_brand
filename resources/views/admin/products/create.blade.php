@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <h4>L'ajout de produits
-                    <a href="{{url('admin/products')}}" class="btn btn-danger float-end btn-sm text-white">Retour</a>
+                    <a href="{{url('admin/products')}}" class="btn btn-danger float-end btn-sm text-white" title="Retour"><i class="mdi mdi-arrow-left"></i></a>
                 </h4>
             </div>
             <div class="card-body">
@@ -69,7 +69,7 @@
                                 <label for="">Nom du produit</label>
                                 <input type="text" name="nom" class="form-control">
                             </div>
-                            
+
 
                             <div class="mb-2">Slug du produit</label>
                                 <input type="text" name="slug" class="form-control">
@@ -109,7 +109,7 @@
                                 <label for="">Mots clés</label>
                                 <textarea name="meta_keyword" id="" cols="30" rows="10" class="form-control"></textarea>
                             </div>
-                            
+
                         </div>
                         <div class="tab-pane fade border p-3" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
                             <div class="row">
