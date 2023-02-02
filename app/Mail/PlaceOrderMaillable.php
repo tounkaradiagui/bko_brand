@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 
 class PlaceOrderMaillable extends Mailable
 {
-    public $order;
+    public $orders;
 
     use Queueable, SerializesModels;
 
@@ -18,9 +18,9 @@ class PlaceOrderMaillable extends Mailable
      *
      * @return void
      */
-    public function __construct($order)
+    public function __construct($orders)
     {
-        $this->order = $order;
+        $this->orders = $orders;
     }
 
     /**

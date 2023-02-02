@@ -179,7 +179,7 @@
             </tr>
             @endforeach
             <tr class="bg-blue">
-                <td colspan="5" class="total-heading">Montant total</td>
+                <td colspan="4" class="total-heading">Montant total</td>
                 <td colspan="1"  class="total-heading">{{$totalPrice}} F CFA</td>
             </tr>
         </tbody>

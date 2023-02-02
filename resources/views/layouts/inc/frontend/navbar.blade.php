@@ -49,7 +49,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="{{url('monProfil')}}"><i class="fa fa-user"></i> Profile</a></li>
-                                    <li><a class="dropdown-item" href="{{url('admin/dashboard')}}"><i class="mdi mdi-speedometer"></i> Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{url('admin/dashboard')}}" target="_blank"><i class="mdi mdi-speedometer"></i> Dashboard</a></li>
                                     <li><a class="dropdown-item" href="{{url('orders')}}"><i class="fa fa-list"></i> Mes Commandes</a></li>
                                     <li><a class="dropdown-item" href="{{url('wishlist')}}"><i class="fa fa-heart"></i> Mes Favoris</a></li>
                                     <li><a class="dropdown-item" href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> Mon Panier</a></li>

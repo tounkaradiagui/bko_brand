@@ -34,7 +34,7 @@
 
                     <div class="mb-3">
                         <label for="">Status</label> <br>
-                        <input type="checkbox" {{$slider->status == '1' ? 'checked' : ''}} style="width:30px; height:30px;" name="status"/> checked = Hidden, Unchecked = Visible
+                        <input type="checkbox" {{$slider->status == '1' ? 'checked' : ''}} style="width:30px; height:30px;" name="status"/> Cocher = Masqué, Decocher = Visible
                     </div>
 
                     <div class="mb-3">

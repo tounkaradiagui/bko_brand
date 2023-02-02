@@ -16,7 +16,6 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Titre</th>
                             <th>Description</th>
                             <th>Image</th>
@@ -27,7 +26,6 @@
                     <tbody>
                         @foreach($sliders as $slider)
                         <tr>
-                            <td>{{$slider->id}}</td>
                             <td>{{$slider->title}}</td>
                             <td>{{$slider->description}}</td>
                             <td>
@@ -36,10 +34,10 @@
                             </td>
                             <td>{{$slider->status ? 'Hidden':'Visible'}}</td>
                             <td>
-                                <a href="{{url('admin/sliders/'.$slider->id.'/edit')}}" class="btn btn-primary btn-sm" >edit</a>
+                                <a href="{{url('admin/sliders/'.$slider->id.'/edit')}}" class="btn btn-primary btn-sm" title="Modifier ?"><i class="mdi mdi-pen"></i></a>
                             </td>
                             <td>
-                                <a href="{{url('admin/sliders/'.$slider->id.'/delete')}}" onclick="return confirm('Voule-vous vraiment supprimé ce slider ?')" class="btn btn-danger btn-sm" >delete</a>
+                                <a href="{{url('admin/sliders/'.$slider->id.'/delete')}}" onclick="return confirm('Voule-vous vraiment supprimé ce slider ?')" class="btn btn-danger btn-sm" title="Supprimer ?"><i class="mdi mdi-delete"></i></a>
                             </td>
                         </tr>
                         @endforeach

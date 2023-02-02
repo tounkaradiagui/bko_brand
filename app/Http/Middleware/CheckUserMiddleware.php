@@ -4,9 +4,9 @@ namespace App\Http\Middleware;
 
 use Carbon\Carbon;
 use Closure;
-use Dompdf\Image\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class CheckUserMiddleware
 {
@@ -30,13 +30,14 @@ class CheckUserMiddleware
              veuillez contacté l'administrateur !");
 
         }
-        return $next($request);
 
-        // if(Auth::check())
-        // {
-        //     $expireAt = Carbon::now()->addMinutes(1);
-        //     Cache::put('user-is-online'.Auth::user()->id, true, $expireAt);
-        // }
+        if(Auth::check())
+        {
+            $expireAt = Carbon::now()->addMinutes(1);
+            Cache::put('user-is-online'.Auth::user()->id, true, $expireAt);
+        }
+
+        return $next($request);
 
     }
 }

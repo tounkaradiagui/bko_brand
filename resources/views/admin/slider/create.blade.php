@@ -32,7 +32,7 @@
 
                     <div class="mb-3">
                         <label for="">Status</label> <br>
-                        <input type="checkbox" name="status"/> checked = Hidden, Unchecked = Visible
+                        <input type="checkbox" name="status"/> Cocher = Masqué, Decocher = Visible
                     </div>
 
                     <div class="mb-3">

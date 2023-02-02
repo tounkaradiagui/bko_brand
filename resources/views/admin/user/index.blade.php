@@ -9,12 +9,22 @@
         @endif
         <div class="card">
             <div class="card-header">
-                <h4>La liste des utilisateurs
+                <h4>La liste des utilisateurs || En ligne :
+                    @php $user_total = "0"; @endphp
+                    @foreach($users as $users_total)
+                        @php
+                        if($users_total->isUserOnline())
+                        {
+                            $user_total = $user_total + 1;
+                        }
+                        @endphp
+                    @endforeach
+                    {{$user_total}}
                     <a href="{{url('admin/users/create')}}" class="btn btn-primary float-end btn-sm text-white" title="Ajouter un nouvel utilisateur"><i class="mdi mdi-plus-circle"></i></a>
                 </h4>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-striped display">
+                <table class="table table-bordered table-responsive table-striped display">
                     <thead>
                         <tr>
                             <th>Nom</th>
@@ -24,6 +34,7 @@
                             <th>Adresse</th>
                             <th>Role</th>
                             <th>Statut</th>
+                            <th>Connectivité</th>
                             <th colspan="2" class="text-center">Actions</th>
                         </tr>
                     </thead>
@@ -49,6 +60,13 @@
                                     <span class="badge badge-danger">Inactif</span>
                                 @elseif ($user->statut == 1)
                                     <span class="badge badge-success">Actif</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if($user->isUserOnline())
+                                    <span class="badge badge-success">En ligne</span>
+                                @else
+                                    <span class="badge badge-danger">Déconnecté</span>
                                 @endif
                             </td>
                             <td>

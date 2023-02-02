@@ -17,7 +17,6 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Catégorie</th>
                             <th>Produits</th>
                             <th>Prix</th>
@@ -29,7 +28,6 @@
                     <tbody>
                         @forelse ($products as $product)
                         <tr>
-                            <td>{{$product->id}}</td>
                             <td>
                                 @if($product->category)
                                     {{$product->category->name}}
