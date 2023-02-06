@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+
+@section('title', 'Enregistrement de couleurs')
+
 @section('content')
 
 <div class="row">

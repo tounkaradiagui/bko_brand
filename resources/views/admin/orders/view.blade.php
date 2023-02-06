@@ -16,27 +16,23 @@
         @endif
         <div class="card">
             <div class="card-header">
-                <h4>Mes commandes
-                </h4>
+                <h3 class="pb-3">Les détails de ma commande
+                    <a href="{{url('admin/orders')}}">
+                        <span class="mdi mdi-arrow-left btn btn-danger float-end ml-2 btn-sm"> Back</span>
+                    </a>
+                    <a href="{{url('admin/invoice/'.$order->id.'/generate')}}">
+                        <span class="mdi mdi-arrow-down btn btn-success btn-sm float-end ml-2">Télécharger la facture</span>
+                    </a>
+                    <a href="{{url('admin/invoice/'.$order->id)}}" target="_blank">
+                        <span class="mdi mdi-eye btn btn-primary float-end ml-2 btn-sm" > Voir la facture</span>
+                    </a>
+                    <a href="{{url('admin/invoice/'.$order->id.'/mail')}}">
+                        <span class="mdi mdi-arrow-up btn btn-info float-end ml-2 btn-sm" > Envoyer la facture par Mail</span>
+                    </a>
+                </h3>
             </div>
             <div class="card-body">
 
-                <h3 class="pb-3">
-                    <span class="fa fa-shopping-cart text-dark"> Les détails de ma commande</span>
-                    <a href="{{url('admin/orders')}}">
-                        <span class="fa fa-arrow-left btn btn-danger float-end ml-2 btn-sm"> Back</span>
-                    </a>
-                    <a href="{{url('admin/invoice/'.$order->id.'/generate')}}">
-                        <span class="fa fa-arrow-left btn btn-success btn-sm float-end ml-2">Télécharger la facture</span>
-                    </a>
-                    <a href="{{url('admin/invoice/'.$order->id)}}" target="_blank">
-                        <span class="fa fa-eye btn btn-primary float-end ml-2 btn-sm" > Voir la facture</span>
-                    </a>
-                    <a href="{{url('admin/invoice/'.$order->id.'/mail')}}">
-                        <span class="fa fa-eye btn btn-info float-end ml-2 btn-sm" > Envoyer la facture par Mail</span>
-                    </a>
-                </h3>
-                <hr>
                 <div class="row">
                     <div class="col-md-6">
                         <h5>Détail de la commande</h5>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Frontend\Checkout;
 
-use App\Mail\PlaceOrderMaillable;
+use App\Mail\PlaceOrderMailable;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Order_Item;
@@ -34,7 +34,7 @@ class CheckoutShow extends Component
 
             try {
                 $order = Order::findOrFail($codOrder->id);
-                Mail::to($order->email)->send(new PlaceOrderMaillable($order));
+                Mail::to($order->email)->send(new PlaceOrderMailable($order));
             } catch (\Throwable $th) {
                 //throw $th;
             }
@@ -107,9 +107,9 @@ class CheckoutShow extends Component
             }else {
                 $cartItem->product()->where('id',$cartItem->product_id )->decrement('quantity', $cartItem->quantity);
             }
-    
+
         }
-        
+
         return $order;
     }
 
@@ -123,7 +123,7 @@ class CheckoutShow extends Component
 
             try {
                 $order = Order::findOrFail($codOrder->id);
-                Mail::to($order->email)->send(new PlaceOrderMaillable($order));
+                Mail::to($order->email)->send(new PlaceOrderMailable($order));
             } catch (\Throwable $th) {
                 //throw $th;
             }

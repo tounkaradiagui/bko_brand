@@ -13,7 +13,7 @@
                 </h4>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-responsive table-bordered">
                     <thead>
                         <tr>
                             <th>Titre</th>

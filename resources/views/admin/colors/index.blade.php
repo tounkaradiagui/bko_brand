@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+
+@section('title', 'Liste de couleurs')
+
 @section('content')
 
 <div class="row">
@@ -13,7 +16,7 @@
                 </h4>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>Nom de la couleur</th>
@@ -27,7 +30,7 @@
                         <tr>
                             <td>{{$colors->nom_couleur}}</td>
                             <td>{{$colors->code_couleur}}</td>
-                            <td>{{$colors->status ? 'Hidden':'Visible'}}</td>
+                            <td>{{$colors->status ? 'Masquée':'Visible'}}</td>
                             <td>
                                 <a href="{{url('admin/colors/'.$colors->id.'/edit')}}" class="btn btn-primary btn-sm" title="Modifier"><i class="mdi mdi-pen"></i></a>
                             </td>

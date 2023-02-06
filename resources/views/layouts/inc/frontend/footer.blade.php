@@ -47,10 +47,12 @@
                     <p class=""> &copy; 2023 - Golden - Market. Tous Droit Reservés.</p>
                 </div>
                 <div class="col-md-4">
-                    <div class="social-media text-white">
+                    {{-- <div class="social-media text-white">
                         Réseaux sociaux :
                         @if ($appSetting->facebook)
                             <a href="{{$appSetting->facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                        @else
+                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
                         @endif
                         @if ($appSetting->twitter)
                             <a href="{{$appSetting->twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -61,7 +63,7 @@
                         @if ($appSetting->youtube)
                             <a href="{{$appSetting->youtube}}" target="_blank"><i class="fa fa-youtube"></i></a>
                         @endif
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

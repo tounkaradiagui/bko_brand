@@ -46,7 +46,7 @@ class FrontendController extends Controller
 
         if($category)
         {
-            $product = $category->products('slug', $product_slug)->where('status', '0')->first();
+            $product = $category->products()->where('slug', $product_slug)->where('status', '0')->first();
             if($product)
             {
                 return view('frontend.collections.products.view', compact('category', 'product'));
@@ -79,7 +79,8 @@ class FrontendController extends Controller
     public function ClientSideSearchProduct(Request $request)
     {
         if ($request->rechercher) {
-            $searchProducts = Product::where('nom', 'LIKE', '%'.$request->rechercher.'%')->latest()->paginate('25');
+            $searchProducts = Product::where('nom', 'LIKE', '%'.$request->rechercher.'%')
+                            ->latest()->paginate('25');
             return view('frontend.pages.rechercherProduits', compact('searchProducts'));
         }else {
             return redirect()->back()->with('message', 'Aucun résultat pour votre recherche');

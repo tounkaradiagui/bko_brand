@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Mail\InvoiceOrderMaillable;
+use App\Mail\InvoiceOrderMailable;
 use App\Models\Order;
 use App\Models\Setting;
 use Carbon\Carbon;
@@ -42,7 +42,7 @@ class OrderController extends Controller
         if($order){
             return view('admin.orders.view', compact('order'));
         }else{
-            return redirect()->back()->with('message', 'Aucune commande trouvée !');
+            return redirect('admin/orders')->with('message', 'Aucune commande trouvée !');
         }
     }
 
@@ -78,13 +78,12 @@ class OrderController extends Controller
         return $pdf->download('Facture'.'#'.$order->id.'-'.$todayDate.'.pdf');
     }
 
-    public function sendMail(int $orderId)
+    public function mailInvoice(int $orderId)
     {
-
         try {
             $order = Order::findOrFail($orderId);
-            
-            Mail::to("$order->email")->send(new InvoiceOrderMaillable($order));
+
+            Mail::to("$order->email")->send(new InvoiceOrderMailable($order));
             return redirect('admin/orders/'.$orderId)->with('message','Félicitations !! La facture a été envoyée à '.$order->email);
         } catch(\Exception $e){
 

@@ -13,7 +13,7 @@ class View extends Component
 
     public function addToWishlist($productId)
     {
-       if (Auth::check()) 
+       if (Auth::check())
        {
             if(Wishlist::where('user_id', auth()->user()->id)->where('product_id', $productId)->exists())
             {
@@ -29,7 +29,7 @@ class View extends Component
                 Wishlist::create([
                     'user_id' => auth()->user()->id,
                     'product_id' => $productId
-                ]);  
+                ]);
                 $this->emit('wishlistAddedUpdated');
                 $this->dispatchBrowserEvent('message', [
                     'text' => 'Le produit ajouté à vos listes de souhait !',
@@ -46,6 +46,7 @@ class View extends Component
                 'type' => 'danger',
                 'status' => 401
             ]);
+            
             return false;
        }
     }
@@ -91,7 +92,7 @@ class View extends Component
                                         'type' => 'success',
                                         'status' => 200
                                     ]);
-    
+
                                 }else
                                 {
                                     $this->dispatchBrowserEvent('message', [
@@ -129,7 +130,7 @@ class View extends Component
                     }else{
 
                         if($this->product->quantity > 0) {
-    
+
                             if($this->product->quantity > $this->quantityCount) {
                                 //ajouter le produit au panier
                                 Cart::create([
@@ -143,7 +144,7 @@ class View extends Component
                                     'type' => 'success',
                                     'status' => 200
                                 ]);
-    
+
                             }else
                             {
                                 $this->dispatchBrowserEvent('message', [
@@ -162,7 +163,7 @@ class View extends Component
                         }
                     }
                 }
-                
+
             }else
             {
                 $this->dispatchBrowserEvent('message', [
@@ -191,7 +192,7 @@ class View extends Component
         {
             $this->productColorSelectedQuantity = 'enRuptureDeStock';
         }
-    } 
+    }
 
     public function decrementQuantity()
     {

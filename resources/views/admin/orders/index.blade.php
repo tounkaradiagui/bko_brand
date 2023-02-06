@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Mes commandes')
+@section('title', 'Liste de commandes')
 @section('content')
 
 <div class="row">
@@ -35,7 +35,7 @@
                     </div>
                 </form>
                 <hr>
-                    <div clqss="table-responsive">
+                    <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead class="bg-dark text-white">
                                 <tr>

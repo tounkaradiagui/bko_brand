@@ -13,14 +13,15 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        
-        $products = Product::all();
+
+        $products = Product::paginate(5);
         return view('admin.products.index', compact('products'));
     }
 
@@ -36,7 +37,7 @@ class ProductController extends Controller
     public function store(ProductFormRequest $request)
     {
         $validatedData = $request->validated();
-        
+
         $category = Category::findOrFail($validatedData['category_id']);
 
         $product = $category->products()->create([
@@ -70,10 +71,10 @@ class ProductController extends Controller
                 $finalImagePathName = $uploadPath.$filename;
 
                 $product->productImages()->create([
-                    'product_id' => $product->id, 
+                    'product_id' => $product->id,
                     'image' => $finalImagePathName,
                 ]);
-                
+
             }
         }
 
@@ -88,8 +89,8 @@ class ProductController extends Controller
         }
 
         return redirect('admin/products')->with('message', 'Le produit a été ajouté avec succès');
-        
-        
+
+
     }
 
 
@@ -101,7 +102,7 @@ class ProductController extends Controller
 
         $product_color = $product->productColors->pluck('color_id')->toArray();
         $colors = Color::whereNotIn('id',$product_color)->get();
-        
+
         return view('admin.products.edit', compact('categories', 'brands', 'product', 'colors'));
     }
 
@@ -112,7 +113,7 @@ class ProductController extends Controller
 
         $product = Category::findOrFail($validatedData['category_id'])
                             ->products()->where('id', $product_id)->first();
-                    
+
         if($product)
         {
             $product->update([
@@ -135,20 +136,20 @@ class ProductController extends Controller
 
             if($request->hasFile('image')){
                 $uploadPath = 'uploads/products/';
-    
+
                 $i = 1;
                 foreach($request->file('image') as $imageFile){
                     $ext = $imageFile->getClientOriginalExtension();
                     $filename =time().$i++.'.'.$ext;
-    
+
                     $imageFile->move($uploadPath, $filename);
                     $finalImagePathName = $uploadPath.$filename;
-    
+
                     $product->productImages()->create([
-                        'product_id' => $product->id, 
+                        'product_id' => $product->id,
                         'image' => $finalImagePathName,
                     ]);
-                    
+
                 }
             }
 
@@ -170,7 +171,7 @@ class ProductController extends Controller
             return redirect('admin/products')->with('message', 'Aucun produit trouvé dans la base');
         }
 
-        
+
     }
 
 
@@ -203,28 +204,29 @@ class ProductController extends Controller
     }
 
 
-    public function updateProductColorQuantity(ProductFormRequest $request, $prod_color_id)
+    public function updateProductColorQuantity(ProductFormRequest $request, int $prod_color_id)
     {
-        $productColorData = Product::findOrFail()->productColors()->where('id', $prod_color_id)->first();
-
-        $productColorData->update([
-            'quantity' => $request->qty 
+        $productColorData = Product::findOrFail($request->product_id)
+            ->productColors()->where('id', $prod_color_id)->first()->update([
+            'quantity' => $request->qty
         ]);
+
+        // $productColorData
 
         // return $productColorData;
 
         return response()->json(['message' => 'La quantité de la couleur du produit a été modifiée avec succès']);
-        
+
     }
-    
-    
+
+
     public function deleteProductColorQuantity($prod_color_id)
     {
         $productColor = ProductColor::findOrFail($prod_color_id);
         $productColor->delete();
-        
+
         return response()->json(['message' => 'La quantité de la couleur du produit a été supprimée avec succès']);
 
     }
-    
+
 }

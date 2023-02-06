@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Modifier un Produit')
+
 @section('content')
 
 <div class="row">
@@ -60,6 +62,7 @@
                             <div class="mb-3">
                                 <label for="">Catégorie</label>
                                 <select name="category_id" class="form-control">
+                                    <option value="">Selectionner une catégorie</option>
                                     @foreach ($categories as $category)
                                     <option value="{{$category->id}}" {{$category->id == $product->category_id ? 'selected':''}}>
                                         {{$category->name}}
@@ -212,20 +215,20 @@
                                         @foreach($product->productColors as $productColor )
                                         <tr class="prod-color-tr">
                                             <td>
-                                                @if($product->productColors)
-                                                {{$productColor->nom_couleur}}
+                                                @if ($productColor->coleur)
+                                                    {{$productColor->coleur->nom_couleur}}
                                                 @else
-                                                Aucune couleur
+                                                    Aucune couleur disponible
                                                 @endif
                                             </td>
                                             <td>
                                                 <div class="input-group mb-3" style="width:150px">
                                                     <input type="text" value="{{$productColor->quantity}}" class="productColorQuantity form-control form-control-sm" id="">
-                                                    <button typpe="button" value="{{$productColor->id}}" class="updateProductColorBtn btn btn-primary btn-sm text-white">Modifiée</button>
+                                                    <button typpe="button" value="{{$productColor->id}}" class="updateProductColorBtn btn btn-primary btn-sm text-white">Modifier</button>
                                                 </div>
                                             </td>
                                             <td>
-                                            <button typpe="button" value="{{$productColor->id}}" class="deleteProductColorBtn btn btn-danger btn-sm text-white">Supprimé</button>
+                                            <button typpe="button" value="{{$productColor->id}}" class="deleteProductColorBtn btn btn-danger btn-sm text-white">Supprimer</button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -236,7 +239,7 @@
                     </div>
 
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-primary">Validé</button>
+                        <button type="submit" class="btn btn-primary">Valider</button>
                     </div>
                 </form>
             </div>
@@ -247,66 +250,57 @@
 @endsection
 
 @section('scripts')
+    <script>
+        $(document).ready(function () {
 
-<script>
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $(document).ready(function() {
-        $(document).on('click', '.updateProductColorBtn', function() {
-            var product_id = "{{ $product->id }}";
-            var prod_color_id = $(this).val();
-            var qty  = $(this).closest('.prod-color-tr').find('.productColorQuantity').val();
-            // alert(prod_color_id);
-
-            if(qty  <= 0) {
-                alert('qty is required');
-                return false;
-            }
-
-            var data = {
-                'product_id': product_id,
-                'qty': qty
-            };
-
-            $.ajax({
-                type:"POST",
-                url: "/admin/product-color/"+prod_color_id,
-                data:data,
-                success: function(response) {
-                    alert(response.message)
-                },
-                error: function(response) {
-                console.log(response.message);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
 
+            $(document).on('click', '.updateProductColorBtn' function () {
+                var product_id = "{{ $product->id }}";
+                var prod_color_id = $(this).val();
+                var qty  = $(this).closest('.prod-color-tr').find('.productColorQuantity').val();
 
-
-        });
-
-        $(document).on('click', '.deleteProductColorBtn', function() {
-
-            var prod_color_id = $(this).val();
-            var thisClick =$(this);
-
-            $.ajax({
-                type: "GET",
-                url: "/admin/product-color/"+product_color_id+"/delete",
-                success: function(response) {
-                    thisClick.closest('.prod-color-tr').remove();
-                    alert(response.message);
+                if(qty  <= 0) {
+                    alert('qty is required');
+                    return false;
                 }
+
+                var data = {
+                    'product_id': product_id,
+                    'qty': qty
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/product-color/"+prod_color_id,
+                    data: data,
+                    success: function (response) {
+                        alert(response.message)
+                    }
+                });
             });
 
+            $(document).on('click', '.deleteProductColorBtn', function() {
+
+                var prod_color_id = $(this).val();
+                var thisClick =$(this);
+
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/product-color/"+product_color_id+"/delete",
+                    success: function(response) {
+                        thisClick.closest('.prod-color-tr').remove();
+                        alert(response.message);
+                    }
+                });
+
+            });
         });
-    });
-
-</script>
+    </script>
 
 
-@endsection()
+@endsection

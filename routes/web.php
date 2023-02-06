@@ -73,12 +73,11 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/products/create', 'create');
         Route::post('/products', 'store');
         Route::get('/products/{products}/edit', 'edit');
-        Route::put('/products/{products}', 'update');
+        Route::put('/products/{product}', 'update');
         Route::get('/product-image/{product_image_id}/delete', 'destroyImage');
         Route::get('/products/{product_id}/delete', 'destroy');
         Route::post('/product-color/{prod_color_id}', 'updateProductColorQuantity');
         Route::get('/product-color/{product_color_id}/delete', 'deleteProductColorQuantity');
-
 
     });
 
@@ -110,7 +109,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::put('/orders/{orderId}', 'updateOrderStatus');
         Route::get('/invoice/{orderId}', 'ViewInvoice');
         Route::get('/invoice/{orderId}/generate', 'generateInvoice');
-        Route::get('/invoice/{orderId}/mail', 'sendMail');
+        Route::get('/invoice/{orderId}/mail', 'mailInvoice');
+
     });
 
     Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {

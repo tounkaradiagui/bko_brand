@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+@section('title', 'Liste de Produits')
 @section('content')
 
 <div class="row">
@@ -10,11 +11,11 @@
         <div class="card">
             <div class="card-header">
                 <h4>La liste de produits
-                    <a href="{{url('admin/products/create')}}" class="btn btn-primary float-end btn-sm text-white">Ajouté</a>
+                    <a href="{{url('admin/products/create')}}" class="btn btn-primary float-end btn-sm text-white" title="Ajouter"><i class="mdi mdi-plus-circle"></i></a>
                 </h4>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-responsive-sm table-striped">
                     <thead>
                         <tr>
                             <th>Catégorie</th>
@@ -40,7 +41,7 @@
                             <td>{{$product->quantity}}</td>
                             <td>{{$product->status == '1' ? 'Masqué':'Visible'}}</td>
                             <td>
-                                <a href="{{url('admin/products/'.$product->id.'/edit')}}" class="btn btn-primary btn-sm" title="Modifier"><i class="mdi mdi-plus"></i></a>
+                                <a href="{{url('admin/products/'.$product->id.'/edit')}}" class="btn btn-primary btn-sm" title="Modifier"><i class="mdi mdi-pen"></i></a>
                             </td>
                             <td>
                                 <a href="{{url('admin/products/'.$product->id.'/delete')}}" onclick="return confirm('Voulez-vous vraiment supprimer ce produit ?')"
@@ -54,6 +55,7 @@
                         @endforelse
                     </tbody>
                 </table>
+                {{$products->links()}}
             </div>
         </div>
     </div>

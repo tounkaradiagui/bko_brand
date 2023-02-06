@@ -17,7 +17,7 @@ class ProductColor extends Model
         'quantity'
     ];
 
-    public function color()
+    public function coleur()
     {
         return $this->belongsTo(Color::class, 'color_id', 'id');
     }

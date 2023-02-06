@@ -44,9 +44,9 @@
 
                                 @if($product->productColors)
                                     @foreach($product->productColors as $colorItem)
-                                        <label class="colorSelectionLabel" title="{{$colorItem->color->nom_couleur}}"  style="background-color:{{$colorItem->color->code_couleur}}"
+                                        <label class="colorSelectionLabel" title="{{$colorItem->coleur->nom_couleur}}" style="background-color:{{$colorItem->coleur->code_couleur}}"
                                          wire:click="colorSelected({{$colorItem->id}})" >
-                                            {{$colorItem->color->nom_couleur}}
+                                            {{$colorItem->coleur->nom_couleur}}
 
                                         </label>
                                     @endforeach
@@ -82,8 +82,14 @@
                             </div>
                         </div>
                         <div class="mt-2">
-                            <button type="button"  class="btn btn1" wire:click="addToCart({{$product->id}})"> <i class="fa fa-shopping-cart">
-                                </i> Ajouter au Panier
+                            <button type="button"  class="btn btn1" wire:click="addToCart({{$product->id}})">
+                                <span wire:loading.remove wire:target="addToCart({{$product->id}})">
+                                    <i class="fa fa-shopping-cart">
+                                    </i> Ajouter au Panier
+                                </span>
+                                <span wire:loading wire:target="addToCart({{$product->id}})">
+                                     En cours d'ajout...
+                                </span>
                             </button>
 
                             <button type="button" wire:click="addToWishlist({{$product->id}})"  class="btn btn1">
@@ -190,40 +196,47 @@
                     </h3>
                     <div class="underline"></div>
                 </div>
-                @forelse ($category->relatedProducts as $relatedproducts)
-                    <div class="col-md-3 mb-3">
-                        <div class="product-card">
-                            <div class="product-card-img">
-                                @if($relatedproducts->productImages->count() > 0)
-                                <a href="{{url('/collections/'.$relatedproducts->category->slug.'/'.$relatedproducts->slug)}} ">
-                                    <img src="{{asset($relatedproducts->productImages[0]->image)}}" alt="{{$relatedproducts->nom}}">
-                                </a>
-                                @endif
-                            </div>
-                            <div class="product-card-body">
-                                <p class="product-brand">{{$relatedproducts->marque}}</p>
-                                <h5 class="product-name">
-                                    <a href="{{url('/collections/'.$relatedproducts->category->slug.'/'.$relatedproducts->slug)}} ">
-                                    {{$relatedproducts->nom}}
-                                    </a>
-                                </h5>
-                                <div>
-                                    <span class="selling-price">${{$relatedproducts->prix_de_vente}}</span>
-                                    <span class="original-price">${{$relatedproducts->prix_original}}</span>
+                <div class="col-md-12">
+                    @if ($category)
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($category->relatedProducts as $relatedproductItem)
+                                <div class="item mb-3">
+                                    <div class="product-card">
+                                        <div class="product-card-img">
+                                            @if($relatedproductItem->productImages->count() > 0)
+                                            <a href="{{url('/collections/'.$relatedproductItem->category->slug.'/'.$relatedproductItem->slug)}} ">
+                                                <img src="{{asset($relatedproductItem->productImages[0]->image)}}" alt="{{$relatedproductItem->nom}}">
+                                            </a>
+                                            @endif
+                                        </div>
+                                        <div class="product-card-body">
+                                            <p class="product-brand">{{$relatedproductItem->marque}}</p>
+                                            <h5 class="product-name">
+                                                <a href="{{url('/collections/'.$relatedproductItem->category->slug.'/'.$relatedproductItem->slug)}} ">
+                                                {{$relatedproductItem->nom}}
+                                                </a>
+                                            </h5>
+                                            <div>
+                                                <span class="selling-price">${{$relatedproductItem->prix_de_vente}}</span>
+                                                <span class="original-price">${{$relatedproductItem->prix_original}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                    </div>
-                @empty
-                    <div class="col-md-12 p-2">
-                        <h4>
-                            Pas de Produits Connexe disponible
-                        </h4>
-                    </div>
-                @endforelse
+                    @else
+                        <div class="p-2">
+                            <h4>
+                                Pas de Produits Connexe disponible
+                            </h4>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
+    
 </div>
 
 

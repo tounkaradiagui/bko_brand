@@ -7,14 +7,14 @@
             <div class="row flex-grow">
                 <div class="col-lg-6 d-flex align-items-center justify-content-center">
                     <div class="auth-form-transparent text-left p-3">
-                        @if (session('message'))
-                            <div class="alert alert-danger">{{(session('message'))}}</div>
-                        @endif
                         <div class="brand-logo">
                             <img src="{{asset('admin/images/logogolden.png')}}" alt="logo">
                         </div>
                         <h4>Bienvenue sur Golden market !</h4>
                         <h6 class="font-weight-light">Content de vous revoir !!</h6>
+                        @if (session('error'))
+                            <div class="alert alert-danger">{{(session('error'))}}</div>
+                        @endif
                         <form class="pt-3" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
@@ -25,7 +25,8 @@
                                             <i class="mdi mdi-account-outline text-primary"></i>
                                         </span>
                                     </div>
-                                    <input type="email" class="form-control form-control-lg border-left-0" id="exampleInputEmail" name="email" placeholder="Email">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg border-left-0"
+                                     id="exampleInputEmail" name="email" placeholder="Email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -37,7 +38,7 @@
                                 <label for="exampleInputPassword">Mot de Passe</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend bg-transparent">
-                                        <span class="input-group-text bg-transparent border-right-0">
+                                        <span class="input-group-text bg-transparent border-right-0 @error('password') is-invalid @enderror">
                                             <i class="mdi mdi-lock-outline text-primary"></i>
                                         </span>
                                     </div>
@@ -52,7 +53,7 @@
                             <div class="my-2 d-flex justify-content-between align-items-center">
                                 <div class="form-check">
                                     <label class="form-check-label text-muted">
-                                    <input type="checkbox" class="form-check-input">
+                                    <input type="checkbox" class="form-check-input" {{ old('remember') ? 'checked' : '' }}>
                                         Se souvenir de moi
                                     </label>
                                 </div>

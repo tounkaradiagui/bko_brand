@@ -30,6 +30,8 @@ class CartShow extends Component
         }
     }
 
+
+
     public function decrementQuantity(int $cartId)
     {
         $cartData = Cart::where('id', $cartId)->where('user_id', auth()->user()->id)->first();
@@ -37,34 +39,36 @@ class CartShow extends Component
         {
             if($cartData->productColor()->where('id', $cartData->product_color_id)->exists()) {
                 $productColor = $cartData->productColor()->where('id', $cartData->product_color_id)->first();
-                if($productColor->quantite > $cartData->quantity)
+                if($productColor->quantity > $cartData->quantity)
                 {
                     $cartData->decrement('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantité modifiée avec succès !',
+                        'text' => 'Quantité diminuée avec succès !',
                         'type' => 'success',
                         'status' => 200
                     ]);
-                }else {
+                }
+                else
+                {
                     $this->dispatchBrowserEvent('message', [
-                        'text' => "Il n'y a que" .$productColor->quantite. "Quantité disponible!",
+                        'text' => 'Seulement'.$productColor->quantity. 'Quantité disponible !',
                         'type' => 'success',
                         'status' => 200
                     ]);
                 }
 
             }else {
-                if ($cartData->product->quantity > $cartData->quantity) 
+                if ($cartData->product->quantity > $cartData->quantity)
                 {
                     $cartData->decrement('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantité modifiée avec succès !',
+                        'text' => 'Quantité diminuée avec succès !',
                         'type' => 'success',
                         'status' => 200
                     ]);
                 }else {
                     $this->dispatchBrowserEvent('message', [
-                        'text' => "Il n'y a que" .$cartData->product->quantity. "Quantité disponible!",
+                        'text' => 'Seulement'.$cartData->product->quantity. 'Quantité disponible !',
                         'type' => 'success',
                         'status' => 200
                     ]);
@@ -88,34 +92,36 @@ class CartShow extends Component
         {
             if($cartData->productColor()->where('id', $cartData->product_color_id)->exists()) {
                 $productColor = $cartData->productColor()->where('id', $cartData->product_color_id)->first();
-                if($productColor->quantite > $cartData->quantity)
+                if($productColor->quantity > $cartData->quantity)
                 {
                     $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantité modifiée avec succès !',
+                        'text' => 'Quantité augmentée avec succès !',
                         'type' => 'success',
                         'status' => 200
                     ]);
-                }else {
+                }
+                else
+                {
                     $this->dispatchBrowserEvent('message', [
-                        'text' => "Il n'y a que" .$productColor->quantite. "Quantité disponible!",
+                        'text' => 'Seulement'.$productColor->quantity. 'Quantité disponible !',
                         'type' => 'success',
                         'status' => 200
                     ]);
                 }
 
             }else {
-                if ($cartData->product->quantity > $cartData->quantity) 
+                if ($cartData->product->quantity > $cartData->quantity)
                 {
                     $cartData->increment('quantity');
                     $this->dispatchBrowserEvent('message', [
-                        'text' => 'Quantité modifiée avec succès !',
+                        'text' => 'Quantité augmentée avec succès !',
                         'type' => 'success',
                         'status' => 200
                     ]);
                 }else {
                     $this->dispatchBrowserEvent('message', [
-                        'text' => "Il n'y a que" .$cartData->product->quantity. "Quantité disponible!",
+                        'text' => 'Seulement'.$cartData->product->quantity. 'Quantité disponible !',
                         'type' => 'success',
                         'status' => 200
                     ]);
