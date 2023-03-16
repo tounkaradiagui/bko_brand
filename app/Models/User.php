@@ -31,6 +31,10 @@ class User extends Authenticatable
         'image',
         'password',
         'statut',
+        'verification_code',
+        'is_verified',
+        'facebook_id',
+        'google_id',
         'role_as'
     ];
 
@@ -57,4 +61,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function userDetail()
+    {
+        return $this->hasOne(UserDetails::class, 'user_id', 'id');
+    }
 }

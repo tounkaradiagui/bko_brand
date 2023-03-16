@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('adresse')->nullable();
-            $table->string('telephone')->nullable();
+            $table->string('telephone')->unique()->nullable();
             $table->string('date_de_naissance')->nullable();
             $table->string('lieu_de_naissance')->nullable();
             $table->string('pincode')->nullable();
@@ -26,6 +26,10 @@ return new class extends Migration
             $table->tinyInteger('statut')->default(1);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('verification_code')->nullable();
+            $table->string('facebook_id')->nullable();
+            $table->string('google_id')->nullable();
+            $table->integer('is_verified')->default(0);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

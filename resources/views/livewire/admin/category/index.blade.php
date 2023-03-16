@@ -34,16 +34,21 @@
                 @endif
                 <div class="card">
                     <div class="card-header">
-                        <h3>Catégories de produits
-                            <a href="{{url('admin/category/create')}}" class="btn btn-primary btn-sm float-end" title="Ajouter"><i class="mdi mdi-plus"></i></a>
+                        <h3>
+                            Liste de catégories
+                            <input type="search" placeholder="Rechercher par nom de catégorie" wire:model="search" class="form-control float-end max-2" style="width:220px; border-radius">
+
+                            <a href="{{url('admin/category/create')}}" class="btn btn-primary btn-sm float-end mr-3" title="Ajouter"><i class="mdi mdi-plus"></i></a>
                         </h3>
                     </div>
                     <div class="card-body">
 
-                        <table class="table table-bordered table-striped" >
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Nom</th>
+                                    <th>Article</th>
+                                    <th>Image</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -52,6 +57,10 @@
                             @foreach ($categories as $category )
                                 <tr>
                                     <td>{{$category->name}}</td>
+                                    <td>{{$category->slug}}</td>
+                                    <td>
+                                        <img src="{{url('uploads/category/'.$category->image)}}" style='width:70px; height:70px;' alt="Slider">
+                                    </td>
                                     <td>{{$category->status == '1' ? 'Masquer':'Visible' }}</td>
                                     <td>
                                         <a href="{{url('admin/category/'.$category->id.'/edit')}}" class="btn btn-success btn-sm" title="Modifier"><i class="mdi mdi-pen"></i></a>

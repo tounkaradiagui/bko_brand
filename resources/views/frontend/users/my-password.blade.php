@@ -7,17 +7,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
 
-                    @if (session('message'))
-                        <h5 class="alert alert-success mb-2">{{ session('message') }}</h5>
-                    @endif
-
-                    @if ($errors->any())
-                    <ul class="alert alert-danger">
-                        @foreach ($errors->all() as $error)
-                        <li class="text-danger">{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
+                    @include('layouts.alert')
 
                     <div class="card shadow">
                         <div class="card-header bg-primary">
@@ -31,15 +21,30 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label>Mot de Passe actuel</label>
-                                    <input type="text" name="current_password" class="form-control" />
+                                    <input type="text" name="current_password" class="form-control @error('current_password') is-invalid @enderror" />
+                                    @error('current_password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label>Nouveau Mot de Passe</label>
-                                    <input type="text" name="password" class="form-control" />
+                                    <input type="text" name="password" class="form-control @error('password') is-invalid @enderror" />
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label>Confirmer le Nouveau Mot de Passe</label>
-                                    <input type="text" name="password_confirmation" class="form-control" />
+                                    <input type="text" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" />
+                                    @error('password_confirmation')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3 ">
                                     <a href="{{url('monProfil')}}" class="btn text-white btn-danger">Retour</a>

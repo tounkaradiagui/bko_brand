@@ -6,22 +6,11 @@
 <div class="py-5">
     <div class="container">
         <div class="row justify-content-center">
-            @if (session('message'))
-                <div class="alert alert-success">{{session('message')}}</div>
-            @endif
-
-            @if ($errors->any())
-                    <ul class="alert alert-danger">
-                        @foreach ($errors->all() as $error)
-                        <li class="text-danger">{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
-
+            @include('layouts.alert')
             <div class="col-md-10">
                 <h4>
                     Mon Profil
-                    <a href="{{url('my-password')}}" class="btn text-white btn-primary float-end">Changer votre mot de passe ?</a>
+                    <a href="{{url('my-password')}}" class="btn text-white btn-danger float-end">Changer mon mot de passe ?</a>
                 </h4>
                 <div class="underline mb-4"></div>
             </div>

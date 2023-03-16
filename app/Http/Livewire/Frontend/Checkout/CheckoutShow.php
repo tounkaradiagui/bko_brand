@@ -39,7 +39,6 @@ class CheckoutShow extends Component
                 //throw $th;
             }
 
-            session()->flash('message','Votre commande a été passée avec succès');
             $this->dispatchBrowserEvent('message', [
                 'text' => "Félicitation ! votre commande a été passée avec succès",
                 'type' => 'success',

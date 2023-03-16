@@ -1,5 +1,5 @@
 <div>
-    <div class="footer-area">
+    <div class="footer-area ">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="copyright-area">
+    <div class="copyright-area fixed-bottom">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">

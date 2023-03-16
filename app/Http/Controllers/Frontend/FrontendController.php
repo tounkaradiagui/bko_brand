@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Category;
 use App\Models\Product;
+use App\Mail\EmailVerificationMailable;
+use Illuminate\Contracts\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller
 {
@@ -86,4 +89,10 @@ class FrontendController extends Controller
             return redirect()->back()->with('message', 'Aucun résultat pour votre recherche');
         }
     }
+
+    public function viewEmailVerification()
+    {
+        return view('admin.email.verification');
+    }
+
 }

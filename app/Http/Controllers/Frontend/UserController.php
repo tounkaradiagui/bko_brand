@@ -47,7 +47,7 @@ class UserController extends Controller
         }
 
             $user->update();
-            return redirect()->back()->with('message', 'Votre profile a été modifié avec succès !');
+            return redirect()->back()->with('success', 'Votre profile a été modifié avec succès !');
     }
 
 
@@ -70,11 +70,13 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
             ]);
 
-            return redirect()->back()->with('message','Félicitations !! Votre Mot de Passe a été Modifié');
+            return redirect()->back()->with('success','Félicitations !! Votre Mot de Passe a été Modifié');
 
         }else{
 
-            return redirect()->back()->with('message','Desolé, le Mot de Passe ne correspond pas veuillez réessayer !');
+            return redirect()->back()->with('error','Desolé, le mot de passe ne correspond pas veuillez réessayer !');
         }
     }
+
+  
 }

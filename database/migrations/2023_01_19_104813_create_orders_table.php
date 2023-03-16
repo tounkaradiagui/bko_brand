@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('email');
-            $table->string('phone');
+            $table->string('telephone');
             $table->string('pincode');
             $table->mediumText('adresse');
             $table->string('status_message');

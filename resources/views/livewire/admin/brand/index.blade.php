@@ -7,7 +7,8 @@
                     <div class="card-header">
                         <h4>
                             La liste de marques
-                            <a href="#" class="btn btn-primary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#ajoutModal" title="Ajouter"><i class="mdi mdi-plus"></i></a>
+                            <input type="search" wire:model="search" class="form-control float-end max-2" placeholder="Rechercher une marque ici !" style="width:220px; border-radius">
+                            <a href="#" class="btn btn-primary btn-sm float-end mr-3" data-bs-toggle="modal" data-bs-target="#ajoutModal" title="Ajouter"><i class="mdi mdi-plus"></i></a>
                         </h4>
                     </div>
 

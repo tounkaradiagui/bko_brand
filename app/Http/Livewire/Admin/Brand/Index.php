@@ -11,7 +11,10 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
+
     protected $paginationTheme = 'bootstrap';
+
+    public $search = "";
 
     public $nom, $slug, $status, $brand_id, $category_id;
 
@@ -99,7 +102,7 @@ class Index extends Component
     public function render()
     {
         $categories = Category::where('status', '0')->get();
-        $brands = Brand::orderBy('id', 'DESC')->paginate(5);
+        $brands = Brand::where('nom', 'like', '%'.$this->search.'%')->orderBy('id', 'DESC')->paginate(5);
         return view('livewire.admin.brand.index', ['brands' => $brands, 'categories' => $categories])
                     ->extends('layouts.admin')
                     ->section('content');

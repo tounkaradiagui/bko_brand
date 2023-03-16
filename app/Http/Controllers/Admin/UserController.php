@@ -100,4 +100,20 @@ class UserController extends Controller
             throw $th;
         }
     }
+
+ 
+
+    public function sendEmailVerification(int $orderId)
+    {
+        // try {
+
+
+        //     Mail::to("$order->email")->send(new InvoiceOrderMailable($order));
+        //     return redirect('admin/orders/'.$orderId)->with('message','Félicitations !! La facture a été envoyée à '.$order->email);
+        // } catch(\Exception $e){
+
+        //     return redirect('admin/orders/'.$orderId)->with('error',"Erreur d'envoi de mail, veuillez réessayer ");
+        // }
+
+    }
 }

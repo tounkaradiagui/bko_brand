@@ -22,7 +22,7 @@
                                       <i class="mdi mdi-account-outline text-primary"></i>
                                     </span>
                                   </div>
-                                  <input type="text" name="nom" class="form-control form-control-lg border-left-0" placeholder="Nom">
+                                  <input type="text" name="nom" class="form-control @error('nom') is-invalid @enderror form-control-lg border-left-0" placeholder="Nom">
                                   @error('nom')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
                                       <i class="mdi mdi-account-outline text-primary"></i>
                                     </span>
                                   </div>
-                                  <input type="text" name="prenom" class="form-control form-control-lg border-left-0" placeholder="Prénom">
+                                  <input type="text" name="prenom" class="form-control @error('prenom') is-invalid @enderror form-control-lg border-left-0" placeholder="Prénom">
                                   @error('prenom')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -54,7 +54,7 @@
                                             <i class="mdi mdi-account-outline text-primary"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputtelephone" name="telephone" placeholder="Numéro de Téléphone">
+                                    <input type="text" class="form-control @error('telephone') is-invalid @enderror form-control-lg border-left-0" id="exampleInputtelephone" name="telephone" placeholder="Numéro de Téléphone">
                                     @error('telephone')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -70,7 +70,7 @@
                                             <i class="mdi mdi-account-outline text-primary"></i>
                                         </span>
                                     </div>
-                                    <input type="email" class="form-control form-control-lg border-left-0" id="exampleInputEmail" name="email" placeholder="Email">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg border-left-0" id="exampleInputEmail" name="email" placeholder="Email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -86,7 +86,7 @@
                                             <i class="mdi mdi-lock-outline text-primary"></i>
                                         </span>
                                     </div>
-                                    <input type="password" name="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Mot de Passe">
+                                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror form-control-lg border-left-0" id="exampleInputPassword" placeholder="Mot de Passe">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -102,24 +102,13 @@
                                             <i class="mdi mdi-lock-outline text-primary"></i>
                                         </span>
                                     </div>
-                                    <input type="password" name="password_confirmation" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Confirmer le Mot de Passe">
+                                    <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror form-control-lg border-left-0" id="exampleInputPassword" placeholder="Confirmer le Mot de Passe">
                                     @error('password_confirmation')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="my-2 d-flex justify-content-between align-items-center">
-                                <div class="form-check">
-                                    <label class="form-check-label text-muted">
-                                    <input type="checkbox" class="form-check-input">
-                                        Se souvenir de moi
-                                    </label>
-                                </div>
-                                @if (Route::has('password.request'))
-                                    <a href="{{ route('password.request') }}" class="auth-link text-link">Mot de Passe oublié ?</a>
-                                @endif
                             </div>
 
                             <div class="my-3">

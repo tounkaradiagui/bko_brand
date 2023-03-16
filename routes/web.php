@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/produits-populaire', 'featuredProducts');
 
     Route::get('/rechercher', 'ClientSideSearchProduct');
+
 });
 
 
@@ -120,7 +122,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::get('/users/{userId}/edit', 'edit');
         Route::put('/users/{userId}', 'update');
         Route::get('/users/{userId}/delete', 'destroy');
+
     });
 
+});
+
+Route::prefix('facebook')->name('facebook.')->group(function (){
+    Route::get('auth', [App\Http\Controllers\FacebookController::class, 'loginUsingFacebook' ])->name('login');
+    Route::get('callback', [App\Http\Controllers\FacebookController::class, 'callbackFromFacebook' ])->name('callback');
 
 });
+

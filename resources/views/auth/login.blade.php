@@ -12,9 +12,7 @@
                         </div>
                         <h4>Bienvenue sur Golden market !</h4>
                         <h6 class="font-weight-light">Content de vous revoir !!</h6>
-                        @if (session('error'))
-                            <div class="alert alert-danger">{{(session('error'))}}</div>
-                        @endif
+                        @include('layouts.alert')
                         <form class="pt-3" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
@@ -67,9 +65,9 @@
                             </div>
 
                             <div class="mb-2 d-flex">
-                                <button type="button" class="btn btn-facebook auth-form-btn flex-grow mr-1">
+                                <a  href="{{route('facebook.login')}}" class="btn btn-facebook auth-form-btn flex-grow mr-1">
                                     <i class="mdi mdi-facebook mr-2"></i>Facebook
-                                </button>
+                                </a>
                                 <button type="button" class="btn btn-google auth-form-btn flex-grow ml-1">
                                     <i class="mdi mdi-google mr-2"></i>Google
                                 </button>
@@ -82,7 +80,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 login-half-bg d-flex flex-row">
-                    <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2018  All rights reserved.</p>
+                    <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2023  All rights reserved.</p>
                 </div>
             </div>
         </div>

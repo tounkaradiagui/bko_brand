@@ -3,7 +3,7 @@
         <div class="container">
             <h4>Checkout</h4>
             <hr>
-            
+
             @if($this->totalProductAmont != '0')
             <div class="row">
                 <div class="col-md-12 mb-4">
@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="shadow bg-white p-3">
                         <h4 class="text-primary">
-                            Basic Information
+                            Informations de base
                         </h4>
                         <hr>
 
@@ -111,14 +111,14 @@
 
 @push('scripts')
 
-    <script src="https://www.paypal.com/sdk/js?client-id=AQ_3WZrxpi6RdEzSAq_ubmRmdla7qaJ5Ut_w9LU-OipBGSQtnk-x2DAzo5mlLgWstgqSktofhq9bI4Lx&currency=USD"></script>
-    
+    <script src="https://www.paypal.com/sdk/js?client-id=AZAYA_nwYCIgtQqFR5qDqZhgzZtvSax-mfvN-eyC_9yTIdKQVSVWVj3QCJxaAK43lQ_MWC3-q_LoOSqF&currency=USD"></script>
+
     <script>
         paypal.Buttons({
         // onClick is called when the button is clicked
         onClick: function()  {
             // Show a validation error if the checkbox is not checked
-            if (!document.getElementById('nom').value 
+            if (!document.getElementById('nom').value
                 || !document.getElementById('prenom').value
                 || !document.getElementById('telephone').value
                 || !document.getElementById('email').value
@@ -144,7 +144,7 @@
             return actions.order.create({
             purchase_units: [{
                 amount: {
-                value: '0.1'//"{{$this->totalProductAmont}}" // Can also reference a variable or function
+                value: '0.1' //"{{$this->totalProductAmont}}" // Can also reference a variable or function
                 }
             }]
             });
@@ -158,8 +158,9 @@
             if(transaction.status == "COMPLETED"){
                 Livewire.emit('transactionEmit', transaction.id);
             }
-            //alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
             
+            //alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+
             });
         }
         }).render('#paypal-button-container');

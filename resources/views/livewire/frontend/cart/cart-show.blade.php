@@ -50,7 +50,7 @@
                                         <div class="col-md-2 my-auto">
                                             <label class="price">{{$cartItem->product->prix_de_vente}} F CFA</label>
                                         </div>
-                                        
+
                                         <div class="col-md-2 col-7 my-auto">
                                             <div class="quantity">
                                                 <div class="input-group">
@@ -86,7 +86,7 @@
                         @empty
                             <div>Aucun produit disponible</div>
                         @endforelse
-                                
+
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                             <span class="float-end">{{$totalprice}} F CFA</span>
                         </h5>
                         <hr>
-                        <a href="{{url('/checkout')}}" class="btn btn-warning w-100" >Checkout</a>
+                        <a href="{{url('/checkout')}}" class="btn btn-warning w-100" >Commander</a>
                     </div>
                 </div>
             </div>
