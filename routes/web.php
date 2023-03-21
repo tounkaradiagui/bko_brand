@@ -133,3 +133,6 @@ Route::prefix('facebook')->name('facebook.')->group(function (){
 
 });
 
+Route::controller(App\Http\Controllers\Frontend\ContactController::class)->group(function () {
+    Route::get('/contact', 'index');
+});

@@ -27,12 +27,12 @@
                         </p>
                     </div>
                     <div class="mb-2">
-                        <a href="" class="text-white">
+                        <a href="tel:$appSetting->phone1" class="text-white">
                             <i class="fa fa-phone"></i> {{$appSetting->phone1 ?? 'Téléphone'}}
                         </a>
                     </div>
                     <div class="mb-2">
-                        <a href="" class="text-white">
+                        <a href="mailto:$appSetting->email1" class="text-white">
                             <i class="fa fa-envelope"></i> {{$appSetting->email1 ?? 'Mon adresse email'}}
                         </a>
                     </div>
@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="copyright-area fixed-bottom">
+    <div class="copyright-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">

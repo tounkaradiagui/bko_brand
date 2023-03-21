@@ -5,7 +5,7 @@
                     <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
                         <h5 class="brand-name">{{$appSetting->website_name ?? 'Mon site web'}}</h5>
                     </div>
-                    <div class="col-md-5 my-auto">
+                    <div class="col-md-4 my-auto">
                         <form action="{{url('rechercher')}}" method="get" role="search">
                             <div class="input-group">
                                 <input type="search" name="rechercher" value="{{Request::get('rechercher')}}" placeholder="Cherchez votre produit ici !" class="form-control" />
@@ -15,7 +15,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-5 my-auto">
+                    <div class="col-md-6 my-auto">
                         <ul class="nav justify-content-end">
 
                             <li class="nav-item">
@@ -26,6 +26,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('wishlist') }}">
                                     <i class="fa fa-heart"></i> Favoris (<livewire:frontend.wishlist-count/>)
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/contact') }}">
+                                     Contact
                                 </a>
                             </li>
 
@@ -98,13 +104,13 @@
                             <a class="nav-link" href="{{url('/produits-eletronics')}}">Electronique</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/fashions')}}">Fashions</a>
+                            <a class="nav-link" href="#">Fashions</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/accessoires')}}">Accessoires</a>
+                            <a class="nav-link" href="#">Accessoires</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/appareils-electronmenagere')}}">Appareils électroménagers</a>
+                            <a class="nav-link" href="#">Appareils électroménagers</a>
                         </li>
                     </ul>
                 </div>
