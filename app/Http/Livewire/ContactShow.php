@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class ContactShow extends Component
 {
-    public $nom, $prenom, $email, $message;
+    public $nom, $prenom, $email, $sujet, $message;
 
 
     protected $listeners = [
@@ -22,7 +22,8 @@ class ContactShow extends Component
         'nom' => 'required|string|min:3',
         'prenom' => 'required|string|min:3',
         'email' => ['required','email'],
-        'message' => 'required|string|min:50|max:1500'
+        'sujet' => 'required|string|min:10|max:200',
+        'message' => 'required|string|min:50|max:3500'
     ];
 
 
@@ -36,6 +37,15 @@ class ContactShow extends Component
         $validatedData = $this->validate();
 
         if ($validatedData) {
+
+            $contact = Contact::create([
+                'nom' => $this->nom,
+                'prenom' => $this->prenom,
+                'email' => $this->email,
+                'sujet' => $this->sujet,
+                'message' => $this->message
+            ]);
+
             try {
                 Mail::to('goldenmarket.dev@gmail.com')->send(new ContactMailable($validatedData));
             } catch (\Throwable $th) {

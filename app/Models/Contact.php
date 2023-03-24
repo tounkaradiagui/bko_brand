@@ -15,6 +15,7 @@ class Contact extends Model
         'nom',
         'prenom',
         'email',
+        'sujet',
         'message'
     ];
 }

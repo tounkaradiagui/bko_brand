@@ -58,8 +58,23 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="exampleInputSujet">Sujet</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-email-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control @error('sujet') is-invalid @enderror form-control-lg border-left-0" id="exampleInputSujet" wire:model="sujet" placeholder="Motif de votre message">
+                                    </div>
+                                    @error('sujet') <span class="error">{{ $message }}</span> @enderror
+                                </div>
+
+                                <div class="form-group">
                                     <label for="exampleInputMessage">Votre Message</label>
+                                    <div class="input-group">
                                         <textarea wire:model="message" cols="30" rows="15" @error('message') is-invalid @enderror class="form-control" placeholder="Ecrivez votre message ici !"></textarea>
+                                    </div>
                                     @error('message') <span class="error">{{ $message }}</span> @enderror
                                 </div>
 

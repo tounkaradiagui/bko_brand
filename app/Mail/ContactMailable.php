@@ -11,16 +11,16 @@ class ContactMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $contact;
+    public $validatedData;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($contact)
+    public function __construct($validatedData)
     {
-        $this->contact = $contact;
+        $this->validatedData = $validatedData;
     }
 
     /**
@@ -30,7 +30,6 @@ class ContactMailable extends Mailable
      */
     public function build()
     {
-        $subject = "Nous accusion réception de votre message";
-        return $this->subject($subject)->view('frontend.pages.message');
+        return $this->subject("Nous accusion réception de votre message")->view('frontend.pages.message');
     }
 }
