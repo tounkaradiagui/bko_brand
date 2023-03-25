@@ -101,7 +101,7 @@
                             <a class="nav-link" href="{{url('/produits-populaire')}}">Produits populaire</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/produits-eletronics')}}">Electronique</a>
+                            <a class="nav-link" href="#">Electronique</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Fashions</a>

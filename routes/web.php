@@ -125,6 +125,13 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
     });
 
+    Route::controller(App\Http\Controllers\Admin\Navbar\MessageController::class)->group(function () {
+        Route::get('/messages', 'index')->name('users.index');
+
+
+    });
+
+
 });
 
 Route::prefix('facebook')->name('facebook.')->group(function (){
