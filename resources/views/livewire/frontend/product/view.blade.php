@@ -54,9 +54,9 @@
 
                                 <div>
 
-                                    @if($this->productColorSelectedQuantity == 'enRuptureDeStock')
+                                    @if($this->prodColorSelectedQuantity == 'enRuptureDeStock')
                                         <label class="btn-sm py-1 mt-2 text-white bg-danger">En rupture de  Stock</label>
-                                    @elseif($this->productColorSelectedQuantity > 0)
+                                    @elseif($this->prodColorSelectedQuantity > 0)
                                         <label class="btn-sm py-1 mt-2 text-white bg-success">En Stock</label>
                                     @endif
                                </div>
@@ -128,6 +128,19 @@
         </div>
     </div>
 
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div class="py-3 py-md-5">
         <div class="container">
             <div class="row">
@@ -182,7 +195,19 @@
             </div>
         </div>
     </div>
-    <hr>
+    
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <div class="py-3 py-md-5 bg-white">
         <div class="container">

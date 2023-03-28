@@ -9,7 +9,7 @@ use App\Models\Cart;
 
 class View extends Component
 {
-    public $category, $product, $productColorSelectedQuantity, $quantityCount = 1, $productColorId;
+    public $category, $product, $prodColorSelectedQuantity, $quantityCount = 1, $productColorId;
 
     public function addToWishlist($productId)
     {
@@ -60,7 +60,7 @@ class View extends Component
                 //checking for product color qty and add to cart
                 if($this->product->productColors()->count() > 1)
                 {
-                   if($this->productColorSelectedQuantity != NULL)
+                   if($this->prodColorSelectedQuantity != NULL)
                    {
                     if(Cart::where('user_id', auth()->user()->id)
                     ->where('product_id', $productId)
@@ -88,7 +88,7 @@ class View extends Component
                                     ]);
                                     $this->emit('cartAddedUpdated');
                                     $this->dispatchBrowserEvent('message', [
-                                        'text' => "Félicitation ! Le produit a été jouté à votre Panier",
+                                        'text' => "Félicitation ! Le produit a été ajouté à votre Panier",
                                         'type' => 'success',
                                         'status' => 200
                                     ]);
@@ -186,11 +186,11 @@ class View extends Component
     {
         $this->productColorId = $productColorId;
         $productColor = $this->product->productColors()->where('id', $productColorId)->first();
-        $this->productColorSelectedQuantity = $productColor->quantity;
+        $this->prodColorSelectedQuantity = $productColor->quantity;
 
-        if($this->productColorSelectedQuantity == 0)
+        if($this->prodColorSelectedQuantity == 0)
         {
-            $this->productColorSelectedQuantity = 'enRuptureDeStock';
+            $this->prodColorSelectedQuantity = 'enRuptureDeStock';
         }
     }
 
