@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4>
-                        Produits en Tendance
+                        En Tendance
                     </h4>
                     <div class="underline mb-4"></div>
                 </div>
@@ -148,7 +148,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4>
-                        Les Nouveautés
+                        Nouveautés
                         <a href="{{url('/nouveaux-arrives')}}" class="btn btn-primary btn-sm float-end">Voir Plus</a>
                     </h4>
                     <div class="underline mb-4"></div>
@@ -218,7 +218,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4>
-                        Les Plus Populaire
+                        Populaire
                         <a href="{{url('/produits-populaire')}}" class="btn btn-primary btn-sm float-end">Voir Plus</a>
                     </h4>
                     <div class="underline mb-4"></div>
