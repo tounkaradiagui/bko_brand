@@ -1,5 +1,5 @@
 <div class="main-navbar shadow-sm sticky-top">
-        <div class="top-navbar">
+        <div class="top-navbar" >
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-1 my-auto d-none d-sm-none d-md-block d-lg-block">
@@ -84,11 +84,12 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-dark bg-warning">
             <div class="container-fluid">
                 <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
                     Diagui Shop
                 </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

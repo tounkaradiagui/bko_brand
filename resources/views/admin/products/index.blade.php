@@ -55,7 +55,9 @@
                         @endforelse
                     </tbody>
                 </table>
-                {{$products->links()}}
+                <div>
+                    {{$products->links()}}
+                </div>
             </div>
         </div>
     </div>

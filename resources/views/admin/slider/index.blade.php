@@ -30,7 +30,6 @@
                             <td>{{$slider->description}}</td>
                             <td>
                                 <img src="{{url('uploads/slider/'.$slider->image)}}" style='width:70px; height:70px;' alt="Slider">
-
                             </td>
                             <td>{{$slider->status ? 'Hidden':'Visible'}}</td>
                             <td>
@@ -43,6 +42,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div>
+                    {{$sliders->links()}}
+                </div>
             </div>
         </div>
     </div>

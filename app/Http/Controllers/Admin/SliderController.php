@@ -13,7 +13,7 @@ class SliderController extends Controller
 
     public function index()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::where('status', '0')->paginate(10);
         return view('admin.slider.index', compact('sliders'));
     }
 

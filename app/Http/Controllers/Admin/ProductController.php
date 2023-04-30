@@ -21,7 +21,7 @@ class ProductController extends Controller
     public function index()
     {
 
-        $products = Product::paginate(5);
+        $products = Product::paginate(10);
         return view('admin.products.index', compact('products'));
     }
 
@@ -89,7 +89,6 @@ class ProductController extends Controller
         }
 
         return redirect('admin/products')->with('message', 'Le produit a été ajouté avec succès');
-
 
     }
 
