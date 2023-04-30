@@ -10,7 +10,7 @@
                         <div class="brand-logo">
                             <img src="{{asset('admin/images/logogolden.png')}}" alt="logo">
                         </div>
-                        <h4>Bienvenue sur Golden market !</h4>
+                        <h4>Bienvenue | Aw Bissimilah !</h4>
                         <h6 class="font-weight-light">Content de vous revoir !!</h6>
                         @include('layouts.alert')
                         <form class="pt-3" method="POST" action="{{ route('login') }}">
@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="mb-2 d-flex">
-                                <a  href="{{route('facebook.login')}}" class="btn btn-facebook auth-form-btn flex-grow mr-1">
+                                <a  href="#" class="btn btn-facebook auth-form-btn flex-grow mr-1">
                                     <i class="mdi mdi-facebook mr-2"></i>Facebook
                                 </a>
                                 <button type="button" class="btn btn-google auth-form-btn flex-grow ml-1">

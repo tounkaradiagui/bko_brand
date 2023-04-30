@@ -3,12 +3,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h4 class="footer-heading">{{$appSetting->website_name ?? 'Mon site web'}}</h4>
+                    <h4 class="footer-heading">{{$appSetting->website_name ?? 'Diagui Shop'}}</h4>
                     <div class="footer-underline"></div>
                     <p>
-                        Sur Golden market vous pouvez également commander des produits au nom de vos amis en vous connectant à votre compte.
-                        L'inscription ne prend que quelques secondes, allez-y !! inscrivez-vous pour faire du shopping au marché d'or. meilleur site de vente au Mali
-
+                        Chez Diagui-Shop.com, nous sommes fiers de vous offrir la meilleure expérience de shopping en ligne possible, avec des produits de
+                     qualité supérieure, des prix abordables et un service clientèle exceptionnel. Nous sommes impatients de vous aider à trouver ce que
+                      vous cherchez et de vous offrir une expérience de shopping en ligne inoubliable.
                     </p>
                 </div>
                 <div class="col-md-3">
@@ -23,17 +23,17 @@
                     <div class="footer-underline"></div>
                     <div class="mb-2">
                         <p>
-                            <i class="fa fa-map-marker"></i> {{$appSetting->adresse ?? 'Mon adresse'}}
+                            <i class="fa fa-map-marker"></i> {{$appSetting->adresse ?? 'Faladié Socoro'}}
                         </p>
                     </div>
                     <div class="mb-2">
                         <a href="tel:$appSetting->phone1" class="text-white">
-                            <i class="fa fa-phone"></i> {{$appSetting->phone1 ?? 'Téléphone'}}
+                            <i class="fa fa-phone"></i> {{$appSetting->phone1 ?? '+223 76 29 22 70'}}
                         </a>
                     </div>
                     <div class="mb-2">
                         <a href="mailto:$appSetting->email1" class="text-white">
-                            <i class="fa fa-envelope"></i> {{$appSetting->email1 ?? 'Mon adresse email'}}
+                            <i class="fa fa-envelope"></i> {{$appSetting->email1 ?? 'tounkaradiagui@gmail.com'}}
                         </a>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p class=""> &copy; 2023 - Golden - Market. Tous Droit Reservés.</p>
+                    <p class=""> &copy; 2023 - Diagui-Shop. Tous Droit Reservés.</p>
                 </div>
                 <div class="col-md-4">
                     {{-- <div class="social-media text-white">

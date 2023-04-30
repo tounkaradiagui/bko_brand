@@ -3,7 +3,7 @@
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100" >
             <a class="navbar-brand brand-logo text-white" href="{{url('/')}}">
                 <!-- <img src="{{asset('admin/images/logogolden.png')}}" alt="logo"/> -->
-                Golden market
+                Diagui Shop
             </a>
             <a class="navbar-brand brand-logo-mini" href="{{url('admin/dashboard')}}">
                 <!-- <img src="{{asset('admin/images/logogolden.png')}}" alt="logo"/> -->
@@ -58,10 +58,10 @@
                     <span class="nav-profile-name text-white">{{Auth::user()->prenom}} {{Auth::user()->nom}}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="{{url('admin/settings')}}">
+                    {{-- <a class="dropdown-item" href="{{url('admin/settings')}}">
                         <i class="mdi mdi-settings text-primary"></i>
                         Paramètre
-                    </a>
+                    </a> --}}
 
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();

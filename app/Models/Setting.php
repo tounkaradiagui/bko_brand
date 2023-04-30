@@ -9,22 +9,22 @@ class Setting extends Model
 {
     use HasFactory;
 
-    protected $table = 'settings';
+    // protected $table = 'settings';
 
-    protected $fillable = [
-        'website_name',
-        'website_url',
-        'title',
-        'meta_keyword',
-        'meta_description',
-        'adresse',
-        'phone1',
-        'phone2',
-        'email1',
-        'email2',
-        'facebook',
-        'instagram',
-        'twitter',
-        'youtube'
-    ];
+    // protected $fillable = [
+    //     'website_name',
+    //     'website_url',
+    //     'title',
+    //     'meta_keyword',
+    //     'meta_description',
+    //     'adresse',
+    //     'phone1',
+    //     'phone2',
+    //     'email1',
+    //     'email2',
+    //     'facebook',
+    //     'instagram',
+    //     'twitter',
+    //     'youtube'
+    // ];
 }

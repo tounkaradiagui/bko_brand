@@ -16,7 +16,7 @@
         @endif
         <div class="card">
             <div class="card-header">
-                <h3 class="pb-3">Les détails de ma commande
+                <h3 class="pb-3">Les détails de la commande
                     <a href="{{url('admin/orders')}}">
                         <span class="mdi mdi-arrow-left btn btn-danger float-end ml-2 btn-sm"> Back</span>
                     </a>
@@ -129,8 +129,8 @@
                                 <select name="order_status" class="form-select">
                                     <option value="">Selectionner un status</option>
                                     <option value="Commande en cours" {{Request::get('status') == 'Commande en cours' ? 'selected' : ''}}>En cours</option>
-                                    <option value="validee" {{Request::get('status') == 'validee' ? 'selected' : ''}}>Validée</option>
-                                    <option value="annuler" {{Request::get('status') == 'annuler' ? 'selected' : ''}}>Annuler</option>
+                                    <option value="validee" {{Request::get('status') == 'validee' ? 'selected' : ''}}>Valider</option>
+                                    <option value="annuler" {{Request::get('status') == 'annuler' ? 'selected' : ''}}>Annulée</option>
                                     <option value="livree" {{Request::get('status') == 'livree' ? 'selected' : ''}}>Livrée</option>
                                 </select>
                                 <button type="submit" class="btn btn-primary text-white">Validée</button>

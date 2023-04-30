@@ -10,7 +10,7 @@
                         <div class="brand-logo">
                             <img src="{{asset('admin/images/logogolden.png')}}" alt="logo">
                         </div>
-                        <h4>Bienvenue sur Golden market !</h4>
+                        {{-- <h4>Bienvenue sur Golden market !</h4> --}}
                         <h6 class="font-weight-light">Rejoignez-nous aujourd'hui! Cela ne prend que quelques secondes !!</h6>
                         <form class="pt-3" method="POST" action="{{ route('register') }}">
                             @csrf

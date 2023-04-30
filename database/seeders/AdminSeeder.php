@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
          $user = User::create([
             'nom'    => 'Diagui',
             'prenom'     => 'Tounkara',
-            'email'         =>  'golden.market@gmail.com',
+            'email'         =>  'diagui.shop@gmail.com',
             'password'      =>  Hash::make('Golden@market123#'),
             'role_as'       => 1,
             'adresse'       => 'Faladie',

@@ -57,7 +57,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index' ]);
 
     Route::get('settings', [App\Http\Controllers\Admin\SettingController::class, 'index' ]);
-    Route::post('settings', [App\Http\Controllers\Admin\SettingController::class, 'store' ]);
+    // Route::post('settings', [App\Http\Controllers\Admin\SettingController::class, 'store' ]);
 
     // route groupe
     Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
@@ -144,3 +144,8 @@ Route::prefix('facebook')->name('facebook.')->group(function (){
 Route::controller(App\Http\Controllers\Frontend\ContactController::class)->group(function () {
     Route::get('/contact', 'index');
 });
+
+Route::controller(App\Http\Controllers\Frontend\AboutController::class)->group(function () {
+    Route::get('/a-propos-de-nous', 'index')->name('about');
+});
+

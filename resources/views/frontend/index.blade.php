@@ -18,11 +18,11 @@
                             <p>
                                 {!! $slider->description !!}
                             </p>
-                            <div>
+                            {{-- <div>
                                 <a href="#" class="btn btn-slider">
                                     Get Now
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -45,16 +45,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 text-center">
-                    <h3>Bienvenue sur Golden market</h3>
+                    <h3>Bienvenue sur Diagui Shop</h3>
                 </div>
                 <div class="underline mx-auto"></div>
-                <h5>
-                    Golden Market est un site de commerce électronique vendant des produits tels que des vêtements, des chaussures, des téléphones et des ordinateurs et des appareils électroménagers.
+                {{-- <h5>
+                    Diagui-Shop.com est une boutique en ligne complète qui propose une large sélection de produits de qualité supérieure pour
+                    répondre à tous vos besoins en matière de shopping en ligne. Notre site est facile
+                     à naviguer et offre une expérience utilisateur conviviale pour vous aider à trouver rapidement ce que vous cherchez.
                 </h5>
                 <h5>
-                    Sur golden market vous avez le choix entre payer votre commande à la livraison ou payer directement en ligne avec votre compte paypal (paiement sécurisé).
+                    Sur Diagui Shop vous avez le choix entre payer votre commande à la livraison ou payer directement en ligne avec votre compte paypal (paiement sécurisé).
 
-                </h5>
+                </h5> --}}
 
             </div>
         </div>

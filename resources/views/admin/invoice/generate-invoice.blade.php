@@ -86,7 +86,7 @@
         <thead>
             <tr>
                 <th width="50%" colspan="2">
-                    <h2 class="text-start">{{$appSetting->website_name ?? "Golden"}}</h2>
+                    <h2 class="text-start">{{$appSetting->website_name ?? "Diagui Shop"}}</h2>
                 </th>
                 <th width="50%" colspan="2" class="text-end company-data">
                     <span>Facture #{{$order->id}}</span> <br>
@@ -187,7 +187,7 @@
 
     <br>
     <p class="text-center">
-        Merci d'avoir choisi Golden market
+        Merci d'avoir choisi Diagui Shop
     </p>
 
 </body>

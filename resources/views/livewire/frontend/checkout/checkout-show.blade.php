@@ -144,7 +144,7 @@
             return actions.order.create({
             purchase_units: [{
                 amount: {
-                value: '0.1' //"{{$this->totalProductAmont}}" // Can also reference a variable or function
+                value: {{$this->totalProductAmont}} // Can also reference a variable or function
                 }
             }]
             });
@@ -158,7 +158,7 @@
             if(transaction.status == "COMPLETED"){
                 Livewire.emit('transactionEmit', transaction.id);
             }
-            
+
             //alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
 
             });

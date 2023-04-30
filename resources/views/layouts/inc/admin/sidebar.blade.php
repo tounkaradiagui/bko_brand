@@ -22,17 +22,17 @@
             </a>
             <div class="collapse {{Request::is('admin/category*') ? 'show' : ''}}" id="category">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> 
+                    <li class="nav-item">
                         <a class="nav-link {{Request::is('admin/category/create') ? 'active' : ''}}" href="{{url('admin/category/create')}}">Ajouter catégorie</a>
                     </li>
-                    <li class="nav-item"> 
+                    <li class="nav-item">
                         <a class="nav-link {{Request::is('admin/category') || Request::is('admin/category/*/edit')? 'active' : ''}}" href="{{url('admin/category')}}">Voir catégorie</a>
                     </li>
                 </ul>
             </div>
         </li>
 
-        
+
 
         <li class="nav-item {{Request::is('admin/products*') ? 'active' : ''}}">
             <a class="nav-link {{Request::is('admin/products') ? 'active' : ''}}" data-bs-toggle="collapse"
@@ -67,8 +67,8 @@
 
         <li class="nav-item {{Request::is('admin/users*') ? 'active' : ''}}">
             <a class="nav-link {{Request::is('admin/users') ? 'active' : ''}}"
-             data-bs-toggle="collapse" href="#users" 
-             aria-expanded="{{Request::is('admin/users*') ? 'true' : 'false'}}" 
+             data-bs-toggle="collapse" href="#users"
+             aria-expanded="{{Request::is('admin/users*') ? 'true' : 'false'}}"
              aria-controls="users">
                 <i class="mdi mdi-account-multiple-plus menu-icon"></i>
                 <span class="menu-title">Utilisateurs</span>
@@ -76,7 +76,7 @@
             </a>
             <div class="collapse {{Request::is('admin/users*') ? 'show' : ''}}" id="users">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> 
+                    <li class="nav-item">
                         <a class="nav-link {{Request::is('admin/users/create') ? 'active' : ''}}" href="{{url('admin/users/create')}}"> Ajouter </a>
                     </li>
                     <li class="nav-item">
@@ -92,11 +92,11 @@
                 <span class="menu-title">Slider d'accueil</span>
             </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link {{Request::is('admin/settings') ? 'active' : ''}}" href="{{url('admin/settings')}}">
                 <i class="mdi mdi-settings menu-icon"></i>
                 <span class="menu-title">Paramètre du site</span>
             </a>
-        </li>
+        </li> --}}
     </ul>
 </nav>

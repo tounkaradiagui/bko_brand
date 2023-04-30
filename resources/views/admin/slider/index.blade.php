@@ -8,12 +8,12 @@
         @endif
         <div class="card">
             <div class="card-header">
-                <h4>La liste de couleurs
+                <h4>La liste de sliders
                     <a href="{{url('admin/sliders/create')}}" class="btn btn-primary float-end btn-sm text-white" title="Ajouter"><i class="mdi mdi-plus"></i></a>
                 </h4>
             </div>
             <div class="card-body">
-                <table class="table table-responsive table-bordered">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Titre</th>

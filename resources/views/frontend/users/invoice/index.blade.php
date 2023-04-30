@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Facture #{{$order->id}}</title>
@@ -84,14 +84,14 @@
 
     <div class="text-center">
         <h2>Merci Pour votre commande</h2>
-        <p>{{$appSetting->website_name}} vous souhaite une bonne journnée !!</p>
+        <p>Diagui Shop vous souhaite une bonne journnée !!</p>
     </div>
 
     <table class="order-details">
         <thead>
             <tr>
                 <th width="50%" colspan="2">
-                    <h2 class="text-start">{{$appSetting->website_name ?? "Golden Market"}}</h2>
+                    <h2 class="text-start">{{$appSetting->website_name ?? "Diagui Shop"}}</h2>
                 </th>
                 <th width="50%" colspan="2" class="text-end company-data">
                     <span>Facture #{{$order->id}}</span> <br>
@@ -192,7 +192,7 @@
 
     <br>
     <p class="text-center">
-        Merci d'avoir choisi Golden market
+        Merci d'avoir choisi Diagui Shop
     </p>
 
 </body>

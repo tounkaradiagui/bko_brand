@@ -15,9 +15,9 @@
                     @endif
                     <div class="p-4 shadow bg-white">
                         <h2>
-                            <img src="{{asset('admin/images/logogolden.png')}}" title="Golden Market"  alt="Golden Market" width="500px" height="400px">
+                            <img src="{{asset('admin/images/logogolden.png')}}" title="Diagui Shop"  alt="Diagui Shop" width="500px" height="400px">
                         </h2>
-                        <h4>Merci pour vos achats avec golden market</h4>
+                        <h4>Merci pour vos achats avec Diagui Shop</h4>
                         <a href="{{url('/collections')}}" class="btn btn-primary">Acheter d'autres produits</a>
                     </div>
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome to golden market</title>
+    <title>Welcome to Diagui Shop | Aw Bissimilah</title>
 
     <link rel="stylesheet" href="{{asset('admin/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
@@ -57,7 +57,7 @@
         }
 
         .card-header{
-*           margin-bottom:0;
+            margin-bottom:0;
             background-color:rgba(0,0,0,.03);
             border-bottom:1px solid rgba(0,0,0,.125)
         }
