@@ -67,7 +67,7 @@
                 <div class="col-md-12">
                     <div class="p-2">
                         <h4>
-                            Pas de Produits disponible pour la Catégorie {{$category->name}}
+                            Pas de Produits disponible pour la marque {{$brandItem->nom}}
                         </h4>
 
                     </div>

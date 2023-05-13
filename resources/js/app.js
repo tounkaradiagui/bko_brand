@@ -1,7 +1,4 @@
 import { createApp } from 'vue';
-// import vue from "vue-router";
-
-// app.mount('#app');
 
 import {createRouter, createWebHistory} from "vue-router";
 

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -128,5 +129,8 @@
                 </div>
             </div>
         </div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+        Placeat alias ad ea sequi blanditiis perferendis delectus explicabo dolorem reiciendis,
+         odio odit ducimus soluta quos ab labore fuga vel, quae accusamus.
     </body>
 </html>
