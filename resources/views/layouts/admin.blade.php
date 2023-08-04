@@ -85,7 +85,6 @@
     @livewireScripts()
     @stack('script');
 
-</head>
 <body>
 
 

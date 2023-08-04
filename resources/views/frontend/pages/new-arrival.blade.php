@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h4>Nouveaux arrivages de produits</h4>
+                <h4>Nouveaux Produits</h4>
                 <div class="underline mb-4"></div>
             </div>
             @forelse ($news as $produit)               
@@ -45,7 +45,7 @@
             @endforelse
 
             <div>
-                <a href="{{url('/collections')}}" class="btn btn-primary btn-sm px-3">Voir Plus</a>
+                <a href="{{url('/collections')}}" class="btn btn-primary mt-3 btn-sm px-3">Voir Plus</a>
             </div>
         </div>
     </div>

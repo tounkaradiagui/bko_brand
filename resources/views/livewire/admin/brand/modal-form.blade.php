@@ -17,7 +17,7 @@
                         <select wire:model.defer="category_id" required class="form-control">
                             <option value="">Selectionner une catégorie</option>
                             @foreach($categories as $categorieItem)
-                            <option value="{{$categorieItem->id}}">{{$categorieItem->name}}</option>
+                                <option value="{{$categorieItem->id}}">{{$categorieItem->name}}</option>
                             @endforeach
                         </select>
                         @error('category_id') <small class="text-danger">{{$message}}</small> @enderror

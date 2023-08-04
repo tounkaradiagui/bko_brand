@@ -33,6 +33,7 @@ Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->grou
     Route::get('/produits-populaire', 'featuredProducts');
 
     Route::get('/rechercher', 'ClientSideSearchProduct');
+    Route::get('/chat', 'chatIndex');
 
 });
 

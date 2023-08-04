@@ -13,7 +13,7 @@
 
                 <div class="mr-md-3 mr-xl-5">
 
-                    @if (session('message'))
+                    @if(session('message'))
                         <h2 class="alert alert-success">{{session('message')}}</h2>
                     @endif
 

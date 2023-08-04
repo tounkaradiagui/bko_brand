@@ -22,6 +22,11 @@ class FrontendController extends Controller
         return view('frontend.index', compact('sliders', 'trendingProducts', 'news', 'featured'));
     }
 
+    public function chatIndex()
+    {
+        return view('frontend.index');
+    }
+
     public function categories()
     {
         $categories = Category::where('status', '0')->get();
