@@ -1,9 +1,7 @@
 <div>
-   
-
     <div class="py-3 py-md-5 bg-light">
         <div class="container">
-    
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="shopping-cart">
@@ -27,7 +25,7 @@
 
                         @forelse ($wishlist as $wishlistItem )
                         @if ($wishlistItem->product)
-                            
+
                             <div class="cart-item">
                                 <div class="row">
                                     <div class="col-md-6 my-auto">
@@ -39,7 +37,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-2 my-auto">
-                                        <label class="price">${{$wishlistItem->product->prix_de_vente}} </label>
+                                        <label class="price">{{$wishlistItem->product->prix_de_vente}} F CFA </label>
                                     </div>
                                     {{-- <div class="col-md-2 col-7 my-auto">
                                         <div class="quantity">
@@ -65,12 +63,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                         @endif
                         @empty
                             <h4>Pas de favoris ajouté</h4>
                         @endforelse
-                                
+
                     </div>
                 </div>
             </div>

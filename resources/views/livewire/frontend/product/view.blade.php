@@ -35,8 +35,8 @@
                         </p>
                         <p class="product-path">Marque : {{$product->marque}}</p>
                         <div>
-                            <span class="selling-price">${{$product->prix_de_vente}}</span>
-                            <span class="original-price">${{$product->prix_original}}</span>
+                            <span class="selling-price">{{$product->prix_de_vente}} F CFA</span>
+                            <span class="original-price">{{$product->prix_original}} F CFA</span>
                         </div>
                         <div>
 
@@ -175,8 +175,8 @@
                                                     </a>
                                                 </h5>
                                                 <div>
-                                                    <span class="selling-price">${{$relatedproducts->prix_de_vente}}</span>
-                                                    <span class="original-price">${{$relatedproducts->prix_original}}</span>
+                                                    <span class="selling-price">{{$relatedproducts->prix_de_vente}} F CFA</span>
+                                                    <span class="original-price">{{$relatedproducts->prix_original}} F CFA</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -195,7 +195,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -242,8 +242,8 @@
                                                 </a>
                                             </h5>
                                             <div>
-                                                <span class="selling-price">${{$relatedproductItem->prix_de_vente}}</span>
-                                                <span class="original-price">${{$relatedproductItem->prix_original}}</span>
+                                                <span class="selling-price">{{$relatedproductItem->prix_de_vente}} F CFA</span>
+                                                <span class="original-price">{{$relatedproductItem->prix_original}} F CFA</span>
                                             </div>
                                         </div>
                                     </div>
@@ -261,7 +261,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 
 

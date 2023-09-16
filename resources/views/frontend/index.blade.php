@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Bienvenue sur Golden market')
+@section('title', 'Bienvenue sur Diagui Shop')
 @section('content')
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
 
@@ -107,8 +107,8 @@
                                         </a>
                                     </h5>
                                     <div>
-                                        <span class="selling-price">${{$produit->prix_de_vente}}</span>
-                                        <span class="original-price">${{$produit->prix_original}}</span>
+                                        <span class="selling-price">{{$produit->prix_de_vente}} F CFA</span>
+                                        <span class="original-price">{{$produit->prix_original}} F CFA</span>
                                     </div>
                                 </div>
                             </div>
@@ -178,8 +178,8 @@
                                         </a>
                                     </h5>
                                     <div>
-                                        <span class="selling-price">${{$produit->prix_de_vente}}</span>
-                                        <span class="original-price">${{$produit->prix_original}}</span>
+                                        <span class="selling-price">{{$produit->prix_de_vente}} F CFA</span>
+                                        <span class="original-price">{{$produit->prix_original}} F CFA</span>
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +202,7 @@
     </div>
 
 
-    <div class="py-5">
+    <div class="py-5 mt-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -248,8 +248,8 @@
                                         </a>
                                     </h5>
                                     <div>
-                                        <span class="selling-price">${{$produit->prix_de_vente}}</span>
-                                        <span class="original-price">${{$produit->prix_original}}</span>
+                                        <span class="selling-price">{{$produit->prix_de_vente}} F CFA</span>
+                                        <span class="original-price">{{$produit->prix_original}} F CFA</span>
                                     </div>
                                 </div>
                             </div>
@@ -277,7 +277,7 @@
                 <div class="col-md-12">
                     <div class="card shadow">
                         <div class="card-header bg-primary"></div>
-                        
+
                     </div>
                 </div>
 
@@ -293,6 +293,7 @@
     $('.four-carousel').owlCarousel({
         loop:true,
         margin:10,
+        padding:10,
         nav:true,
         responsive:{
             0:{

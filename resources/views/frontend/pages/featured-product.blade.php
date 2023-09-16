@@ -10,7 +10,7 @@
                 <h4>Produits Populaire</h4>
                 <div class="underline mb-4"></div>
             </div>
-            @forelse ($featured as $produit)               
+            @forelse ($featured as $produit)
                 <div class="col-md-3">
                     <div class="product-card">
                         <div class="product-card-img">
@@ -26,12 +26,12 @@
                             <p class="product-brand">{{$produit->marque}}</p>
                             <h5 class="product-name">
                                 <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                {{$produit->nom}} 
+                                {{$produit->nom}}
                                 </a>
                             </h5>
                             <div>
-                                <span class="selling-price">${{$produit->prix_de_vente}}</span>
-                                <span class="original-price">${{$produit->prix_original}}</span>
+                                <span class="selling-price">{{$produit->prix_de_vente}} F CFA</span>
+                                <span class="original-price">{{$produit->prix_original}} F CFA</span>
                             </div>
                         </div>
                     </div>
@@ -50,5 +50,11 @@
         </div>
     </div>
 </div>
+
+
+    {{-- Google Adsense --}}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5987631894247664"
+     crossorigin="anonymous"></script>
+
 
 @endsection
