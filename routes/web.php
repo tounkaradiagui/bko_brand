@@ -61,12 +61,12 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     // Route::post('settings', [App\Http\Controllers\Admin\SettingController::class, 'store' ]);
 
     // route groupe
-    Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function () {
-        Route::get('/category', 'index');
-        Route::get('/category/create', 'create');
-        Route::post('/category', 'store');
-        Route::get('/category/{category}/edit', 'edit');
-        Route::put('/category/{category}', 'update');
+    Route::controller(App\Http\Controllers\Admin\CategoryController::class)->prefix('category')->group(function () {
+        Route::get('/', 'index');
+        Route::get('/create', 'create');
+        Route::post('', 'store');
+        Route::get('/{category}/edit', 'edit');
+        Route::put('/{category}', 'update');
     });
 
     Route::get('/brands', App\Http\Livewire\Admin\Brand\Index::class);

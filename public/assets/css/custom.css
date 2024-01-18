@@ -181,19 +181,28 @@
 }
 /* Fin Product View */
 
-/* debut produits */
-.product-card{
+/* début produits */
+.four-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ajustez selon vos besoins */
+}
+
+.product-card {
     background-color: #fff;
     border: 1px solid #ccc;
     margin-bottom: 24px;
-    display: flex;
-    flex-direction: column;
-    height: 85%;
+    flex: 0 0 calc(25% - 20px); /* Ajustez la largeur des cartes ici (25% pour quatre cartes par ligne) */
+    box-sizing: border-box;
+    height: 400px; /* Ajoutez la hauteur fixe des cartes (ajustez selon vos besoins) */
+    position: relative;
 }
-.product-card a{
+
+.product-card a {
     text-decoration: none;
 }
-.product-card .stock{
+
+.product-card .stock {
     position: absolute;
     color: #fff;
     border-radius: 4px;
@@ -201,22 +210,25 @@
     margin: 8px;
     font-size: 12px;
 }
-.product-card .product-card-img{
+
+.product-card .product-card-img {
     max-height: 260px;
     overflow: hidden;
     border-bottom: 1px solid #ccc;
     flex: 1;
-
 }
 
-.product-card .product-card-img img{
+.product-card .product-card-img img {
     width: 100%;
+    height: 100%; /* Utilisez 100% de la hauteur de la carte pour l'image */
+    object-fit: cover; /* Garantit que l'image remplit la totalité de la balise tout en préservant son ratio */
 }
 
-.product-card .product-card-body{
+.product-card .product-card-body {
     padding: 10px 10px;
     flex: 0 0 auto;
 }
+
 .product-card .product-card-body .product-brand,
 .product-card .product-card-body .product-name,
 .product-card .product-card-body .selling-price,
@@ -224,7 +236,7 @@
     overflow: hidden;
 }
 
-.product-card .product-card-body .product-brand{
+.product-card .product-card-body .product-brand {
     font-size: 14px;
     font-weight: 400;
     margin-bottom: 4px;
@@ -233,7 +245,8 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.product-card .product-card-body .product-name{
+
+.product-card .product-card-body .product-name {
     font-size: 20px;
     font-weight: 600;
     color: #000;
@@ -241,19 +254,22 @@
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.product-card .product-card-body .selling-price{
+
+.product-card .product-card-body .selling-price {
     font-size: 22px;
     color: #000;
     font-weight: 600;
     margin-right: 8px;
 }
-.product-card .product-card-body .original-price{
+
+.product-card .product-card-body .original-price {
     font-size: 18px;
     color: #937979;
     font-weight: 400;
     text-decoration: line-through;
 }
-.product-card .product-card-body .btn1{
+
+.product-card .product-card-body .btn1 {
     border: 1px solid;
     margin-right: 3px;
     border-radius: 0px;
@@ -262,6 +278,8 @@
 }
 
 /* fin produits */
+
+
 
 /* debut categories */
 
