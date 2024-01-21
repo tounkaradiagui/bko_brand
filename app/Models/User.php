@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Cache;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\CanResetPassword;
 
 class User extends Authenticatable
 {
@@ -30,6 +31,7 @@ class User extends Authenticatable
         'email',
         'image',
         'password',
+        'password_confirmation',
         'statut',
         'verification_code',
         'is_verified',
@@ -65,5 +67,10 @@ class User extends Authenticatable
     public function userDetail()
     {
         return $this->hasOne(UserDetails::class, 'user_id', 'id');
+    }
+
+    function scopeExcludeAdmin($query)
+    {
+        return $query->where('role_as', '!=', 1);
     }
 }

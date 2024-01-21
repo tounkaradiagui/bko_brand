@@ -82,6 +82,8 @@
 
     @yield('scripts')
 
+    @include('sweetalert::alert')
+
     @livewireScripts()
     @stack('script');
 

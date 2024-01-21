@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -47,7 +48,8 @@ class UserController extends Controller
         }
 
             $user->update();
-            return redirect()->back()->with('success', 'Votre profile a été modifié avec succès !');
+            Alert::success('Félicitations !', "Votre profile a été modifié avec succès !");
+            return redirect()->back();
     }
 
 
@@ -69,14 +71,14 @@ class UserController extends Controller
             User::findOrFail(Auth::user()->id)->update([
                 'password' => Hash::make($request->password),
             ]);
-
-            return redirect()->back()->with('success','Félicitations !! Votre Mot de Passe a été Modifié');
+            Alert::success('Félicitations !', "Votre mot de passe a été mise à jour");
+            return redirect()->back();
 
         }else{
-
-            return redirect()->back()->with('error','Desolé, le mot de passe ne correspond pas veuillez réessayer !');
+            Alert::error('Erreur !', "Desolé, le mot de passe ne correspond pas veuillez réessayer !");
+            return redirect()->back();
         }
     }
 
-  
+
 }

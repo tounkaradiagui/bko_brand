@@ -21,7 +21,7 @@
 <?php
     $color = match ($level) {
         'success', 'error' => $level,
-        default => 'primary',
+        default => 'blue',
     };
 ?>
 @component('mail::button', ['url' => $actionUrl, 'color' => $color])

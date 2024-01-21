@@ -82,7 +82,7 @@
     <script>
         window.addEventListener('message', event => {
             if(event.detail){
-                alertify.set('notifier','position', 'top-right');
+                alertify.set('notifier','position', 'top-center');
                 alertify.notify(event.detail.text, event.detail.type);
             }
 
@@ -90,6 +90,8 @@
     </script>
 
     @yield('script')
+
+    @include('sweetalert::alert')
 
     @livewireScripts
     @stack('scripts')

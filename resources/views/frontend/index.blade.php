@@ -5,10 +5,10 @@
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
 
         <div class="carousel-inner">
-            @foreach($sliders as $key => $slider)
-                <div class="carousel-item {{$key == '0' ? 'active' : ''}}">
-                    @if('uploads/slider/'.$slider->image)
-                        <img src="{{url('uploads/slider/'.$slider->image)}}" class="d-block w-100" alt="...">
+            @foreach ($sliders as $key => $slider)
+                <div class="carousel-item {{ $key == '0' ? 'active' : '' }}">
+                    @if ('uploads/slider/' . $slider->image)
+                        <img src="{{ url('uploads/slider/' . $slider->image) }}" class="d-block w-100" alt="...">
                     @endif
                     <div class="carousel-caption d-none d-md-block">
                         <div class="custom-carousel-content">
@@ -86,45 +86,48 @@
                     <div class="underline mb-4"></div>
                 </div>
                 @if ($trendingProducts)
-                <div class="col-md-12">
-                    <div class="owl-carousel owl-theme four-carousel">
-                        @foreach($trendingProducts as $produit)
-                        <div class="item">
-                            <div class="product-card">
-                                <div class="product-card-img">
-                                    <label class="stock bg-danger">Nouveau</label>
-                                    @if($produit->productImages->count() > 0)
-                                    <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                        <img src="{{asset($produit->productImages[0]->image)}}" alt="{{$produit->nom}}">
-                                    </a>
-                                    @endif
-                                </div>
-                                <div class="product-card-body">
-                                    <p class="product-brand">{{$produit->marque}}</p>
-                                    <h5 class="product-name">
-                                        <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                        {{$produit->nom}}
-                                        </a>
-                                    </h5>
-                                    <div>
-                                        <span class="selling-price">{{$produit->prix_de_vente}} F CFA</span>
-                                        <span class="original-price">{{$produit->prix_original}} F CFA</span>
+                    <div class="col-md-12">
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($trendingProducts as $produit)
+                                <div class="item">
+                                    <div class="product-card">
+                                        <div class="product-card-img">
+                                            <label class="stock bg-danger">Nouveau</label>
+                                            @if ($produit->productImages->count() > 0)
+                                                <a
+                                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                                    <img src="{{ asset($produit->productImages[0]->image) }}"
+                                                        alt="{{ $produit->nom }}">
+                                                </a>
+                                            @endif
+                                        </div>
+                                        <div class="product-card-body">
+                                            <p class="product-brand">{{ $produit->marque }}</p>
+                                            <h5 class="product-name">
+                                                <a
+                                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                                    {{ $produit->nom }}
+                                                </a>
+                                            </h5>
+                                            <div>
+                                                <span class="selling-price">{{ $produit->prix_de_vente }} F CFA</span>
+                                                <span class="original-price">{{ $produit->prix_original }} F CFA</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
-                </div>
-                 @else
-                <div class="col-md-12">
-                    <div class="p-2">
-                        <h4>
-                            Pas de Produits disponible
-                        </h4>
+                @else
+                    <div class="col-md-12">
+                        <div class="p-2">
+                            <h4>
+                                Pas de Produits disponible
+                            </h4>
 
+                        </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>
@@ -151,51 +154,54 @@
                 <div class="col-md-12">
                     <h4>
                         Nouveautés
-                        <a href="{{url('/nouveaux-arrives')}}" class="btn btn-primary btn-sm float-end">Voir Plus</a>
+                        <a href="{{ url('/nouveaux-arrives') }}" class="btn btn-primary btn-sm float-end">Voir Plus</a>
                     </h4>
                     <div class="underline mb-4"></div>
                 </div>
                 @if ($news)
-                <div class="col-md-12">
-                    <div class="owl-carousel owl-theme four-carousel">
-                        @foreach($news as $produit)
-                        <div class="item">
-                            <div class="product-card">
-                                <div class="product-card-img">
-                                    <label class="stock bg-danger">Nouveau</label>
-                                    @if($produit->productImages->count() > 0)
-                                    <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                        <img src="{{asset($produit->productImages[0]->image)}}" alt="{{$produit->nom}}">
-                                    </a>
-                                    {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}" alt="{{$produit->nom}}"> --}}
-                                    @endif
-                                </div>
-                                <div class="product-card-body">
-                                    <p class="product-brand">{{$produit->marque}}</p>
-                                    <h5 class="product-name">
-                                        <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                        {{$produit->nom}}
-                                        </a>
-                                    </h5>
-                                    <div>
-                                        <span class="selling-price">{{$produit->prix_de_vente}} F CFA</span>
-                                        <span class="original-price">{{$produit->prix_original}} F CFA</span>
+                    <div class="col-md-12">
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($news as $produit)
+                                <div class="item">
+                                    <div class="product-card">
+                                        <div class="product-card-img">
+                                            <label class="stock bg-danger">Nouveau</label>
+                                            @if ($produit->productImages->count() > 0)
+                                                <a
+                                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                                    <img src="{{ asset($produit->productImages[0]->image) }}"
+                                                        alt="{{ $produit->nom }}">
+                                                </a>
+                                                {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}" alt="{{$produit->nom}}"> --}}
+                                            @endif
+                                        </div>
+                                        <div class="product-card-body">
+                                            <p class="product-brand">{{ $produit->marque }}</p>
+                                            <h5 class="product-name">
+                                                <a
+                                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                                    {{ $produit->nom }}
+                                                </a>
+                                            </h5>
+                                            <div>
+                                                <span class="selling-price">{{ $produit->prix_de_vente }} F CFA</span>
+                                                <span class="original-price">{{ $produit->prix_original }} F CFA</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
-                </div>
-                 @else
-                <div class="col-md-12">
-                    <div class="p-2">
-                        <h4>
-                            Pas de Nouveautés disponible
-                        </h4>
+                @else
+                    <div class="col-md-12">
+                        <div class="p-2">
+                            <h4>
+                                Pas de Nouveautés disponible
+                            </h4>
 
+                        </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>
@@ -221,51 +227,54 @@
                 <div class="col-md-12">
                     <h4>
                         Populaire
-                        <a href="{{url('/produits-populaire')}}" class="btn btn-primary btn-sm float-end">Voir Plus</a>
+                        <a href="{{ url('/produits-populaire') }}" class="btn btn-primary btn-sm float-end">Voir Plus</a>
                     </h4>
                     <div class="underline mb-4"></div>
                 </div>
                 @if ($featured)
-                <div class="col-md-12">
-                    <div class="owl-carousel owl-theme four-carousel">
-                        @foreach($featured as $produit)
-                        <div class="item">
-                            <div class="product-card">
-                                <div class="product-card-img">
-                                    <label class="stock bg-danger">Nouveau</label>
-                                    @if($produit->productImages->count() > 0)
-                                    <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                        <img src="{{asset($produit->productImages[0]->image)}}" alt="{{$produit->nom}}">
-                                    </a>
-                                    {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}" alt="{{$produit->nom}}"> --}}
-                                    @endif
-                                </div>
-                                <div class="product-card-body">
-                                    <p class="product-brand">{{$produit->marque}}</p>
-                                    <h5 class="product-name">
-                                        <a href="{{url('/collections/'.$produit->category->slug.'/'.$produit->slug)}} ">
-                                        {{$produit->nom}}
-                                        </a>
-                                    </h5>
-                                    <div>
-                                        <span class="selling-price">{{$produit->prix_de_vente}} F CFA</span>
-                                        <span class="original-price">{{$produit->prix_original}} F CFA</span>
+                    <div class="col-md-12">
+                        <div class="owl-carousel owl-theme four-carousel">
+                            @foreach ($featured as $produit)
+                                <div class="item">
+                                    <div class="product-card">
+                                        <div class="product-card-img">
+                                            <label class="stock bg-danger">Nouveau</label>
+                                            @if ($produit->productImages->count() > 0)
+                                                <a
+                                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                                    <img src="{{ asset($produit->productImages[0]->image) }}"
+                                                        alt="{{ $produit->nom }}">
+                                                </a>
+                                                {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}" alt="{{$produit->nom}}"> --}}
+                                            @endif
+                                        </div>
+                                        <div class="product-card-body">
+                                            <p class="product-brand">{{ $produit->marque }}</p>
+                                            <h5 class="product-name">
+                                                <a
+                                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                                    {{ $produit->nom }}
+                                                </a>
+                                            </h5>
+                                            <div>
+                                                <span class="selling-price">{{ $produit->prix_de_vente }} F CFA</span>
+                                                <span class="original-price">{{ $produit->prix_original }} F CFA</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
-                </div>
-                 @else
-                <div class="col-md-12">
-                    <div class="p-2">
-                        <h4>
-                            Pas de Produits Populaire disponible
-                        </h4>
+                @else
+                    <div class="col-md-12">
+                        <div class="p-2">
+                            <h4>
+                                Pas de Produits Populaire disponible
+                            </h4>
 
+                        </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>
@@ -289,37 +298,39 @@
 @endsection
 
 @section('script')
-<script>
-    $('.four-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        padding:10,
-        nav:true,
-        responsive:{
-            0:{
-                items:2
-            },
-            600:{
-                items:3
-            },
-            1000:{
-                items:4
+    <script>
+        $('.four-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            padding: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/64690f4374285f0ec46ca3f3/1h0t678a7';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-<!--End of Tawk.to Script-->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/64690f4374285f0ec46ca3f3/1h0t678a7';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Modification de mon mot de passe')
+@section('title', 'Modification du mot de passe')
 @section('content')
     <div class="py-5">
         <div class="container">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="mb-3 ">
                                     <a href="{{url('monProfil')}}" class="btn text-white btn-danger">Retour</a>
-                                    <button type="submit" class="float-end btn btn-primary">Valider</button>
+                                    <button type="submit" class="float-end btn btn-success">Valider</button>
                                 </div>
                             </form>
                         </div>
