@@ -75,7 +75,6 @@
         </div>
     </div>
 
-
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -96,7 +95,7 @@
                                             @if ($produit->productImages->count() > 0)
                                                 <a
                                                     href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
-                                                    <img src="{{ asset($produit->productImages[0]->image) }}"
+                                                    <img class="h-75" src="{{ asset($produit->productImages[0]->image) }}"
                                                         alt="{{ $produit->nom }}">
                                                 </a>
                                             @endif

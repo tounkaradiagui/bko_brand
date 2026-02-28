@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 ###################################### Public routes ######################################
 
-require __DIR__.'/auth.php';
 
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
     Route::get('/', 'index');
@@ -38,6 +37,7 @@ Route::controller(App\Http\Controllers\Frontend\AboutController::class)->group(f
 
 
 ###################################### Protected routes ######################################
+require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function(){
     Route::group(['middleware' => ['isChecked']], function(){

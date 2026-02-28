@@ -1,0 +1,57 @@
+    {{-- <section class="container py-5 my-sm-2 my-md-4 my-lg-5" id="services">
+        @if ($trendingProducts)
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gy-3 gy-sm-4 gy-xl-5 gx-4 gx-md-5 pb-xxl-4 mb-sm-2 mb-lg-0 mb-xl-2">
+            @foreach ($trendingProducts as $produit)
+            <div class="col-md-3 mb-3">
+                <div class="card shadow h-100 d-flex flex-column">
+                  <div class="card-header">
+                    <h6 class="card-title">Title</h6>
+                  </div>
+                  {{-- Aucune image --}}
+                  @if ($produit->productImages->count() > 0)
+                      <a
+                          href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                          <img class="card-img-top h-75" src="{{ asset($produit->productImages[0]->image) }}"
+                              alt="{{ $produit->nom }}">
+                      </a>
+                      {{-- <img src="{{ asset($produit->productImages[0]->image) }}" class="card-img-top" alt="Image" /> --}}
+                  @endif
+                  <div class="card-body flex-grow-1 h-50">
+                    <div class="row">
+                      <div class="col-md-12">
+
+                        {{-- <div>
+                              <span class="selling-price">{{ $produit->prix_de_vente }} F CFA</span>
+                              <span class="original-price">{{ $produit->prix_original }} F CFA</span>
+                        </div> --}}
+                        <p class="fs-4 fw-normal lh-base">
+                            {{-- <p class="product-brand">{{ $produit->marque }}</p> --}}
+                            {{-- <h5 class="product-name"> --}}
+                                <a
+                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                    {{ $produit->nom }}
+                                </a>
+                            {{-- </h5> --}}
+
+                          Desc
+                        </p>
+                      </div>
+                    </div>
+                    <a class="btn btn-sm btn-outline-primary mt-auto" href="">
+                      Lire plus...
+                    </a>
+                  </div>
+                  <div class="card-footer">
+                    <span class="small text-muted">Date de publication : </span>
+                  </div>
+
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @else
+        <div class="col-md-12">
+            <p class="lead text-muted">Pas de Produits disponible pour le moment.</p>
+        </div>
+        @endif
+    </section> --}}

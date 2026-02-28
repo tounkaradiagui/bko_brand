@@ -23,7 +23,7 @@
                             <h6>Date de la commande : {{$orders->created_at->format('d-m-Y h:i A')}}</h6>
                             <h6>Mode de Paiement : {{$orders->payment_mode}}</h6>
                             <h6 class="border p-2 text-success">
-                                Status de la commande : 
+                                Status de la commande :
                                 <span class="text-uppercase">{{$orders->status_message}}</span>
                             </h6>
                         </div>
@@ -65,7 +65,10 @@
                                         @if($items->product->productImages)
                                             <img src="{{asset($items->product->productImages[0]->image)}}" style="width: 50px; height: 50px" alt="{{$items->product->nom}}">
                                         @else
-                                            <img src="" style="width: 50px; height: 50px" alt="">
+                                            {{-- <img src="" style="width: 50px; height: 50px" alt=""> --}}
+                                            <p>
+                                                Pas d'image disponible.
+                                            </p>
                                         @endif
                                     </td>
 
@@ -91,7 +94,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        
+
                     </div>
                 </div>
             </div>
