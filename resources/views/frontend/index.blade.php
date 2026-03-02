@@ -48,13 +48,18 @@
                     <h3>Bienvenue sur Diagui Shop</h3>
                 </div>
                 <div class="underline mx-auto"></div>
-                {{-- <h5>
-                    Diagui-Shop.com est une boutique en ligne complète qui propose une large sélection de produits de qualité supérieure pour
+                {{--<h5>
+                    Diagui-Shop.com est une boutique en ligne complète qui propose une large sélection de produits de
+                    qualité supérieure
+                    pour
                     répondre à tous vos besoins en matière de shopping en ligne. Notre site est facile
-                     à naviguer et offre une expérience utilisateur conviviale pour vous aider à trouver rapidement ce que vous cherchez.
+                    à naviguer et offre une expérience utilisateur conviviale pour vous aider à trouver rapidement ce que
+                    vous cherchez.
                 </h5>
                 <h5>
-                    Sur Diagui Shop vous avez le choix entre payer votre commande à la livraison ou payer directement en ligne avec votre compte paypal (paiement sécurisé).
+                    Sur Diagui Shop vous avez le choix entre payer votre commande à la livraison ou payer directement en
+                    ligne avec
+                    votre compte paypal (paiement sécurisé).
 
                 </h5> --}}
 
@@ -93,8 +98,7 @@
                                         <div class="product-card-img">
                                             <label class="stock bg-danger">Nouveau</label>
                                             @if ($produit->productImages->count() > 0)
-                                                <a
-                                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                                <a href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
                                                     <img class="h-75" src="{{ asset($produit->productImages[0]->image) }}"
                                                         alt="{{ $produit->nom }}">
                                                 </a>
@@ -166,12 +170,11 @@
                                         <div class="product-card-img">
                                             <label class="stock bg-danger">Nouveau</label>
                                             @if ($produit->productImages->count() > 0)
-                                                <a
-                                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
-                                                    <img src="{{ asset($produit->productImages[0]->image) }}"
-                                                        alt="{{ $produit->nom }}">
+                                                <a href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                                    <img src="{{ asset($produit->productImages[0]->image) }}" alt="{{ $produit->nom }}">
                                                 </a>
-                                                {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}" alt="{{$produit->nom}}"> --}}
+                                                {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}"
+                                                    alt="{{$produit->nom}}"> --}}
                                             @endif
                                         </div>
                                         <div class="product-card-body">
@@ -239,12 +242,11 @@
                                         <div class="product-card-img">
                                             <label class="stock bg-danger">Nouveau</label>
                                             @if ($produit->productImages->count() > 0)
-                                                <a
-                                                    href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
-                                                    <img src="{{ asset($produit->productImages[0]->image) }}"
-                                                        alt="{{ $produit->nom }}">
+                                                <a href="{{ url('/collections/' . $produit->category->slug . '/' . $produit->slug) }} ">
+                                                    <img src="{{ asset($produit->productImages[0]->image) }}" alt="{{ $produit->nom }}">
                                                 </a>
-                                                {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}" alt="{{$produit->nom}}"> --}}
+                                                {{-- <img src="{{url('uploads/products/'.$produit->productImages[0]->image)}}"
+                                                    alt="{{$produit->nom}}"> --}}
                                             @endif
                                         </div>
                                         <div class="product-card-body">
@@ -321,7 +323,7 @@
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
-        (function() {
+        (function () {
             var s1 = document.createElement("script"),
                 s0 = document.getElementsByTagName("script")[0];
             s1.async = true;

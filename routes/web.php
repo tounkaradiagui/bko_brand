@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 ###################################### Public routes ######################################
-
-
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/collections', 'categories');

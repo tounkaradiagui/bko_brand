@@ -1,126 +1,100 @@
-<div class="main-navbar shadow-sm sticky-top">
-    <div class="top-navbar" >
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-1 my-auto d-none d-sm-none d-md-block d-lg-block">
-                    <h5 class="brand-name">{{$appSetting->website_name ?? 'Diagui Shop'}}</h5>
-                </div>
-                <div class="col-md-3 my-auto">
-                    <form action="{{url('rechercher')}}" method="get" role="search">
-                        <div class="input-group">
-                            <input type="search" name="rechercher" value="{{Request::get('rechercher')}}" placeholder="Reherchez votre produit ici !" class="form-control" />
-                            <button class="btn bg-white" type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-8 my-auto">
-                    <ul class="nav justify-content-end">
+<nav class="navbar navbar-expand-lg premium-navbar fixed-top">
+    <div class="container-fluid">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('cart') }}">
-                                <i class="fa fa-shopping-cart"></i> Panier (<livewire:frontend.cart.cart-count/>)
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('wishlist') }}">
-                                <i class="fa fa-heart"></i> Favoris (<livewire:frontend.wishlist-count/>)
-                            </a>
-                        </li>
+        <!-- Hamburger animé -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#premiumMenu">
+            <span class="hamburger"></span>
+        </button>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/contact') }}">
-                                    Contact
-                            </a>
-                        </li>
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold fs-4" href="{{ url('/') }}">
+            Diagui<span>Shop</span>
+        </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/a-propos-de-nous') }}">
-                                    A Propos
-                            </a>
-                        </li>
+        <!-- Desktop Search -->
+        <form class="d-none d-lg-flex mx-auto search-premium" action="{{ url('rechercher') }}" method="get">
+            <input type="search" name="rechercher" value="{{ Request::get('rechercher') }}"
+                placeholder="Rechercher un produit...">
+            <button type="submit">
+                <i class="bi bi-search"></i>
+            </button>
+        </form>
 
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
-                                </li>
-                            @endif
+        <!-- Right Icons -->
+        <div class="d-flex align-items-center gap-3">
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
-                                </li>
-                            @endif
-                        @else
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-user"></i> {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{url('monProfil')}}"><i class="fa fa-user"></i> Profile</a></li>
-                                <li><a class="dropdown-item" href="{{url('admin/dashboard')}}" target="_blank"><i class="mdi mdi-speedometer"></i> Dashboard</a></li>
-                                <li><a class="dropdown-item" href="{{url('orders')}}"><i class="fa fa-list"></i> Mes Commandes</a></li>
-                                <li><a class="dropdown-item" href="{{url('wishlist')}}"><i class="fa fa-heart"></i> Mes Favoris</a></li>
-                                <li><a class="dropdown-item" href="{{url('cart')}}"><i class="fa fa-shopping-cart"></i> Mon Panier</a></li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-sign-out"></i> {{ __('Déconnexion') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                            @endguest
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <nav class="navbar navbar-dark bg-warning">
-        <div class="container-fluid">
-            <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
-                Diagui Shop
+            <a href="{{ url('wishlist') }}" class="icon-premium">
+                <i class="bi bi-heart"></i>
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/')}}">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/collections')}}">Catégories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/nouveaux-arrives')}}">Nouveautés</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/produits-populaire')}}">Produits populaire</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Electronique</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Fashions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Accessoires</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Appareils électroménagers</a>
-                    </li>
-                </ul>
-            </div>
+            <a href="{{ url('cart') }}" class="icon-premium position-relative">
+                <i class="bi bi-cart3"></i>
+                <span class="badge-premium">
+                    <livewire:frontend.cart.cart-count />
+                </span>
+            </a>
+
+            @guest
+                <a href="{{ route('login') }}" class="btn btn-dark rounded-pill px-4 d-none d-lg-block">
+                    Connexion
+                </a>
+            @endguest
+
         </div>
-    </nav>
+
+    </div>
+</nav>
+
+<!-- OFFCANVAS MOBILE -->
+<div class="offcanvas offcanvas-start premium-offcanvas" tabindex="-1" id="premiumMenu">
+
+    <div class="offcanvas-header">
+        <h5 class="fw-bold">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <!-- Mobile Search -->
+        <form action="{{ url('rechercher') }}" method="get" class="mb-4">
+            <input type="search" name="rechercher" placeholder="Rechercher..." class="form-control rounded-pill">
+        </form>
+
+        <ul class="navbar-nav">
+
+            <li class="nav-item mb-2">
+                <a class="nav-link" href="{{ url('cart') }}">
+                    🛒 Mon Panier
+                </a>
+            </li>
+
+            <li class="nav-item mb-2">
+                <a class="nav-link" href="{{ url('wishlist') }}">
+                    ❤️ Mes Favoris
+                </a>
+            </li>
+
+            <li class="nav-item mb-2">
+                <a class="nav-link" href="{{ url('/contact') }}">
+                    Contact
+                </a>
+            </li>
+
+            <li class="nav-item mb-2">
+                <a class="nav-link" href="{{ url('/a-propos-de-nous') }}">
+                    À Propos
+                </a>
+            </li>
+
+            @guest
+                <li class="nav-item mt-3">
+                    <a class="btn btn-dark w-100 rounded-pill" href="{{ route('login') }}">
+                        Connexion
+                    </a>
+                </li>
+            @endguest
+
+        </ul>
+
+    </div>
 </div>

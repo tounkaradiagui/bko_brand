@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,17 +22,19 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     {{-- plugin --}}
     <link rel="stylesheet" href="{{asset('admin/vendors/mdi/css/materialdesignicons.min.css')}}">
-    {{-- <link rel="stylesheet" href="{{asset('admin/vendors/base/vendor.bundle.base.css')}}"> --}}
+    {{--
+    <link rel="stylesheet" href="{{asset('admin/vendors/base/vendor.bundle.base.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
 
     {{-- Favicon --}}
-    <link rel="shortcut icon" href="{{asset('admin/images/logogolden.png')}}" >
+    <link rel="shortcut icon" href="{{asset('admin/images/logogolden.png')}}">
 
-    {{--lien cdn alertify  --}}
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+    {{--lien cdn alertify --}}
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css" />
 
     {{-- OWL Carroussel --}}
     <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
@@ -41,13 +44,14 @@
     <link rel="stylesheet" href="{{asset('assets/exzoom/jquery.exzoom.css')}}">
 
     <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @livewireStyles
 </head>
+
 <body>
     <div id="app">
 
@@ -72,7 +76,8 @@
     <script src="{{ asset('assets/exzoom/jquery.exzoom.js') }}"></script>
 
     {{-- plugin --}}
-    {{-- <script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script>
+    {{--
+    <script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('admin/js/hoverable-collapse.js') }}"></script>
     <script src="{{ asset('admin/js/off-canvas.js') }}"></script>--}}
     <script src="{{ asset('admin/js/template.js') }}"></script>
@@ -81,8 +86,8 @@
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script>
         window.addEventListener('message', event => {
-            if(event.detail){
-                alertify.set('notifier','position', 'top-center');
+            if (event.detail) {
+                alertify.set('notifier', 'position', 'top-center');
                 alertify.notify(event.detail.text, event.detail.type);
             }
 
@@ -97,5 +102,14 @@
     @stack('scripts')
 
 
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.main-navbar');
+            if (!navbar) return;
+
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
 </body>
+
 </html>
